@@ -4,8 +4,6 @@ PP.WidgetFrameUI = class WidgetFrameUI {
     constructor() {
         this._myInputSourceType = null;
 
-        this._myIsWidgetVisible = true;
-
         this._myParentObject = null;
         this._myIsPinned = false;
     }
@@ -22,29 +20,14 @@ PP.WidgetFrameUI = class WidgetFrameUI {
     }
 
     setWidgetVisible(visible) {
-        this._myIsWidgetVisible = visible;
-        if (this._myIsWidgetVisible) {
-            this.myWidgetObject.resetTransform();
-            this.myFlagsButtonPanel.resetTransform();
-
+        PP.ObjectUtils.setHierarchyActive(this.myFlagsButtonPanel, visible);
+        if (visible) {
             this._updateObjectsTransforms(true);
-        } else {
-            this.myWidgetObject.scale([0, 0, 0]);
-            this.myWidgetObject.setTranslationLocal([0, -7777, 0]);
-
-            this.myFlagsButtonPanel.scale([0, 0, 0]);
-            this.myFlagsButtonPanel.setTranslationLocal([0, -7777, 0]);
         }
     }
 
     setVisibilityButtonVisible(visible) {
-        if (visible) {
-            this.myVisibilityButtonPanel.resetTransform();
-            this.myVisibilityButtonPanel.setTranslationLocal(this._mySetup.myVisibilityButtonPosition[this._myAdditionalSetup.myHandednessIndex].myPosition);
-        } else {
-            this.myVisibilityButtonPanel.scale([0, 0, 0]);
-            this.myVisibilityButtonPanel.setTranslationLocal([0, -7777, 0]);
-        }
+        PP.ObjectUtils.setHierarchyActive(this.myVisibilityButtonPanel, visible);
     }
 
     setPinned(pinned) {
@@ -75,11 +58,9 @@ PP.WidgetFrameUI = class WidgetFrameUI {
                 this.myPivotObject.rotateObject(this._mySetup.myPivotObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandednessIndex].myRotation);
             }
 
-            if (this._myIsWidgetVisible) {
-                this.myWidgetObject.setTranslationLocal(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandednessIndex].myPosition);
-                this.myWidgetObject.resetRotation();
-                this.myWidgetObject.rotateObject(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandednessIndex].myRotation);
-            }
+            this.myWidgetObject.setTranslationLocal(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandednessIndex].myPosition);
+            this.myWidgetObject.resetRotation();
+            this.myWidgetObject.rotateObject(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandednessIndex].myRotation);
         }
     }
 

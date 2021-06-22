@@ -9,6 +9,11 @@ WL.registerComponent('easy-tune', {
         //Examples
         //Number: PP.EasyTuneVariables.addVariable(new PP.EasyTuneNumber("Speed", 10.32, 0.01, 3));
         //Integer: PP.EasyTuneVariables.addVariable(new PP.EasyTuneInteger("Lives", 3, 1));
+
+        this._myWidget = new PP.EasyTuneWidget();
+        PP.SetEasyTuneWidgetActiveVariable = function (variableName) {
+            this._myWidget.setEasyTuneWidgetActiveVariable(variableName);
+        }.bind(this);
     },
     start: function () {
         let additionalSetup = {};
@@ -19,11 +24,13 @@ WL.registerComponent('easy-tune', {
         additionalSetup.myPlaneMaterial = this._myPlaneMaterial;
         additionalSetup.myTextMaterial = this._myTextMaterial;
 
-        //Change FIRST with a variable name you would like to be selected at start
-        this._myWidget = new PP.EasyTuneWidget();
-        this._myWidget.start(this.object, additionalSetup, PP.EasyTuneVariables, "FIRST");
+        this._myWidget.start(this.object, additionalSetup, PP.EasyTuneVariables);
     },
     update: function (dt) {
         this._myWidget.update(dt);
     }
 });
+
+PP.SetEasyTuneWidgetActiveVariable = function () {
+    console.log("SetEasyTuneWidgetActiveVariable function not initialized yet");
+};

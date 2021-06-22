@@ -96,7 +96,7 @@
         },
         "17": {
             "name": "Non Vr Camera",
-            "parent": "14",
+            "parent": "84",
             "components": [
                 {
                     "type": "view"
@@ -104,11 +104,29 @@
                 {
                     "type": "mouse-look"
                 }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "18": {
             "name": "Eye Left",
-            "parent": "14",
+            "parent": "84",
             "components": [
                 {
                     "type": "view"
@@ -119,11 +137,29 @@
                         "type": "eye left"
                     }
                 }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "19": {
             "name": "Eye Right",
-            "parent": "14",
+            "parent": "84",
             "components": [
                 {
                     "type": "view"
@@ -134,6 +170,24 @@
                         "type": "eye right"
                     }
                 }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "21": {
@@ -274,7 +328,7 @@
                 "name": "Left_Quest_Controller",
                 "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
             },
-            "parent": "14",
+            "parent": "84",
             "components": [
                 {
                     "type": "input",
@@ -298,7 +352,8 @@
                         "_myPlaneMaterial": "66",
                         "_myTextMaterial": "DefaultFontMaterial",
                         "_myHandedness": "left"
-                    }
+                    },
+                    "active": true
                 },
                 {
                     "type": "easy-tune",
@@ -310,7 +365,25 @@
                     }
                 }
             ],
-            "name": "Hand Left"
+            "name": "Hand Left",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -0.10000000149011612,
+                0.0,
+                0.0,
+                1.0
+            ]
         },
         "51": {
             "link": {
@@ -384,7 +457,7 @@
                 "name": "Right_Quest_Controller",
                 "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
             },
-            "parent": "14",
+            "parent": "84",
             "components": [
                 {
                     "type": "input",
@@ -413,7 +486,25 @@
                     }
                 }
             ],
-            "name": "Hand Right"
+            "name": "Hand Right",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.10000000149011612,
+                0.0,
+                0.0,
+                1.0
+            ]
         },
         "59": {
             "link": {
@@ -476,6 +567,10 @@
                 }
             ],
             "deleted": true
+        },
+        "84": {
+            "name": "Tracked Space",
+            "parent": "14"
         }
     },
     "meshes": {
@@ -626,7 +721,6 @@
         },
         "20": {
             "name": "White",
-            "shader": "Phong",
             "Phong": {
                 "specularColor": [
                     9.999899930335233e-7,
@@ -635,7 +729,8 @@
                     1.0
                 ],
                 "shininess": 1
-            }
+            },
+            "pipeline": "78"
         },
         "22": {
             "name": "Pink",
@@ -644,7 +739,7 @@
                     0.9098039269447328,
                     0.0,
                     0.5411764979362488,
-                    0.0
+                    1.0
                 ],
                 "specularColor": [
                     9.999899930335233e-7,
@@ -721,67 +816,55 @@
         },
         "66": {
             "name": "Flat",
-            "shader": "Flat"
+            "pipeline": "72"
         }
     },
     "shaders": {
-        "1": {
+        "68": {
             "link": {
-                "name": "DistanceFieldVector Textured",
+                "name": "DistanceFieldVector",
                 "file": "default"
             }
         },
-        "2": {
-            "link": {
-                "name": "Flat",
-                "file": "default"
-            }
-        },
-        "3": {
-            "link": {
-                "name": "Flat Textured",
-                "file": "default"
-            }
-        },
-        "4": {
-            "link": {
-                "name": "MeshVisualizer",
-                "file": "default"
-            }
-        },
-        "5": {
-            "link": {
-                "name": "Phong",
-                "file": "default"
-            }
-        },
-        "6": {
-            "link": {
-                "name": "Phong Textured",
-                "file": "default"
-            }
-        },
-        "28": {
+        "70": {
             "link": {
                 "name": "Dynamic",
                 "file": "default"
             }
         },
-        "29": {
+        "71": {
             "link": {
-                "name": "Particle Textured",
+                "name": "Flat",
                 "file": "default"
             }
         },
-        "30": {
+        "74": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "76": {
+            "link": {
+                "name": "Static",
+                "file": "default"
+            }
+        },
+        "77": {
+            "link": {
+                "name": "Phong",
+                "file": "default"
+            }
+        },
+        "80": {
             "link": {
                 "name": "Skinning",
                 "file": "default"
             }
         },
-        "31": {
+        "81": {
             "link": {
-                "name": "Static",
+                "name": "Particle",
                 "file": "default"
             }
         }
@@ -792,7 +875,7 @@
             "version": [
                 0,
                 8,
-                4
+                5
             ]
         },
         "vr": {
@@ -801,7 +884,7 @@
         },
         "scripting": {
             "sourcePaths": [
-                "/js/components/",
+                "/js/editor-components-bundle.js",
                 "js/pp",
                 "js/pp/cauldron",
                 "js/pp/tool/cauldron",
@@ -824,11 +907,64 @@
                 0.9215686321258544,
                 1.0
             ]
+        },
+        "runtime": {
+            "xrButtonColor": "black"
         }
     },
     "animations": {},
     "skins": {},
     "files": [
         "assets/models/quest_controllers_credits_Jezza3D.glb"
-    ]
+    ],
+    "pipelines": {
+        "69": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "72": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            }
+        },
+        "73": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            }
+        },
+        "75": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "78": {
+            "link": {
+                "name": "Phong Opaque",
+                "file": "default"
+            }
+        },
+        "79": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            }
+        },
+        "82": {
+            "link": {
+                "name": "Foliage",
+                "file": "default"
+            }
+        },
+        "83": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        }
+    }
 }

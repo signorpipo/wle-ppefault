@@ -45,6 +45,7 @@ PP.ConsoleVRWidget = class ConsoleVRWidget {
         this._myWidgetFrame.start(parentObject, additionalSetup);
 
         this._myUI.build(this._myWidgetFrame.getWidgetObject(), this._mySetup, additionalSetup);
+        this._myUI.setVisible(false);
 
         this._addListeners();
 
@@ -607,8 +608,9 @@ PP.ConsoleVRWidget = class ConsoleVRWidget {
         this._myWidgetFrame.toggleVisibility();
     }
 
-    _widgetVisibleChanged() {
-        if (this._myWidgetFrame.myIsWidgetVisible) {
+    _widgetVisibleChanged(visible) {
+        this._myUI.setVisible(visible);
+        if (visible) {
             this._updateAllTexts();
         }
     }

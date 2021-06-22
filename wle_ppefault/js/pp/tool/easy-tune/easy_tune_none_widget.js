@@ -22,6 +22,8 @@ PP.EasyTuneNoneWidget = class EasyTuneNoneWidget {
 
         if ((typeof appendToVariableName) !== 'undefined') {
             this._myAppendToVariableName = appendToVariableName;
+        } else {
+            this._myAppendToVariableName = "";
         }
 
         this._refreshUI();

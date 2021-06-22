@@ -8,6 +8,12 @@ PP.MathUtils = {
     toDegrees: function (angle) {
         return angle * (180 / Math.PI);
     },
+    roundDecimal(number, decimalPlaces) {
+        let factor = Math.pow(10, decimalPlaces);
+        number = Math.round(number * factor) / factor;
+
+        return number;
+    },
     eulerToQuaternion: function (eulerRotation) {
         let quat = glMatrix.quat.create();
         glMatrix.quat.fromEuler(quat, PP.MathUtils.toDegrees(eulerRotation[0]), PP.MathUtils.toDegrees(eulerRotation[1]), PP.MathUtils.toDegrees(eulerRotation[2]));
@@ -35,5 +41,48 @@ PP.MathUtils = {
         }
 
         return euler;
+    },
+    getComponentAlongAxis(vector, axis) {
+        let angle = glMatrix.vec3.angle(vector, axis);
+        let length = Math.cos(angle) * glMatrix.vec3.length(vector);
+
+        let component = axis.slice(0);
+        glMatrix.vec3.normalize(component, component);
+        glMatrix.vec3.scale(component, component, length);
+
+        return component;
+    },
+    getAxes(transform) {
+        let rotationMatrix = [];
+        glMatrix.mat3.fromQuat(rotationMatrix, transform);
+
+        let axes = [];
+        axes[0] = rotationMatrix.slice(0, 3);
+        axes[1] = rotationMatrix.slice(3, 6);
+        axes[2] = rotationMatrix.slice(6, 9);
+
+        glMatrix.vec3.normalize(axes[0], axes[0]);
+        glMatrix.vec3.normalize(axes[1], axes[1]);
+        glMatrix.vec3.normalize(axes[2], axes[2]);
+
+        return axes;
+    },
+    isConcordant(first, second) {
+        return glMatrix.vec3.angle(first, second) <= Math.PI / 2;
+    },
+    getLocalTransform(transform, parentTransform) {
+        let localTransform = [];
+
+        glMatrix.quat2.conjugate(localTransform, parentTransform);
+        glMatrix.quat2.mul(localTransform, localTransform, transform);
+
+        return localTransform;
+    },
+    getWorldTransform(localTransform, parentTransform) {
+        let worldTransform = [];
+
+        glMatrix.quat2.mul(worldTransform, parentTransform, localTransform);
+
+        return worldTransform;
     }
 };

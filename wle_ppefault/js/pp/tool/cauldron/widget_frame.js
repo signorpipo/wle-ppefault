@@ -19,7 +19,7 @@ PP.WidgetFrame = class WidgetFrame {
     }
 
     toggleVisibility() {
-        this._toggleVisibility(false);
+        this._toggleVisibility(false, true);
     }
 
     togglePin() {
@@ -48,7 +48,7 @@ PP.WidgetFrame = class WidgetFrame {
         this._myUI.build(parentObject, this._mySetup, additionalSetup);
         this._myUI.setVisibilityButtonVisible(additionalSetup.myShowVisibilityButton);
         if (!additionalSetup.myShowOnStart) {
-            this._toggleVisibility(false);
+            this._toggleVisibility(false, false);
         }
 
         this._addListeners();
@@ -66,13 +66,13 @@ PP.WidgetFrame = class WidgetFrame {
         ui.myPinButtonCursorTargetComponent.addUnHoverFunction(this._pinUnHover.bind(this, ui.myPinButtonBackgroundComponent.material));
 
         if (this._myAdditionalSetup.myShowVisibilityButton) {
-            ui.myVisibilityButtonCursorTargetComponent.addClickFunction(this._toggleVisibility.bind(this, true));
+            ui.myVisibilityButtonCursorTargetComponent.addClickFunction(this._toggleVisibility.bind(this, true, true));
             ui.myVisibilityButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myVisibilityButtonBackgroundComponent.material));
             ui.myVisibilityButtonCursorTargetComponent.addUnHoverFunction(this._visibilityUnHover.bind(this, ui.myVisibilityButtonBackgroundComponent.material));
         }
     }
 
-    _toggleVisibility(isButton) {
+    _toggleVisibility(isButton, notify) {
         this.myIsWidgetVisible = !this.myIsWidgetVisible;
 
         this._myUI.setWidgetVisible(this.myIsWidgetVisible);
@@ -91,8 +91,10 @@ PP.WidgetFrame = class WidgetFrame {
             }
         }
 
-        for (let value of this._myWidgetVisibleChangedCallbacks.values()) {
-            value(this.myIsWidgetVisible);
+        if (notify) {
+            for (let value of this._myWidgetVisibleChangedCallbacks.values()) {
+                value(this.myIsWidgetVisible);
+            }
         }
     }
 

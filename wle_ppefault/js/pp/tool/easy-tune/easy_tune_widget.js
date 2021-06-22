@@ -1,7 +1,9 @@
-
 PP.EasyTuneWidget = class EasyTuneWidget {
 
     constructor() {
+        this._myIsStarted = false;
+        this._myStartVariable = null;
+
         this._myWidgetFrame = new PP.WidgetFrame("E", 1);
         this._myWidgetFrame.registerWidgetVisibleChangedEventListener(this, this._widgetVisibleChanged.bind(this));
 
@@ -30,7 +32,20 @@ PP.EasyTuneWidget = class EasyTuneWidget {
         }
     }
 
-    start(parentObject, additionalSetup, easyTuneVariables, startVariableName) {
+    setEasyTuneWidgetActiveVariable(variableName) {
+        if (!this._myIsStarted) {
+            this._myStartVariable = variableName;
+        } else if (this._myEasyTuneVariables.has(variableName)) {
+            this._myCurrentVariable = this._myEasyTuneVariables.get(variableName);
+            this._selectCurrentWidget();
+        } else {
+            console.log("Can't set easy tune active variable");
+        }
+    }
+
+    start(parentObject, additionalSetup, easyTuneVariables) {
+        this._myIsStarted = true;
+
         this._myAdditionalSetup = additionalSetup;
 
         this._myWidgetFrame.start(parentObject, additionalSetup);
@@ -39,10 +54,16 @@ PP.EasyTuneWidget = class EasyTuneWidget {
         this._myEasyTuneLastSize = this._myEasyTuneVariables.size;
         this._myVariableNames = Array.from(this._myEasyTuneVariables.keys());
 
-        if (this._myEasyTuneVariables.has(startVariableName)) {
-            this._myCurrentVariable = this._myEasyTuneVariables.get(startVariableName);
-        } else if (this._myEasyTuneVariables.size > 0) {
+        if (this._myEasyTuneVariables.size > 0) {
             this._myCurrentVariable = this._myEasyTuneVariables.get(this._myVariableNames[0]);
+        }
+
+        if (this._myStartVariable) {
+            if (this._myEasyTuneVariables.has(this._myStartVariable)) {
+                this._myCurrentVariable = this._myEasyTuneVariables.get(this._myStartVariable);
+            } else {
+                console.log("Can't set easy tune active variable");
+            }
         }
 
         this._initializeWidgets();
@@ -68,6 +89,7 @@ PP.EasyTuneWidget = class EasyTuneWidget {
     _initializeWidgets() {
         this._myWidgets[PP.EasyTuneVariableType.NONE] = new PP.EasyTuneNoneWidget();
         this._myWidgets[PP.EasyTuneVariableType.NUMBER] = new PP.EasyTuneNumberWidget(this._myGamepad, this._mySetup.myScrollVariableButtonType);
+        this._myWidgets[PP.EasyTuneVariableType.BOOL] = new PP.EasyTuneBoolWidget(this._myGamepad, this._mySetup.myScrollVariableButtonType);
 
         for (let item of this._myWidgets) {
             item.start(this._myWidgetFrame.getWidgetObject(), this._myAdditionalSetup);
@@ -132,16 +154,16 @@ PP.EasyTuneWidget = class EasyTuneWidget {
         this._myWidgetFrame.toggleVisibility();
     }
 
-    _widgetVisibleChanged() {
+    _widgetVisibleChanged(visible) {
         if (this._myCurrentWidget) {
             if (this._myEasyTuneVariables.size > 0) {
-                this._myCurrentWidget.setVisible(this._myWidgetFrame.myIsWidgetVisible);
+                this._myCurrentWidget.setVisible(visible);
             } else {
                 this._myCurrentWidget.setVisible(false);
             }
         }
 
-        if (this._myWidgetFrame.myIsWidgetVisible) {
+        if (visible) {
             this._refreshEasyTuneVariables();
         }
     }

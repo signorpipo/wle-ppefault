@@ -18,7 +18,8 @@ PP.EasyTuneVariables = new PP.EasyTuneVariableMap();
 //Variable Types
 PP.EasyTuneVariableType = {
     NONE: 0,
-    NUMBER: 1
+    NUMBER: 1,
+    BOOL: 2
 };
 
 PP.EasyTuneVariable = class EasyTuneVariable {
@@ -47,5 +48,11 @@ PP.EasyTuneNumber = class EasyTuneNumber extends PP.EasyTuneVariable {
 PP.EasyTuneInteger = class EasyTuneInteger extends PP.EasyTuneNumber {
     constructor(name, value, stepPerSecond) {
         super(name, value, stepPerSecond, 0);
+    }
+};
+
+PP.EasyTuneBool = class EasyTuneBool extends PP.EasyTuneVariable {
+    constructor(name, value) {
+        super(name, PP.EasyTuneVariableType.BOOL, value);
     }
 };

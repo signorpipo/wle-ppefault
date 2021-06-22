@@ -9,11 +9,8 @@ PP.ObjectUtils = {
             newParentScalingWorld = newParent.scalingWorld;
         }
 
-        let tempTransform = new Float32Array(8);
-
-        glMatrix.quat2.conjugate(tempTransform, newParentTransformWorld);
-        glMatrix.quat2.mul(tempTransform, tempTransform, object.transformWorld);
-        object.transformLocal.set(tempTransform);
+        let localTransform = PP.MathUtils.getLocalTransform(object.transformWorld, newParentTransformWorld);
+        object.transformLocal.set(localTransform);
 
         let newScale = new Float32Array(3);
         glMatrix.vec3.divide(newScale, object.scalingLocal, newParentScalingWorld);
@@ -23,5 +20,11 @@ PP.ObjectUtils = {
         object.parent = newParent;
 
         object.setDirty();
+    },
+    setHierarchyActive(object, active) {
+        object.active = active;
+        for (let child of object.children) {
+            PP.ObjectUtils.setHierarchyActive(child, active);
+        }
     }
 };
