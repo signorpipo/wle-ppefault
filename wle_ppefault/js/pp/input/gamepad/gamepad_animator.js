@@ -257,6 +257,11 @@ WL.registerComponent('gamepad-animator', {
                 this.object.resetScaling();
                 this._myIsMeshEnabled = true;
             }
+        } else {
+            if (!WL.xrSession) {
+                this.object.scale([0, 0, 0]);
+                this._myIsMeshEnabled = false;
+            }
         }
     }
 });

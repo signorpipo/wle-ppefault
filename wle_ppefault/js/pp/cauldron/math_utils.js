@@ -52,6 +52,13 @@ PP.MathUtils = {
 
         return component;
     },
+    removeComponentAlongAxis(vector, axis) {
+        let componentAlong = PP.MathUtils.getComponentAlongAxis(vector, axis);
+        let component = vector.slice(0);
+        glMatrix.vec3.sub(component, vector, componentAlong);
+
+        return component;
+    },
     getAxes(transform) {
         let rotationMatrix = [];
         glMatrix.mat3.fromQuat(rotationMatrix, transform);
@@ -84,5 +91,27 @@ PP.MathUtils = {
         glMatrix.quat2.mul(worldTransform, parentTransform, localTransform);
 
         return worldTransform;
+    },
+    rotateVectorAroundAxis(vector, axis, angle, origin) {
+        if (!origin) {
+            origin = [0, 0, 0];
+        }
+
+        glMatrix.vec3.sub(vector, vector, origin);
+
+        let rotatedVector = [];
+
+        let quaternionRotation = glMatrix.quat.create();
+        glMatrix.quat.setAxisAngle(quaternionRotation, axis, angle);
+        glMatrix.vec3.transformQuat(rotatedVector, vector, quaternionRotation);
+
+        glMatrix.vec3.add(rotatedVector, rotatedVector, origin);
+
+        return rotatedVector;
+    },
+    mapToInterval(value, originIntervalLeft, originIntervalRight, newIntervalLeft, newIntervalRight) {
+        let newValue = newIntervalLeft + ((newIntervalRight - newIntervalLeft / (originIntervalRight - originIntervalLeft))) * (value - originIntervalLeft);
+
+        return newValue;
     }
 };
