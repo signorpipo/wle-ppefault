@@ -20,15 +20,7 @@
                 0.0,
                 1.0
             ],
-            "parent": "32",
-            "components": [
-                {
-                    "type": "wasd-controls",
-                    "wasd-controls": {
-                        "headObject": "17"
-                    }
-                }
-            ]
+            "parent": "32"
         },
         "15": {
             "name": "FloorPlane",
@@ -100,9 +92,6 @@
             "components": [
                 {
                     "type": "view"
-                },
-                {
-                    "type": "mouse-look"
                 }
             ],
             "transformation": [
@@ -571,6 +560,19 @@
         "84": {
             "name": "Tracked Space",
             "parent": "14"
+        },
+        "85": {
+            "name": "Head",
+            "parent": "84",
+            "components": [
+                {
+                    "type": "set-head-transform",
+                    "set-head-transform": {
+                        "_myLeftEye": "18",
+                        "_myRightEye": "19"
+                    }
+                }
+            ]
         }
     },
     "meshes": {
@@ -875,7 +877,7 @@
             "version": [
                 0,
                 8,
-                5
+                6
             ]
         },
         "vr": {
