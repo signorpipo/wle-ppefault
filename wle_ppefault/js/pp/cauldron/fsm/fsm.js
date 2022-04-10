@@ -64,6 +64,11 @@ PP.FSM = class FSM {
         this._myPerformType = performType;
         this._myPerformDelayedType = performDelayedType;
         this._myPendingPerforms = [];
+
+        this._myInitCallbacks = new Map();            // Signature: callback(fsm, initStateData, initTransitionObject, ...args)
+        this._myInitIDCallbacks = new Map();          // Signature: callback(fsm, initStateData, initTransitionObject, ...args)
+        this._myTransitionCallbacks = new Map();      // Signature: callback(fsm, fromStateData, toStateData, transitionData, performType, ...args)
+        this._myTransitionIDCallbacks = [];           // Signature: callback(fsm, fromStateData, toStateData, transitionData, performType, ...args)
     }
 
     addState(stateID, state = null) {
@@ -146,6 +151,17 @@ PP.FSM = class FSM {
             }
 
             this._myCurrentStateData = initStateData;
+
+            if (this._myInitCallbacks.size > 0) {
+                this._myInitCallbacks.forEach(function (callback) { callback(this, initStateData, initTransitionObject, ...args); }.bind(this));
+            }
+
+            if (this._myInitIDCallbacks.size > 0) {
+                let callbackMap = this._myInitIDCallbacks.get(initStateID);
+                if (callbackMap != null) {
+                    callbackMap.forEach(function (callback) { callback(this, initStateData, initTransitionObject, ...args); }.bind(this));
+                }
+            }
         } else if (this._myDebugLogActive) {
             console.warn(this._myDebugLogName, "- Init state not found:", initStateID);
         }
@@ -154,7 +170,7 @@ PP.FSM = class FSM {
     update(dt, ...args) {
         if (this._myPendingPerforms.length > 0) {
             for (let i = 0; i < this._myPendingPerforms.length; i++) {
-                this._perform(this._myPendingPerforms[i].myID, true, ...this._myPendingPerforms[i].myArgs);
+                this._perform(this._myPendingPerforms[i].myID, PP.PerformType.DELAYED, ...this._myPendingPerforms[i].myArgs);
             }
             this._myPendingPerforms = [];
         }
@@ -197,7 +213,7 @@ PP.FSM = class FSM {
     }
 
     performImmediate(transitionID, ...args) {
-        return this._perform(transitionID, false, ...args);
+        return this._perform(transitionID, PP.PerformType.IMMEDIATE, ...args);
     }
 
     canPerform(transitionID) {
@@ -448,7 +464,80 @@ PP.FSM = class FSM {
         }
     }
 
-    _perform(transitionID, isDelayed, ...args) {
+    registerInitEventListener(callbackID, callback) {
+        this._myInitCallbacks.set(callbackID, callback);
+    }
+
+    unregisterInitEventListener(callbackID) {
+        this._myInitCallbacks.delete(callbackID);
+    }
+
+    registerInitIDEventListener(iniStateID, callbackID, callback) {
+        let iniStateIDMap = this._myInitIDCallbacks.get(iniStateID);
+        if (iniStateIDMap == null) {
+            this._myInitIDCallbacks.set(iniStateID, new Map());
+            iniStateIDMap = this._myInitIDCallbacks.get(iniStateID);
+        }
+
+        iniStateIDMap.set(callbackID, callback);
+    }
+
+    unregisterInitIDEventListener(iniStateID, callbackID) {
+        let iniStateIDMap = this._myInitIDCallbacks.get(iniStateID);
+        if (iniStateIDMap != null) {
+            iniStateIDMap.delete(callbackID);
+        }
+    }
+
+    registerTransitionEventListener(callbackID, callback) {
+        this._myTransitionCallbacks.set(callbackID, callback);
+    }
+
+    unregisterTransitionEventListener(callbackID) {
+        this._myTransitionCallbacks.delete(callbackID);
+    }
+
+    //the fsm IDs can be null, that means that the callback is called whenever only the valid IDs match
+    //this let you register to all the transitions with a specific ID and from of a specific state but to every state (toStateID == null)
+    registerTransitionIDEventListener(fromStateID, toStateID, transitionID, callbackID, callback) {
+        let transitionIDMap = null;
+        for (let value of this._myTransitionIDCallbacks) {
+            if (value[0] == fromStateID && value[1] == toStateID && value[2] == transitionID) {
+                transitionIDMap = value[3];
+                break;
+            }
+        }
+
+        if (transitionIDMap == null) {
+            let transitionMapValue = [];
+            transitionMapValue[0] = fromStateID;
+            transitionMapValue[1] = toStateID;
+            transitionMapValue[2] = transitionID;
+            transitionMapValue[3] = new Map();
+
+            transitionIDMap = transitionMapValue[3];
+
+            this._myTransitionIDCallbacks.push(transitionMapValue);
+        }
+
+        transitionIDMap.set(callbackID, callback);
+    }
+
+    unregisterTransitionIDEventListener(fromStateID, toStateID, transitionID, callbackID) {
+        let transitionIDMap = null;
+        for (let value of this._myTransitionIDCallbacks) {
+            if (value[0] == fromStateID && value[1] == toStateID && value[2] == transitionID) {
+                transitionIDMap = value[3];
+                break;
+            }
+        }
+
+        if (transitionIDMap != null) {
+            transitionIDMap.delete(callbackID);
+        }
+    }
+
+    _perform(transitionID, performType, ...args) {
         if (this._myCurrentStateData) {
             if (this.canPerform(transitionID)) {
                 let transitions = this._myTransitionMap.get(this._myCurrentStateData.myID);
@@ -460,7 +549,7 @@ PP.FSM = class FSM {
                 if (this._myDebugLogActive) {
                     let consoleArguments = [this._myDebugLogName, "- From:", fromState.myID, "- To:", toState.myID, "- With:", transitionID];
                     if (this._myDebugShowDelayedInfo) {
-                        consoleArguments.push(isDelayed ? "- Delayed" : "- Immediate");
+                        consoleArguments.push(performType == PP.PerformType.DELAYED ? "- Delayed" : "- Immediate");
                     }
                     console.log(...consoleArguments);
                 }
@@ -481,18 +570,37 @@ PP.FSM = class FSM {
 
                 this._myCurrentStateData = transitionToPerform.myToState;
 
+                if (this._myTransitionCallbacks.size > 0) {
+                    this._myTransitionCallbacks.forEach(function (callback) { callback(this, fromState, toState, transitionToPerform, performType, ...args); }.bind(this));
+                }
+
+                if (this._myTransitionIDCallbacks.length > 0) {
+                    let transitionIDMaps = [];
+                    for (let value of this._myTransitionIDCallbacks) {
+                        if ((value[0] == null || value[0] == fromState.myID) &&
+                            (value[1] == null || value[1] == toState.myID) &&
+                            (value[2] == null || value[2] == transitionToPerform.myID)) {
+                            transitionIDMaps.push(value[3]);
+                        }
+                    }
+
+                    for (let callbackMap of this.transitionIDMaps) {
+                        callbackMap.forEach(function (callback) { callback(this, fromState, toState, transitionToPerform, performType, ...args); }.bind(this));
+                    }
+                }
+
                 return true;
             } else if (this._myDebugLogActive) {
                 let consoleArguments = [this._myDebugLogName, "- No Transition:", transitionID, "- From:", this._myCurrentStateData.myID];
                 if (this._myDebugShowDelayedInfo) {
-                    consoleArguments.push(isDelayed ? "- Delayed" : "- Immediate");
+                    consoleArguments.push(performType == PP.PerformType.DELAYED ? "- Delayed" : "- Immediate");
                 }
                 console.warn(...consoleArguments);
             }
         } else if (this._myDebugLogActive) {
             let consoleArguments = [this._myDebugLogName, "- FSM not initialized yet"];
             if (this._myDebugShowDelayedInfo) {
-                consoleArguments.push(isDelayed ? "- Delayed" : "- Immediate");
+                consoleArguments.push(performType == PP.PerformType.DELAYED ? "- Delayed" : "- Immediate");
             }
             console.warn(...consoleArguments);
         }
