@@ -51,16 +51,11 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
             /* Unhover previous, if exists */
             if (this.hoveringObject) {
                 let cursorTarget = this.hoveringObject.getComponent("cursor-target");
-
-                /* Cursor up */
-                if (this.isDown && this.isDown == this.lastIsDown) {
-                    if (cursorTarget) cursorTarget.onUp(this.hoveringObject, this);
-                    this.globalTarget.onUp(this.hoveringObject, this);
-                    this.lastIsDown = false;
-                }
-
                 if (cursorTarget) cursorTarget.onUnhover(this.hoveringObject, this);
                 this.globalTarget.onUnhover(this.hoveringObject, this);
+
+                this.isDown = false;
+                this.lastIsDown = false;
             }
 
             /* Hover new object */
@@ -116,13 +111,6 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
         }
     } else if (this.hoveringObject && rayHit.hitCount == 0) {
         let cursorTarget = this.hoveringObject.getComponent("cursor-target");
-
-        /* Cursor up */
-        if (this.isDown && this.isDown == this.lastIsDown) {
-            if (cursorTarget) cursorTarget.onUp(this.hoveringObject, this);
-            this.globalTarget.onUp(this.hoveringObject, this);
-        }
-
         if (cursorTarget) cursorTarget.onUnhover(this.hoveringObject, this);
         this.globalTarget.onUnhover(this.hoveringObject, this);
 

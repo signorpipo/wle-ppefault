@@ -478,6 +478,7 @@ PP.ConsoleVRWidget = class ConsoleVRWidget {
             cursorTarget.addDoubleClickFunction(this._instantScrollUp.bind(this, true));
             cursorTarget.addDownFunction(this._setScrollUp.bind(this, true));
             cursorTarget.addUpFunction(this._setScrollUp.bind(this, false));
+            cursorTarget.addUnHoverFunction(this._setScrollUp.bind(this, false));
             cursorTarget.addHoverFunction(this._genericHover.bind(this, backgroundMaterial));
             cursorTarget.addUnHoverFunction(this._genericUnHover.bind(this, backgroundMaterial));
         }
@@ -489,6 +490,7 @@ PP.ConsoleVRWidget = class ConsoleVRWidget {
             cursorTarget.addDoubleClickFunction(this._instantScrollDown.bind(this));
             cursorTarget.addDownFunction(this._setScrollDown.bind(this, true));
             cursorTarget.addUpFunction(this._setScrollDown.bind(this, false));
+            cursorTarget.addUnHoverFunction(this._setScrollDown.bind(this, false));
             cursorTarget.addHoverFunction(this._genericHover.bind(this, backgroundMaterial));
             cursorTarget.addUnHoverFunction(this._genericUnHover.bind(this, backgroundMaterial));
         }

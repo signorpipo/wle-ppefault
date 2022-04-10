@@ -258,8 +258,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
         for (let i = 0; i < 3; i++) {
             ui.myPositionIncreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 0, i, 1));
             ui.myPositionIncreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 0, i, 0));
+            ui.myPositionIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 0, i, 0));
             ui.myPositionDecreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 0, i, -1));
             ui.myPositionDecreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 0, i, 0));
+            ui.myPositionDecreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 0, i, 0));
 
             ui.myPositionIncreaseButtonCursorTargetComponents[i].addHoverFunction(this._genericHover.bind(this, ui.myPositionIncreaseButtonBackgroundComponents[i].material));
             ui.myPositionIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._genericUnHover.bind(this, ui.myPositionIncreaseButtonBackgroundComponents[i].material));
@@ -277,8 +279,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
         for (let i = 0; i < 3; i++) {
             ui.myRotationIncreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 1, i, 1));
             ui.myRotationIncreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 1, i, 0));
+            ui.myRotationIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 1, i, 0));
             ui.myRotationDecreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 1, i, -1));
             ui.myRotationDecreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 1, i, 0));
+            ui.myRotationDecreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 1, i, 0));
 
             ui.myRotationIncreaseButtonCursorTargetComponents[i].addHoverFunction(this._genericHover.bind(this, ui.myRotationIncreaseButtonBackgroundComponents[i].material));
             ui.myRotationIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._genericUnHover.bind(this, ui.myRotationIncreaseButtonBackgroundComponents[i].material));
@@ -296,8 +300,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
         for (let i = 0; i < 3; i++) {
             ui.myScaleIncreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 2, i, 1));
             ui.myScaleIncreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 2, i, 0));
+            ui.myScaleIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 2, i, 0));
             ui.myScaleDecreaseButtonCursorTargetComponents[i].addDownFunction(this._setValueEditIntensity.bind(this, 2, i, -1));
             ui.myScaleDecreaseButtonCursorTargetComponents[i].addUpFunction(this._setValueEditIntensity.bind(this, 2, i, 0));
+            ui.myScaleDecreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._setValueEditIntensity.bind(this, 2, i, 0));
 
             ui.myScaleIncreaseButtonCursorTargetComponents[i].addHoverFunction(this._genericHover.bind(this, ui.myScaleIncreaseButtonBackgroundComponents[i].material));
             ui.myScaleIncreaseButtonCursorTargetComponents[i].addUnHoverFunction(this._genericUnHover.bind(this, ui.myScaleIncreaseButtonBackgroundComponents[i].material));
@@ -315,8 +321,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
 
         ui.myPositionStepIncreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 0, 1));
         ui.myPositionStepIncreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 0, 0));
+        ui.myPositionStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 0, 0));
         ui.myPositionStepDecreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 0, -1));
         ui.myPositionStepDecreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 0, 0));
+        ui.myPositionStepDecreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 0, 0));
 
         ui.myPositionStepIncreaseButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myPositionStepIncreaseButtonBackgroundComponent.material));
         ui.myPositionStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._genericUnHover.bind(this, ui.myPositionStepIncreaseButtonBackgroundComponent.material));
@@ -329,8 +337,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
 
         ui.myRotationStepIncreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 1, 1));
         ui.myRotationStepIncreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 1, 0));
+        ui.myRotationStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 1, 0));
         ui.myRotationStepDecreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 1, -1));
         ui.myRotationStepDecreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 1, 0));
+        ui.myRotationStepDecreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 1, 0));
 
         ui.myRotationStepIncreaseButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myRotationStepIncreaseButtonBackgroundComponent.material));
         ui.myRotationStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._genericUnHover.bind(this, ui.myRotationStepIncreaseButtonBackgroundComponent.material));
@@ -343,8 +353,10 @@ PP.EasyTuneSimpleTransformWidget = class EasyTuneSimpleTransformWidget {
 
         ui.myScaleStepIncreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 2, 1));
         ui.myScaleStepIncreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 2, 0));
+        ui.myScaleStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 2, 0));
         ui.myScaleStepDecreaseButtonCursorTargetComponent.addDownFunction(this._setStepEditIntensity.bind(this, 2, -1));
         ui.myScaleStepDecreaseButtonCursorTargetComponent.addUpFunction(this._setStepEditIntensity.bind(this, 2, 0));
+        ui.myScaleStepDecreaseButtonCursorTargetComponent.addUnHoverFunction(this._setStepEditIntensity.bind(this, 2, 0));
 
         ui.myScaleStepIncreaseButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myScaleStepIncreaseButtonBackgroundComponent.material));
         ui.myScaleStepIncreaseButtonCursorTargetComponent.addUnHoverFunction(this._genericUnHover.bind(this, ui.myScaleStepIncreaseButtonBackgroundComponent.material));
