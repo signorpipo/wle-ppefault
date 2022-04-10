@@ -172,7 +172,7 @@ PP.Gamepad = class Gamepad {
     /**
      * @param {PP.Handedness} handedness specifies which controller this gamepad will represent, left or right
      */
-    constructor(handedness) {
+    constructor(handedness, fixForward = true, forceEmulatedVelocities = false) {
         this._myHandedness = handedness;
 
         this._myButtonInfos = [];
@@ -206,6 +206,8 @@ PP.Gamepad = class Gamepad {
 
         this._myPulseInfo = new PP.PulseInfo();
 
+        this._myHandPose = new PP.HandPose(this._myHandedness, fixForward, forceEmulatedVelocities);
+
         //Setup
         this._myMultiplePressMaxDelay = 0.3;
         this._myMultipleTouchMaxDelay = 0.3;
@@ -219,11 +221,18 @@ PP.Gamepad = class Gamepad {
     }
 
     /**
+     * @returns {PP.HandPose}
+     */
+    getHandPose() {
+        return this._myHandPose;
+    }
+
+    /**
      * @param {PP.ButtonType} buttonType
      * @returns {PP.ButtonInfo}
      */
     getButtonInfo(buttonType) {
-        return this._myButtonInfos[buttonType].clone();
+        return this._myButtonInfos[buttonType];
     }
 
     /**
@@ -249,7 +258,7 @@ PP.Gamepad = class Gamepad {
      * @returns {PP.AxesInfo}
      */
     getAxesInfo() {
-        return this._myAxesInfo.clone();
+        return this._myAxesInfo;
     }
 
     /**
@@ -297,7 +306,7 @@ PP.Gamepad = class Gamepad {
     }
 
     getPulseInfo() {
-        return this._myPulseInfo.clone();
+        return this._myPulseInfo;
     }
 
     getMultiplePressMaxDelay() {
@@ -317,14 +326,18 @@ PP.Gamepad = class Gamepad {
     }
 
     start() {
+        this._myHandPose.start();
+
         if (WL.xrSession) {
-            this._onXRSessionStart(true, WL.xrSession);
+            this._onXRSessionStart(WL.xrSession);
         }
-        WL.onXRSessionStart.push(this._onXRSessionStart.bind(this, false));
+        WL.onXRSessionStart.push(this._onXRSessionStart.bind(this));
         WL.onXRSessionEnd.push(this._onXRSessionEnd.bind(this));
     }
 
     update(dt) {
+        this._updateHandPose(dt);
+
         this._preUpdateButtonInfos();
         this._updateButtonInfos();
         this._postUpdateButtonInfos(dt);
@@ -334,6 +347,17 @@ PP.Gamepad = class Gamepad {
         this._postUpdateAxesInfos();
 
         this._updatePulse(dt);
+    }
+
+    _updateHandPose(dt) {
+        this._myHandPose.update(dt);
+
+        this._myInputSource = this._myHandPose.getInputSource();
+        if (this._myInputSource != null) {
+            this._myGamepad = this._myInputSource.gamepad;
+        } else {
+            this._myGamepad = null;
+        }
     }
 
     _preUpdateButtonInfos() {
@@ -648,36 +672,7 @@ PP.Gamepad = class Gamepad {
         return hapticActuator;
     }
 
-    _onXRSessionStart(manualStart, session) {
-        session.addEventListener("inputsourceschange", function (event) {
-            if (event.removed) {
-                for (let item of event.removed) {
-                    if (item.gamepad == this._myGamepad) {
-                        this._myInputSource = null;
-                        this._myGamepad = null;
-                    }
-                }
-            }
-
-            if (event.added) {
-                for (let item of event.added) {
-                    if (item.handedness == this._myHandedness) {
-                        this._myInputSource = item;
-                        this._myGamepad = item.gamepad;
-                    }
-                }
-            }
-        }.bind(this));
-
-        if (manualStart && this._myInputSource == null && session.inputSources) {
-            for (let item of session.inputSources) {
-                if (item.handedness == this._myHandedness) {
-                    this._myInputSource = item;
-                    this._myGamepad = item.gamepad;
-                }
-            }
-        }
-
+    _onXRSessionStart(session) {
         session.addEventListener("selectstart", this._selectStart.bind(this));
         session.addEventListener("selectend", this._selectEnd.bind(this));
 
@@ -688,33 +683,30 @@ PP.Gamepad = class Gamepad {
     }
 
     _onXRSessionEnd(session) {
-        this._myInputSource = null;
-        this._myGamepad = null;
-
         this._myIsXRSessionActive = false;
     }
 
     //Select and Squeeze are managed this way to be more compatible
     _selectStart(event) {
-        if (event.inputSource.handedness == this._myHandedness) {
+        if (this._myInputSource != null && this._myInputSource == event.inputSource) {
             this._mySelectStart = true;
         }
     }
 
     _selectEnd(event) {
-        if (event.inputSource.handedness == this._myHandedness) {
+        if (this._myInputSource != null && this._myInputSource == event.inputSource) {
             this._mySelectEnd = true;
         }
     }
 
     _squeezeStart(event) {
-        if (event.inputSource.handedness == this._myHandedness) {
+        if (this._myInputSource != null && this._myInputSource == event.inputSource) {
             this._mySqueezeStart = true;
         }
     }
 
     _squeezeEnd(event) {
-        if (event.inputSource.handedness == this._myHandedness) {
+        if (this._myInputSource != null && this._myInputSource == event.inputSource) {
             this._mySqueezeEnd = true;
         }
     }

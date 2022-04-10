@@ -4,9 +4,10 @@
  * otherwise the gamepads will not be updated anymore
  */
 WL.registerComponent('pp-gamepad-manager', {
+    _myFixForward: { type: WL.Type.Bool, default: true }
 }, {
     init: function () {
-        this._myGamepadManager = new PP.GamepadManager();
+        this._myGamepadManager = new PP.GamepadManager(this._myFixForward);
 
         PP.myLeftGamepad = this._myGamepadManager.getLeftGamepad();
         PP.myRightGamepad = this._myGamepadManager.getRightGamepad();

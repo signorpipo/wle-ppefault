@@ -14,6 +14,10 @@ PP.HeadPose = class HeadPose {
 
         this._myLinearVelocity = [0, 0, 0];
         this._myAngularVelocity = [0, 0, 0]; // Radians
+
+        this._myIsValid = false;
+        this._myIsLinearVelocityEmulated = true;
+        this._myIsAngularVelocityEmulated = true;
     }
 
     getReferenceSpace() {
@@ -74,6 +78,18 @@ PP.HeadPose = class HeadPose {
         return this._myAngularVelocity.slice(0);
     }
 
+    isValid() {
+        return this._myIsValid;
+    }
+
+    isLinearVelocityEmulated() {
+        return this._myIsLinearVelocityEmulated;
+    }
+
+    isAngularVelocityEmulated() {
+        return this._myIsAngularVelocityEmulated;
+    }
+
     setFixForward(fixForward) {
         this._myFixForward = fixForward;
     }
@@ -116,17 +132,27 @@ PP.HeadPose = class HeadPose {
                     this._myLinearVelocity[0] = xrPose.linearVelocity.x;
                     this._myLinearVelocity[1] = xrPose.linearVelocity.y;
                     this._myLinearVelocity[2] = xrPose.linearVelocity.z;
+
+                    this._myIsLinearVelocityEmulated = false;
                 } else {
                     this._computeEmulatedLinearVelocity(dt);
+
+                    this._myIsLinearVelocityEmulated = true;
                 }
 
                 if (xrPose.angularVelocity && !this._myForceEmulatedVelocities) {
                     this._myAngularVelocity[0] = xrPose.angularVelocity.x;
                     this._myAngularVelocity[1] = xrPose.angularVelocity.y;
                     this._myAngularVelocity[2] = xrPose.angularVelocity.z;
+
+                    this._myIsAngularVelocityEmulated = false;
                 } else {
                     this._computeEmulatedAngularVelocity(dt);
+
+                    this._myIsAngularVelocityEmulated = true;
                 }
+
+                this._myIsValid = true;
             } else {
                 //keep previous position and rotation but reset velocity because reasons
 
@@ -137,6 +163,10 @@ PP.HeadPose = class HeadPose {
                 this._myAngularVelocity[0] = 0;
                 this._myAngularVelocity[1] = 0;
                 this._myAngularVelocity[2] = 0;
+
+                this._myIsValid = false;
+                this._myIsLinearVelocityEmulated = true;
+                this._myIsAngularVelocityEmulated = true;
             }
         } else {
             //keep previous position and rotation but reset velocity because reasons
@@ -148,6 +178,10 @@ PP.HeadPose = class HeadPose {
             this._myAngularVelocity[0] = 0;
             this._myAngularVelocity[1] = 0;
             this._myAngularVelocity[2] = 0;
+
+            this._myIsValid = false;
+            this._myIsLinearVelocityEmulated = true;
+            this._myIsAngularVelocityEmulated = true;
         }
     }
 
