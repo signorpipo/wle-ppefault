@@ -56,11 +56,11 @@ PP.WidgetFrameUI = class WidgetFrameUI {
                 this.myPivotObject.setTranslationLocal(this._mySetup.myPivotObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myPosition);
                 this.myPivotObject.resetRotation();
                 this.myPivotObject.rotateObject(this._mySetup.myPivotObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myRotation);
-            }
 
-            this.myWidgetObject.setTranslationLocal(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myPosition);
-            this.myWidgetObject.resetRotation();
-            this.myWidgetObject.rotateObject(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myRotation);
+                this.myWidgetObject.setTranslationLocal(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myPosition);
+                this.myWidgetObject.resetRotation();
+                this.myWidgetObject.rotateObject(this._mySetup.myWidgetObjectTransforms[this._myInputSourceType][this._myAdditionalSetup.myHandedness].myRotation);
+            }
         }
     }
 

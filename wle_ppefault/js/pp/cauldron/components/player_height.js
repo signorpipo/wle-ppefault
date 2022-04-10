@@ -12,15 +12,19 @@ WL.registerComponent("pp-player-height", {
         WL.onXRSessionEnd.push(this._onXRSessionEnd.bind(this));
     },
     _onXRSessionStart: function () {
-        let localPosition = this.object.pp_getPositionLocal();
-        if (PP.XRUtils.isReferenceSpaceLocalFloor()) {
-            this.object.setPositionLocal([localPosition[0], 0, localPosition[2]]);
-        } else {
-            this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
+        if (this.active) {
+            let localPosition = this.object.pp_getPositionLocal();
+            if (PP.XRUtils.isReferenceSpaceLocalFloor()) {
+                this.object.setPositionLocal([localPosition[0], 0, localPosition[2]]);
+            } else {
+                this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
+            }
         }
     },
     _onXRSessionEnd: function () {
-        let localPosition = this.object.pp_getPositionLocal();
-        this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
+        if (this.active) {
+            let localPosition = this.object.pp_getPositionLocal();
+            this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
+        }
     }
 });

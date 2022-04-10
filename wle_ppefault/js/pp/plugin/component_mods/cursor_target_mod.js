@@ -7,6 +7,8 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor-target"]].proto.init = fun
     this.moveFunctions = [];
     this.downFunctions = [];
     this.upFunctions = [];
+
+    this.isSurface = false; // just a way to specify if this target is just used as a surface between buttons
 };
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor-target"]].proto.onDoubleClick = function (object, cursor) {

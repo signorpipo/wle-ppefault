@@ -305,7 +305,7 @@ PP.ConsoleVRWidgetUI = class ConsoleVRWidgetUI {
 
     _addPointerComponents() {
         this.myPointerCursorTargetComponent = this.myPointerCursorTarget.addComponent('cursor-target');
-        this.myPointerCursorTargetComponent.myPreventPulseOnHover = true;
+        this.myPointerCursorTargetComponent.isSurface = true;
 
         let collisionComp = this.myPointerCursorTarget.addComponent('collision');
         collisionComp.collider = this._mySetup.myPointerCollisionCollider;

@@ -37,8 +37,7 @@ WL.registerComponent('pp-tool-cursor', {
         this._myCursorMeshComponent.material = this._myCursorMaterial.clone();
         this._myCursorMeshComponent.material.color = this._myCursorColor;
 
-        this._myCursorComponent = this._myCursorObject.addComponent("cursor", { "collisionGroup": this._myCursorTargetCollisionGroup, "handedness": this._myHandedness + 1 });
-        this._myCursorComponent.cursorObject = this._myCursorMeshObject;
+        this._myCursorComponent = this._myCursorObject.addComponent("cursor", { "collisionGroup": this._myCursorTargetCollisionGroup, "handedness": this._myHandedness + 1, "cursorObject": this._myCursorMeshObject });
         this._myCursorComponent.rayCastMode = 0; //collision
         if (this._myPulseOnHover) {
             this._myCursorComponent.globalTarget.addHoverFunction(this._pulseOnHover.bind(this));
@@ -81,7 +80,7 @@ WL.registerComponent('pp-tool-cursor', {
     _pulseOnHover: function (object) {
         let targetComponent = object.getComponent("cursor-target");
 
-        if (targetComponent && !targetComponent.myPreventPulseOnHover) {
+        if (targetComponent && !targetComponent.isSurface) {
             if (this._myHandedness == 0) {
                 if (PP.myLeftGamepad) {
                     PP.myLeftGamepad.pulse(0.4, 0);

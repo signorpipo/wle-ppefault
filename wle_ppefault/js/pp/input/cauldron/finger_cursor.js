@@ -55,9 +55,11 @@ WL.registerComponent('pp-finger-cursor', {
             for (let i = 0; i < overlaps.length; ++i) {
                 let object = overlaps[i].object;
                 let target = object.getComponent('cursor-target');
-                if (target) {
+                if (target && (overlapTarget == null || !target.isSurface)) {
                     overlapTarget = target;
-                    break;
+                    if (!target.isSurface) {
+                        break;
+                    }
                 }
             }
 
@@ -134,6 +136,4 @@ WL.registerComponent('pp-finger-cursor', {
     _onXRSessionEnd: function (session) {
         this._myReferenceSpace = null;
     }
-
-
 });
