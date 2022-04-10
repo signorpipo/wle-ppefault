@@ -1,1 +1,3 @@
-var PP = {};
+if (!PP) {
+    var PP = {};
+}

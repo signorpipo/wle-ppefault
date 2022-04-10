@@ -1,5 +1,6 @@
-WL.registerComponent('finger-cursor', {
+WL.registerComponent('pp-finger-cursor', {
     _myHandedness: { type: WL.Type.Enum, values: ['left', 'right'], default: 'left' },
+    _myEnableMultipleClicks: { type: WL.Type.Bool, default: true },
     _myCollisionGroup: { type: WL.Type.Int, default: 1 },
     _myCursorMesh: { type: WL.Type.Mesh, default: null },
     _myCursorMaterial: { type: WL.Type.Material, default: null },
@@ -7,9 +8,14 @@ WL.registerComponent('finger-cursor', {
 }, {
     init: function () {
         this._myLastTarget = null;
-        this._myRefSpace = null;
+        this._myReferenceSpace = null;
         this._myHandInputSource = null;
         this._myHandednessString = ['left', 'right'][this._myHandedness];
+
+        this._myDoubleClickTimer = 0;
+        this._myTripleClickTimer = 0;
+        this._myMultipleClickObject = null;
+        this._myMultipleClickDelay = 0.3;
     },
     start: function () {
         this._myCursorObject = WL.scene.addObject(this.object.parent);
@@ -27,63 +33,85 @@ WL.registerComponent('finger-cursor', {
         this._myCollisionComponent.extents = [this._myCursorSize, this._myCursorSize, this._myCursorSize];
 
         if (WL.xrSession) {
-            this._setupVREvents(WL.xrSession);
-        } else {
-            WL.onXRSessionStart.push(this._setupVREvents.bind(this));
+            this._onXRSessionStart(WL.xrSession);
         }
+        WL.onXRSessionStart.push(this._onXRSessionStart.bind(this));
+        WL.onXRSessionEnd.push(this._onXRSessionEnd.bind(this));
     },
     update: function (dt) {
+        if (this._myDoubleClickTimer > 0) {
+            this._myDoubleClickTimer -= dt;
+        }
+
+        if (this._myTripleClickTimer > 0) {
+            this._myTripleClickTimer -= dt;
+        }
+
         this._updateHand();
 
         if (this._myHandInputSource) {
             let overlaps = this._myCollisionComponent.queryOverlaps();
-            let overlapObject = null;
+            let overlapTarget = null;
             for (let i = 0; i < overlaps.length; ++i) {
                 let object = overlaps[i].object;
                 let target = object.getComponent('cursor-target');
                 if (target) {
-                    overlapObject = target;
+                    overlapTarget = target;
                     break;
                 }
             }
 
-            if (!overlapObject) {
-                if (this._myLastTarget) {
-                    this._myLastTarget.onUnhover(this._myLastTarget.object, this);
-                    this._myLastTarget = null;
-                }
-            } else if (!overlapObject.equals(this._myLastTarget)) {
-                if (this._myLastTarget) {
-                    this._myLastTarget.onUnhover(this._myLastTarget.object, this);
-                }
+            if (!overlapTarget) {
+                this._targetTouchEnd();
+            } else if (!overlapTarget.equals(this._myLastTarget)) {
+                this._targetTouchEnd();
 
-                this._myLastTarget = overlapObject;
+                this._myLastTarget = overlapTarget;
 
-                overlapObject.onHover(this._myLastTarget.object, this);
-                overlapObject.onClick(this._myLastTarget.object, this);
+                this._targetTouchStart();
             }
-        } else if (this._myLastTarget) {
+        } else {
+            this._targetTouchEnd();
+        }
+    },
+    _targetTouchStart: function () {
+        this._myLastTarget.onHover(this._myLastTarget.object, this);
+        this._myLastTarget.onDown(this._myLastTarget.object, this);
+    },
+    _targetTouchEnd: function () {
+        if (this._myLastTarget) {
+            if (this._myEnableMultipleClicks && this._myTripleClickTimer > 0 && this._myMultipleClickObject && this._myMultipleClickObject.equals(this._myLastTarget.object)) {
+                this._myLastTarget.onTripleClick(this._myLastTarget.object, this);
+
+                this._myTripleClickTimer = 0;
+            } else if (this._myEnableMultipleClicks && this._myDoubleClickTimer > 0 && this._myMultipleClickObject && this._myMultipleClickObject.equals(this._myLastTarget.object)) {
+                this._myLastTarget.onDoubleClick(this._myLastTarget.object, this);
+
+                this._myTripleClickTimer = this._myMultipleClickDelay;
+                this._myDoubleClickTimer = 0;
+            } else {
+                this._myLastTarget.onClick(this._myLastTarget.object, this);
+
+                this._myTripleClickTimer = 0;
+                this._myDoubleClickTimer = this._myMultipleClickDelay;
+                this._myMultipleClickObject = this._myLastTarget.object;
+            }
+
+            this._myLastTarget.onUp(this._myLastTarget.object, this);
             this._myLastTarget.onUnhover(this._myLastTarget.object, this);
+
             this._myLastTarget = null;
         }
     },
     setActive: function (active) {
-        if (this.active != active) {
-            if (!active) {
-                this._myCursorObject.scale([0, 0, 0]);
-                this._myCursorObject.setTranslationLocal([0, -7777, 0]);
-            } else {
-                this._myCursorObject.resetTransform();
-            }
-        }
-
+        this._myCursorObject.pp_setActiveHierarchy(active);
         this.active = active;
     },
     _updateHand() {
         this._myHandInputSource = PP.InputUtils.getInputSource(this._myHandednessString, PP.InputSourceType.HAND);
 
         if (this._myHandInputSource) {
-            let tip = Module['webxr_frame'].getJointPose(this._myHandInputSource.hand.get("index-finger-tip"), this._myRefSpace);
+            let tip = Module['webxr_frame'].getJointPose(this._myHandInputSource.hand.get("index-finger-tip"), this._myReferenceSpace);
 
             if (tip) {
                 this._myCursorObject.resetTransform();
@@ -100,7 +128,12 @@ WL.registerComponent('finger-cursor', {
             }
         }
     },
-    _setupVREvents: function (s) {
-        s.requestReferenceSpace('local').then(function (refSpace) { this._myRefSpace = refSpace; }.bind(this));
+    _onXRSessionStart: function (session) {
+        session.requestReferenceSpace(WebXR.refSpace).then(function (referenceSpace) { this._myReferenceSpace = referenceSpace; }.bind(this));
     },
+    _onXRSessionEnd: function (session) {
+        this._myReferenceSpace = null;
+    }
+
+
 });

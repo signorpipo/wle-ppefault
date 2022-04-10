@@ -1,18 +1,15 @@
 
 PP.Handedness = {
-    NONE: "none",
     LEFT: "left",
-    RIGHT: "right",
+    RIGHT: "right"
 };
 
 PP.HandednessIndex = {
-    NONE: 0,
-    LEFT: 1,
-    RIGHT: 2,
+    LEFT: 0,
+    RIGHT: 1
 };
 
 PP.InputSourceType = {
-    NONE: 0,
-    GAMEPAD: 1,
-    HAND: 2
+    GAMEPAD: 0,
+    HAND: 1
 };

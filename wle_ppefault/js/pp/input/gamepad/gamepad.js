@@ -2,12 +2,6 @@
 //you must also add var in front of the enums (like var Handedness = {}) since now they are no longer child of PP
 //and also remove the class assignment to the same name (like ButtonInfo = class ButtonInfo{}) since now they can be global
 
-PP.GamepadHandedness =
-{
-    LEFT: "left",
-    RIGHT: "right"
-};
-
 PP.ButtonType = {
     SELECT: 0,  //Trigger
     SQUEEZE: 1, //Grip
@@ -32,39 +26,93 @@ PP.ButtonEvent = {
 PP.ButtonInfo = class ButtonInfo {
     constructor() {
         this.myIsPressed = false;
-        this.myIsPrevPressed = false;
+        this.myPrevIsPressed = false;
 
         this.myIsTouched = false;
-        this.myIsPrevTouched = false;
+        this.myPrevIsTouched = false;
 
         this.myValue = 0.0;
         this.myPrevValue = 0.0;
+
+        this.myTimePressed = 0;
+        this.myPrevTimePressed = 0;
+
+        this.myTimeNotPressed = 0;
+        this.myPrevTimeNotPressed = 0;
+
+        this.myTimeTouched = 0;
+        this.myPrevTimeTouched = 0;
+
+        this.myTimeNotTouched = 0;
+        this.myPrevTimeNotTouched = 0;
+
+        this.myMultiplePressStartCount = 0;
+        this.myPrevMultiplePressStartCount = 0;
+        this.myMultiplePressEndCount = 0;
+        this.myPrevMultiplePressEndCount = 0;
+
+        this.myMultipleTouchStartCount = 0;
+        this.myPrevMultipleTouchStartCount = 0;
+        this.myMultipleTouchEndCount = 0;
+        this.myPrevMultipleTouchEndCount = 0;
     }
 
-    isPressStart() {
-        return this.myIsPressed && !this.myIsPrevPressed;
+    getValue() {
+        return this.myValue;
     }
 
-    isPressEnd() {
-        return !this.myIsPressed && this.myIsPrevPressed;
+    isPressed() {
+        return this.myIsPressed;
     }
 
-    isTouchStart() {
-        return this.myIsTouched && !this.myIsPrevTouched;
+    isTouched() {
+        return this.myIsTouched;
     }
 
-    isTouchEnd() {
-        return !this.myIsTouched && this.myIsPrevTouched;
+    isPressStart(multiplePressCount = null) {
+        return (this.myIsPressed && !this.myPrevIsPressed) && (multiplePressCount == null || this.myMultiplePressStartCount == multiplePressCount);
+    }
+
+    isPressEnd(multiplePressCount = null) {
+        return (!this.myIsPressed && this.myPrevIsPressed) && (multiplePressCount == null || this.myMultiplePressEndCount == multiplePressCount);
+    }
+
+    isTouchStart(multipleTouchCount = null) {
+        return (this.myIsTouched && !this.myPrevIsTouched) && (multipleTouchCount == null || this.myMultipleTouchStartCount == multipleTouchCount);
+    }
+
+    isTouchEnd(multipleTouchCount = null) {
+        return (!this.myIsTouched && this.myPrevIsTouched) && (multipleTouchCount == null || this.myMultipleTouchEndCount == multipleTouchCount);
     }
 
     clone() {
         let value = new ButtonInfo();
         value.myIsPressed = this.myIsPressed;
-        value.myIsPrevPressed = this.myIsPrevPressed;
+        value.myPrevIsPressed = this.myPrevIsPressed;
         value.myIsTouched = this.myIsTouched;
-        value.myIsPrevTouched = this.myIsPrevTouched;
+        value.myPrevIsTouched = this.myPrevIsTouched;
         value.myValue = this.myValue;
         value.myPrevValue = this.myPrevValue;
+
+        value.myTimePressed = this.myTimePressed;
+        value.myPrevTimePressed = this.myPrevTimePressed;
+        value.myTimeNotPressed = this.myTimeNotPressed;
+        value.myPrevTimeNotPressed = this.myPrevTimeNotPressed;
+
+        value.myTimeTouched = this.myTimeTouched;
+        value.myPrevTimeTouched = this.myPrevTimeTouched;
+        value.myTimeNotTouched = this.myTimeNotTouched;
+        value.myPrevTimeNotTouched = this.myPrevTimeNotTouched;
+
+        value.myMultiplePressStartCount = this.myMultiplePressStartCount;
+        value.myPrevMultiplePressStartCount = this.myPrevMultiplePressStartCount;
+        value.myMultiplePressEndCount = this.myMultiplePressEndCount;
+        value.myPrevMultiplePressEndCount = this.myPrevMultiplePressEndCount;
+
+        value.myMultipleTouchStartCount = this.myMultipleTouchStartCount;
+        value.myPrevMultipleTouchStartCount = this.myPrevMultipleTouchStartCount;
+        value.myMultipleTouchEndCount = this.myMultipleTouchEndCount;
+        value.myPrevMultipleTouchEndCount = this.myPrevMultipleTouchEndCount;
 
         return value;
     }
@@ -96,12 +144,21 @@ PP.AxesInfo = class AxesInfo {
     }
 };
 
-PP.PulseData = class PulseData {
+PP.PulseInfo = class PulseInfo {
     constructor() {
         this.myIntensity = 0.0;
         this.myDuration = 0.0;
 
-        this.myIsPulsing = false;
+        this.myIsDevicePulsing = false; // true if the gamepad actually sent a request to pulse to the device
+    }
+
+    clone() {
+        let value = new PulseInfo();
+        value.myIntensity = this.myIntensity;
+        value.myDuration = this.myDuration;
+        value.myIsDevicePulsing = this.myIsDevicePulsing;
+
+        return value;
     }
 };
 
@@ -113,26 +170,26 @@ PP.PulseData = class PulseData {
 PP.Gamepad = class Gamepad {
 
     /**
-     * @param {PP.GamepadHandedness} handedness specifies which controller this gamepad will represent, left or right
+     * @param {PP.Handedness} handedness specifies which controller this gamepad will represent, left or right
      */
     constructor(handedness) {
-        this.myHandedness = handedness;
+        this._myHandedness = handedness;
 
-        this.myButtonInfos = [];
+        this._myButtonInfos = [];
         for (let key in PP.ButtonType) {
-            this.myButtonInfos[PP.ButtonType[key]] = new PP.ButtonInfo();
+            this._myButtonInfos[PP.ButtonType[key]] = new PP.ButtonInfo();
         }
 
-        this.myAxesInfo = new PP.AxesInfo();
+        this._myAxesInfo = new PP.AxesInfo();
 
         this._mySelectStart = false;
         this._mySelectEnd = false;
         this._mySqueezeStart = false;
         this._mySqueezeEnd = false;
 
-        this.mySession = null;
-        this.myInputSource = null;
-        this.myGamepad = null;
+        this._myIsXRSessionActive = false;
+        this._myInputSource = null;
+        this._myGamepad = null;
 
         this._myButtonCallbacks = [];
         for (let typeKey in PP.ButtonType) {
@@ -147,7 +204,18 @@ PP.Gamepad = class Gamepad {
             this._myAxesCallbacks[PP.AxesEvent[eventKey]] = new Map(); //keys = object, item = callback
         }
 
-        this._myPulseData = new PP.PulseData();
+        this._myPulseInfo = new PP.PulseInfo();
+
+        //Setup
+        this._myMultiplePressMaxDelay = 0.3;
+        this._myMultipleTouchMaxDelay = 0.3;
+    }
+
+    /**
+     * @returns {PP.Handedness}
+     */
+    getHandedness() {
+        return this._myHandedness;
     }
 
     /**
@@ -155,7 +223,7 @@ PP.Gamepad = class Gamepad {
      * @returns {PP.ButtonInfo}
      */
     getButtonInfo(buttonType) {
-        return this.myButtonInfos[buttonType].clone();
+        return this._myButtonInfos[buttonType].clone();
     }
 
     /**
@@ -181,7 +249,7 @@ PP.Gamepad = class Gamepad {
      * @returns {PP.AxesInfo}
      */
     getAxesInfo() {
-        return this.myAxesInfo.clone();
+        return this._myAxesInfo.clone();
     }
 
     /**
@@ -206,7 +274,7 @@ PP.Gamepad = class Gamepad {
      */
     isGamepadActive() {
         //connected == null is to fix webxr emulator that leaves that field undefined
-        return this.myGamepad != null && (this.myGamepad.connected == null || this.myGamepad.connected);
+        return this._myIsXRSessionActive && this._myGamepad != null && (this._myGamepad.connected == null || this._myGamepad.connected);
     }
 
     /**
@@ -214,28 +282,52 @@ PP.Gamepad = class Gamepad {
      * @param {number} intensity range from 0 to 1
      * @param {number} duration specified in seconds, 0 means 1 frame
      */
-    pulse(intensity, duration) {
-        this._myPulseData.myIntensity = Math.min(Math.max(intensity, 0), 1); //clamp 
-        this._myPulseData.myDuration = Math.max(duration, 0);
+    pulse(intensity, duration = 0) {
+        this._myPulseInfo.myIntensity = Math.min(Math.max(intensity, 0), 1); //clamp 
+        this._myPulseInfo.myDuration = Math.max(duration, 0);
     }
 
     stopPulse() {
-        this._myPulseData.myIntensity = 0;
-        this._myPulseData.myDuration = 0;
+        this._myPulseInfo.myIntensity = 0;
+        this._myPulseInfo.myDuration = 0;
+    }
+
+    isPulsing() {
+        return this._myPulseInfo.myIntensity > 0 || this._myPulseInfo.myDuration > 0;
+    }
+
+    getPulseInfo() {
+        return this._myPulseInfo.clone();
+    }
+
+    getMultiplePressMaxDelay() {
+        return this._myMultiplePressMaxDelay;
+    }
+
+    setMultiplePressMaxDelay(maxDelay) {
+        this._myMultiplePressMaxDelay = maxDelay;
+    }
+
+    getMultipleTouchMaxDelay() {
+        return this._myMultipleTouchMaxDelay;
+    }
+
+    setMultipleTouchMaxDelay(maxDelay) {
+        this._myMultipleTouchMaxDelay = maxDelay;
     }
 
     start() {
         if (WL.xrSession) {
-            this._setupVREvents(WL.xrSession);
-        } else {
-            WL.onXRSessionStart.push(this._setupVREvents.bind(this));
+            this._onXRSessionStart(true, WL.xrSession);
         }
+        WL.onXRSessionStart.push(this._onXRSessionStart.bind(this, false));
+        WL.onXRSessionEnd.push(this._onXRSessionEnd.bind(this));
     }
 
     update(dt) {
         this._preUpdateButtonInfos();
         this._updateButtonInfos();
-        this._postUpdateButtonInfos();
+        this._postUpdateButtonInfos(dt);
 
         this._preUpdateAxesInfos();
         this._updateAxesInfos();
@@ -245,9 +337,9 @@ PP.Gamepad = class Gamepad {
     }
 
     _preUpdateButtonInfos() {
-        this.myButtonInfos.forEach(function (item) {
-            item.myIsPrevPressed = item.myIsPressed;
-            item.myIsPrevTouched = item.myIsTouched;
+        this._myButtonInfos.forEach(function (item) {
+            item.myPrevIsPressed = item.myIsPressed;
+            item.myPrevIsTouched = item.myIsTouched;
             item.myPrevValue = item.myValue;
         });
     }
@@ -263,7 +355,7 @@ PP.Gamepad = class Gamepad {
 
     //This sadly must be done this way to be the most compatible
     _updateSelectAndSqueezePressed() {
-        let buttonSelect = this.myButtonInfos[PP.ButtonType.SELECT];
+        let buttonSelect = this._myButtonInfos[PP.ButtonType.SELECT];
 
         if (this._mySelectStart) {
             buttonSelect.myIsPressed = true;
@@ -272,7 +364,7 @@ PP.Gamepad = class Gamepad {
             buttonSelect.myIsPressed = false;
         }
 
-        let buttonSqueeze = this.myButtonInfos[PP.ButtonType.SQUEEZE];
+        let buttonSqueeze = this._myButtonInfos[PP.ButtonType.SQUEEZE];
         if (this._mySqueezeStart) {
             buttonSqueeze.myIsPressed = true;
         }
@@ -280,10 +372,15 @@ PP.Gamepad = class Gamepad {
         if (this._mySqueezeEnd) {
             buttonSqueeze.myIsPressed = false;
         }
+
+        if (!this.isGamepadActive()) {
+            buttonSelect.myIsPressed = false;
+            buttonSqueeze.myIsPressed = false;
+        }
     }
 
     _updateSingleButtonInfo(buttonType, updatePressed) {
-        let button = this.myButtonInfos[buttonType];
+        let button = this._myButtonInfos[buttonType];
         let internalButton = this._getInternalButton(buttonType);
 
         if (updatePressed) {
@@ -294,18 +391,96 @@ PP.Gamepad = class Gamepad {
         button.myValue = internalButton.value;
     }
 
-    _postUpdateButtonInfos() {
+    _postUpdateButtonInfos(dt) {
+        this._myButtonInfos.forEach(function (item) {
+            if (item.myIsPressed) {
+                item.myTimePressed += dt;
+                if (!item.myPrevIsPressed) {
+                    item.myMultiplePressStartCount += 1;
+
+                    item.myPrevTimeNotPressed = item.myTimeNotPressed;
+                    item.myTimeNotPressed = 0;
+                }
+
+                if (item.myPrevTimeNotPressed + item.myTimePressed > this._myMultiplePressMaxDelay && item.myMultiplePressEndCount > 0) {
+                    item.myPrevMultiplePressEndCount = item.myMultiplePressEndCount;
+                    item.myMultiplePressEndCount = 0;
+                }
+
+                if (item.myTimePressed > this._myMultiplePressMaxDelay && item.myMultiplePressStartCount > 0) {
+                    item.myPrevMultiplePressStartCount = item.myMultiplePressStartCount;
+                    item.myMultiplePressStartCount = 0;
+                }
+            } else {
+                item.myTimeNotPressed += dt;
+                if (item.myPrevIsPressed) {
+                    item.myMultiplePressEndCount += 1;
+
+                    item.myPrevTimePressed = item.myTimePressed;
+                    item.myTimePressed = 0;
+                }
+
+                if (item.myPrevTimePressed + item.myTimeNotPressed > this._myMultiplePressMaxDelay && item.myMultiplePressStartCount > 0) {
+                    item.myPrevMultiplePressStartCount = item.myMultiplePressStartCount;
+                    item.myMultiplePressStartCount = 0;
+                }
+
+                if (item.myTimeNotPressed > this._myMultiplePressMaxDelay && item.myMultiplePressEndCount > 0) {
+                    item.myPrevMultiplePressEndCount = item.myMultiplePressEndCount;
+                    item.myMultiplePressEndCount = 0;
+                }
+            }
+
+            if (item.myIsTouched) {
+                item.myTimeTouched += dt;
+                if (!item.myPrevIsTouched) {
+                    item.myMultipleTouchStartCount += 1;
+
+                    item.myPrevTimeNotTouched = item.myTimeNotTouched;
+                    item.myTimeNotTouched = 0;
+                }
+
+                if (item.myPrevTimeNotTouched + item.myTimeTouched > this._myMultipleTouchMaxDelay && item.myMultipleTouchEndCount > 0) {
+                    item.myPrevMultipleTouchEndCount = item.myMultipleTouchEndCount;
+                    item.myMultipleTouchEndCount = 0;
+                }
+
+                if (item.myTimeTouched > this._myMultipleTouchMaxDelay && item.myMultipleTouchStartCount > 0) {
+                    item.myPrevMultipleTouchStartCount = item.myMultipleTouchStartCount;
+                    item.myMultipleTouchStartCount = 0;
+                }
+            } else {
+                item.myTimeNotTouched += dt;
+                if (item.myPrevIsTouched) {
+                    item.myMultipleTouchEndCount += 1;
+
+                    item.myPrevTimeTouched = item.myTimeTouched;
+                    item.myTimeTouched = 0;
+                }
+
+                if (item.myPrevTimeTouched + item.myTimeNotTouched > this._myMultipleTouchMaxDelay && item.myMultipleTouchStartCount > 0) {
+                    item.myPrevMultipleTouchStartCount = item.myMultipleTouchStartCount;
+                    item.myMultipleTouchStartCount = 0;
+                }
+
+                if (item.myTimeNotTouched > this._myMultipleTouchMaxDelay && item.myMultipleTouchEndCount > 0) {
+                    item.myPrevMultipleTouchEndCount = item.myMultipleTouchEndCount;
+                    item.myMultipleTouchEndCount = 0;
+                }
+            }
+        }.bind(this));
+
         for (let typeKey in PP.ButtonType) {
-            let buttonInfo = this.myButtonInfos[PP.ButtonType[typeKey]];
+            let buttonInfo = this._myButtonInfos[PP.ButtonType[typeKey]];
             let buttonCallbacks = this._myButtonCallbacks[PP.ButtonType[typeKey]];
 
             //PRESSED
-            if (buttonInfo.myIsPressed && !buttonInfo.myIsPrevPressed) {
+            if (buttonInfo.myIsPressed && !buttonInfo.myPrevIsPressed) {
                 let callbacksMap = buttonCallbacks[PP.ButtonEvent.PRESS_START];
                 this._triggerCallbacks(callbacksMap, buttonInfo);
             }
 
-            if (!buttonInfo.myIsPressed && buttonInfo.myIsPrevPressed) {
+            if (!buttonInfo.myIsPressed && buttonInfo.myPrevIsPressed) {
                 let callbacksMap = buttonCallbacks[PP.ButtonEvent.PRESS_END];
                 this._triggerCallbacks(callbacksMap, buttonInfo);
             }
@@ -319,12 +494,12 @@ PP.Gamepad = class Gamepad {
             }
 
             //TOUCHED
-            if (buttonInfo.myIsTouched && !buttonInfo.myIsPrevTouched) {
+            if (buttonInfo.myIsTouched && !buttonInfo.myPrevIsTouched) {
                 let callbacksMap = buttonCallbacks[PP.ButtonEvent.TOUCH_START];
                 this._triggerCallbacks(callbacksMap, buttonInfo);
             }
 
-            if (!buttonInfo.myIsTouched && buttonInfo.myIsPrevTouched) {
+            if (!buttonInfo.myIsTouched && buttonInfo.myPrevIsTouched) {
                 let callbacksMap = buttonCallbacks[PP.ButtonEvent.TOUCH_END];
                 this._triggerCallbacks(callbacksMap, buttonInfo);
             }
@@ -355,48 +530,48 @@ PP.Gamepad = class Gamepad {
     }
 
     _preUpdateAxesInfos() {
-        this.myAxesInfo.myPrevAxes = this.myAxesInfo.myAxes;
+        this._myAxesInfo.myPrevAxes = this._myAxesInfo.myAxes;
     }
 
     _updateAxesInfos() {
-        this.myAxesInfo.myAxes = this._getInternalAxes();
+        this._myAxesInfo.myAxes = this._getInternalAxes();
     }
 
     _postUpdateAxesInfos() {
         //X CHANGED
-        if (this.myAxesInfo.myAxes[0] != this.myAxesInfo.myPrevAxes[0]) {
+        if (this._myAxesInfo.myAxes[0] != this._myAxesInfo.myPrevAxes[0]) {
             let callbacksMap = this._myAxesCallbacks[PP.AxesEvent.X_CHANGED];
-            this._triggerCallbacks(callbacksMap, this.myAxesInfo);
+            this._triggerCallbacks(callbacksMap, this._myAxesInfo);
         }
 
         //Y CHANGED
-        if (this.myAxesInfo.myAxes[1] != this.myAxesInfo.myPrevAxes[1]) {
+        if (this._myAxesInfo.myAxes[1] != this._myAxesInfo.myPrevAxes[1]) {
             let callbacksMap = this._myAxesCallbacks[PP.AxesEvent.Y_CHANGED];
-            this._triggerCallbacks(callbacksMap, this.myAxesInfo);
+            this._triggerCallbacks(callbacksMap, this._myAxesInfo);
         }
 
         //AXES CHANGED
-        if (!glMatrix.vec2.exactEquals(this.myAxesInfo.myAxes, this.myAxesInfo.myPrevAxes)) {
+        if (!glMatrix.vec2.exactEquals(this._myAxesInfo.myAxes, this._myAxesInfo.myPrevAxes)) {
             let callbacksMap = this._myAxesCallbacks[PP.AxesEvent.AXES_CHANGED];
-            this._triggerCallbacks(callbacksMap, this.myAxesInfo);
+            this._triggerCallbacks(callbacksMap, this._myAxesInfo);
         }
 
         //ALWAYS        
         let callbacksMap = this._myAxesCallbacks[PP.AxesEvent.ALWAYS];
-        this._triggerCallbacks(callbacksMap, this.myAxesInfo);
+        this._triggerCallbacks(callbacksMap, this._myAxesInfo);
     }
 
     _getInternalButton(buttonType) {
         let buttonData = { pressed: false, touched: false, value: 0 };
         if (this.isGamepadActive()) {
-            if (buttonType < this.myGamepad.buttons.length) {
-                let gamepadButton = this.myGamepad.buttons[buttonType];
+            if (buttonType < this._myGamepad.buttons.length) {
+                let gamepadButton = this._myGamepad.buttons[buttonType];
                 buttonData.pressed = gamepadButton.pressed;
                 buttonData.touched = gamepadButton.touched;
                 buttonData.value = gamepadButton.value;
-            } else if (buttonType == PP.ButtonType.BOTTOM_BUTTON && this.myGamepad.buttons.length >= 3) {
+            } else if (buttonType == PP.ButtonType.BOTTOM_BUTTON && this._myGamepad.buttons.length >= 3) {
                 //This way if you are using a basic touch controller bottom button will work anyway
-                let touchButton = this.myGamepad.buttons[2];
+                let touchButton = this._myGamepad.buttons[2];
                 buttonData.pressed = touchButton.pressed;
                 buttonData.touched = touchButton.touched;
                 buttonData.value = touchButton.value;
@@ -409,7 +584,7 @@ PP.Gamepad = class Gamepad {
     _getInternalAxes() {
         let axes = [0.0, 0.0];
         if (this.isGamepadActive()) {
-            let internalAxes = this.myGamepad.axes;
+            let internalAxes = this._myGamepad.axes;
             if (internalAxes.length == 4) {
                 //in this case it could be both touch axes or thumbstick axes, that depends on the controller
                 //to support both I simply choose the absolute max value (unused axes will always be 0)
@@ -432,10 +607,10 @@ PP.Gamepad = class Gamepad {
                 axes[0] = internalAxes[0];
                 axes[1] = internalAxes[1];
             }
-        }
 
-        //y axis is recorder negative when thumbstick is pressed forward for weird reasons
-        axes[1] = -axes[1];
+            //y axis is recorder negative when thumbstick is pressed forward for weird reasons
+            axes[1] = -axes[1];
+        }
 
         return axes;
     }
@@ -443,19 +618,19 @@ PP.Gamepad = class Gamepad {
     _updatePulse(dt) {
         let hapticActuator = this._getHapticActuator();
         if (hapticActuator) {
-            if (this._myPulseData.myIntensity > 0) {
-                hapticActuator.pulse(this._myPulseData.myIntensity, 1000); //duration is managed by this class
-                this._myPulseData.myIsPulsing = true;
-            } else if (this._myPulseData.myIsPulsing) {
+            if (this._myPulseInfo.myIntensity > 0) {
+                hapticActuator.pulse(this._myPulseInfo.myIntensity, 1000); //duration is managed by this class
+                this._myPulseInfo.myIsDevicePulsing = true;
+            } else if (this._myPulseInfo.myIsDevicePulsing) {
                 hapticActuator.reset();
-                this._myPulseData.myIsPulsing = false;
+                this._myPulseInfo.myIsDevicePulsing = false;
             }
         }
 
-        this._myPulseData.myDuration -= dt;
-        if (this._myPulseData.myDuration <= 0) {
-            this._myPulseData.myIntensity = 0;
-            this._myPulseData.myDuration = 0;
+        this._myPulseInfo.myDuration -= dt;
+        if (this._myPulseInfo.myDuration <= 0) {
+            this._myPulseInfo.myIntensity = 0;
+            this._myPulseInfo.myDuration = 0;
         }
     }
 
@@ -463,80 +638,90 @@ PP.Gamepad = class Gamepad {
         let hapticActuator = null;
 
         if (this.isGamepadActive()) {
-            if (this.myGamepad.hapticActuators && this.myGamepad.hapticActuators.length > 0) {
-                hapticActuator = this.myGamepad.hapticActuators[0];
+            if (this._myGamepad.hapticActuators && this._myGamepad.hapticActuators.length > 0) {
+                hapticActuator = this._myGamepad.hapticActuators[0];
             } else {
-                hapticActuator = this.myGamepad.vibrationActuator;
+                hapticActuator = this._myGamepad.vibrationActuator;
             }
         }
 
         return hapticActuator;
     }
 
-    _setupVREvents(s) {
-        this.mySession = s;
-
-        this.mySession.addEventListener('end', function (event) {
-            this.mySession = null;
-            this.myInputSource = null;
-            this.myGamepad = null;
-        }.bind(this));
-
-        this.mySession.addEventListener('inputsourceschange', function (event) {
+    _onXRSessionStart(manualStart, session) {
+        session.addEventListener("inputsourceschange", function (event) {
             if (event.removed) {
                 for (let item of event.removed) {
-                    if (item.gamepad == this.myGamepad) {
-                        this.myInputSource = null;
-                        this.myGamepad = null;
+                    if (item.gamepad == this._myGamepad) {
+                        this._myInputSource = null;
+                        this._myGamepad = null;
                     }
                 }
             }
 
             if (event.added) {
                 for (let item of event.added) {
-                    if (item.handedness == this.myHandedness) {
-                        this.myInputSource = item;
-                        this.myGamepad = item.gamepad;
+                    if (item.handedness == this._myHandedness) {
+                        this._myInputSource = item;
+                        this._myGamepad = item.gamepad;
                     }
                 }
             }
         }.bind(this));
 
-        this.mySession.addEventListener('selectstart', this._selectStart.bind(this));
-        this.mySession.addEventListener('selectend', this._selectEnd.bind(this));
+        if (manualStart && this._myInputSource == null && session.inputSources) {
+            for (let item of session.inputSources) {
+                if (item.handedness == this._myHandedness) {
+                    this._myInputSource = item;
+                    this._myGamepad = item.gamepad;
+                }
+            }
+        }
 
-        this.mySession.addEventListener('squeezestart', this._squeezeStart.bind(this));
-        this.mySession.addEventListener('squeezeend', this._squeezeEnd.bind(this));
+        session.addEventListener("selectstart", this._selectStart.bind(this));
+        session.addEventListener("selectend", this._selectEnd.bind(this));
+
+        session.addEventListener("squeezestart", this._squeezeStart.bind(this));
+        session.addEventListener("squeezeend", this._squeezeEnd.bind(this));
+
+        this._myIsXRSessionActive = true;
+    }
+
+    _onXRSessionEnd(session) {
+        this._myInputSource = null;
+        this._myGamepad = null;
+
+        this._myIsXRSessionActive = false;
     }
 
     //Select and Squeeze are managed this way to be more compatible
     _selectStart(event) {
-        if (event.inputSource.handedness == this.myHandedness) {
+        if (event.inputSource.handedness == this._myHandedness) {
             this._mySelectStart = true;
         }
     }
 
     _selectEnd(event) {
-        if (event.inputSource.handedness == this.myHandedness) {
+        if (event.inputSource.handedness == this._myHandedness) {
             this._mySelectEnd = true;
         }
     }
 
     _squeezeStart(event) {
-        if (event.inputSource.handedness == this.myHandedness) {
+        if (event.inputSource.handedness == this._myHandedness) {
             this._mySqueezeStart = true;
         }
     }
 
     _squeezeEnd(event) {
-        if (event.inputSource.handedness == this.myHandedness) {
+        if (event.inputSource.handedness == this._myHandedness) {
             this._mySqueezeEnd = true;
         }
     }
 
     _triggerCallbacks(callbacksMap, info) {
-        for (let value of callbacksMap.values()) {
-            value(info, this);
+        for (let callback of callbacksMap.values()) {
+            callback(info, this);
         }
     }
 };
