@@ -1,6 +1,6 @@
 WL.registerComponent('pp-tool-cursor', {
     _myHandedness: { type: WL.Type.Enum, values: ['left', 'right'], default: 'left' },
-    _myPulseOnHover: { type: WL.Type.Bool, default: true },
+    _myPulseOnHover: { type: WL.Type.Bool, default: false },
     _myShowFingerCursor: { type: WL.Type.Bool, default: false },
     _myCursorMesh: { type: WL.Type.Mesh, default: null },
     _myCursorMaterial: { type: WL.Type.Material, default: null }

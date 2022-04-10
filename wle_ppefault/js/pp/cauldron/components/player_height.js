@@ -2,7 +2,8 @@ WL.registerComponent("pp-player-height", {
     _myEyesHeight: { type: WL.Type.Float, default: 1.65 }
 }, {
     start: function () {
-        this.object.setTranslationLocal([0, this._myEyesHeight, 0]);
+        let localPosition = this.object.pp_getPositionLocal();
+        this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
 
         if (WL.xrSession) {
             this._onXRSessionStart(WL.xrSession);
@@ -11,13 +12,15 @@ WL.registerComponent("pp-player-height", {
         WL.onXRSessionEnd.push(this._onXRSessionEnd.bind(this));
     },
     _onXRSessionStart: function () {
-        if (!["local", "viewer"].includes(WebXR.refSpace)) {
-            this.object.resetTranslation();
+        let localPosition = this.object.pp_getPositionLocal();
+        if (PP.XRUtils.isReferenceSpaceLocalFloor()) {
+            this.object.setPositionLocal([localPosition[0], 0, localPosition[2]]);
+        } else {
+            this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
         }
     },
     _onXRSessionEnd: function () {
-        if (!["local", "viewer"].includes(WebXR.refSpace)) {
-            this.object.setTranslationLocal([0, this._myEyesHeight, 0]);
-        }
+        let localPosition = this.object.pp_getPositionLocal();
+        this.object.setPositionLocal([localPosition[0], this._myEyesHeight, localPosition[2]]);
     }
 });

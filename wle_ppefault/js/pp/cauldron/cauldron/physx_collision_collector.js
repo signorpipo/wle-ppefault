@@ -20,6 +20,11 @@ PP.PhysXCollisionCollector = class PhysXCollisionCollector {
         this._myDebugActive = false;
 
         this._myTriggerDesyncFixDelay = new PP.Timer(0.1);
+
+        this._myCollisionCallbacks = new Map();          // Signature: callback(thisPhysX, otherPhysX, collisionType)
+        this._myCollisionStartCallbacks = new Map();     // Signature: callback(thisPhysX, otherPhysX, collisionType)
+        this._myCollisionEndCallbacks = new Map();       // Signature: callback(thisPhysX, otherPhysX, collisionType)
+
     }
 
     getPhysX() {
@@ -94,11 +99,39 @@ PP.PhysXCollisionCollector = class PhysXCollisionCollector {
         this._myDebugActive = active;
     }
 
+    registerCollisionEventListener(callbackID, callback) {
+        this._myCollisionCallbacks.set(callbackID, callback);
+    }
+
+    unregisterCollisionEventListener(callbackID) {
+        this._myCollisionCallbacks.delete(callbackID);
+    }
+
+    registerCollisionStartEventListener(callbackID, callback) {
+        this._myCollisionStartCallbacks.set(callbackID, callback);
+    }
+
+    unregisterCollisionStartEventListener(callbackID) {
+        this._myCollisionStartCallbacks.delete(callbackID);
+    }
+
+    registerCollisionEndEventListener(callbackID, callback) {
+        this._myCollisionEndCallbacks.set(callbackID, callback);
+    }
+
+    unregisterCollisionEndEventListener(callbackID) {
+        this._myCollisionEndCallbacks.delete(callbackID);
+    }
+
     _onCollision(type, physXComponent) {
         if (type == WL.CollisionEventType.Touch || type == WL.CollisionEventType.TriggerTouch) {
             this._onCollisionStart(physXComponent);
         } else if (type == WL.CollisionEventType.TouchLost || type == WL.CollisionEventType.TriggerTouchLost) {
             this._onCollisionEnd(physXComponent);
+        }
+
+        if (this._myCollisionCallbacks.size > 0) {
+            this._myCollisionCallbacks.forEach(function (callback) { callback(this._myPhysX, physXComponent, type); });
         }
     }
 
@@ -128,6 +161,10 @@ PP.PhysXCollisionCollector = class PhysXCollisionCollector {
 
         if (this._myDebugActive) {
             console.log("Collision Start -", this._myCollisions.length);
+        }
+
+        if (this._myCollisionStartCallbacks.size > 0) {
+            this._myCollisionStartCallbacks.forEach(function (callback) { callback(this._myPhysX, physXComponent, type); });
         }
     }
 
@@ -160,6 +197,10 @@ PP.PhysXCollisionCollector = class PhysXCollisionCollector {
 
         if (this._myDebugActive) {
             console.log("Collision End -", this._myCollisions.length);
+        }
+
+        if (this._myCollisionEndCallbacks.size > 0) {
+            this._myCollisionEndCallbacks.forEach(function (callback) { callback(this._myPhysX, physXComponent, type); });
         }
     }
 

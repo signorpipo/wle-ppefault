@@ -99,7 +99,7 @@ PP.EasyTuneWidget = class EasyTuneWidget {
                 this._myCurrentWidget.update(dt);
             }
 
-            if (this._myAdditionalSetup.myEnableChangeVariableShortcut) {
+            if (this._myAdditionalSetup.myEnableGamepadScrollVariable) {
                 this._updateGamepadScrollVariable(dt);
             }
         }

@@ -4,7 +4,12 @@ PP.AudioManager = class AudioManager {
     }
 
     createAudioPlayer(audioSetupID) {
-        return new PP.AudioPlayer(this.getAudioSetup(audioSetupID));
+        let audioSetup = this.getAudioSetup(audioSetupID);
+        if (audioSetup != null) {
+            return new PP.AudioPlayer(this.getAudioSetup(audioSetupID));
+        }
+
+        return null;
     }
 
     getAudioSetup(id) {

@@ -2,8 +2,8 @@ WL.registerComponent('pp-console-vr', {
     _myHandedness: { type: WL.Type.Enum, values: ['none', 'left', 'right'], default: 'none' },
     _myOverrideBrowserConsole: { type: WL.Type.Bool, default: true },
     _myShowOnStart: { type: WL.Type.Bool, default: false },
-    _myShowVisibilityButton: { type: WL.Type.Bool, default: true },
-    _myPulseOnNewMessage: { type: WL.Type.Enum, values: ['never', 'always', 'when hidden'], default: 'when hidden' },
+    _myShowVisibilityButton: { type: WL.Type.Bool, default: false },
+    _myPulseOnNewMessage: { type: WL.Type.Enum, values: ['never', 'always', 'when hidden'], default: 'never' },
     _myPlaneMaterial: { type: WL.Type.Material, default: null },
     _myTextMaterial: { type: WL.Type.Material, default: null }
 }, {

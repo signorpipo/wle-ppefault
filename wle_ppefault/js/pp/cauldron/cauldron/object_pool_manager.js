@@ -42,13 +42,15 @@ PP.ObjectPoolManager = class ObjectPoolManager {
 PP.ObjectPoolParams = class ObjectPoolParams {
     constructor() {
         this.myInitialPoolSize = 0;
-        this.myAmountToAddWhenEmpty = 1;  //If all the objects are busy, this amount will be added to the pool
+        this.myAmountToAddWhenEmpty = 1;        //If all the objects are busy, this amount will be added to the pool
         this.myPercentageToAddWhenEmpty = 0.5;  //If all the objects are busy, this percentage of the current pool size will be added to the pool
 
         this.myCloneParams = undefined;
         this.myCloneFunctionName = undefined;
         this.mySetActiveFunctionName = undefined;
         this.myEqualsFunctionName = undefined;
+
+        this.myEnableDebugLog = true;
     }
 };
 
@@ -69,11 +71,14 @@ PP.ObjectPool = class ObjectPool {
         if (object == null) {
             let amountToAdd = Math.ceil(this._myBusyObjects.length * this._myObjectPoolParams.myPercentageToAddWhenEmpty);
             amountToAdd += this._myObjectPoolParams.myAmountToAddWhenEmpty;
-            this._addToPool(amountToAdd, true);
+            this._addToPool(amountToAdd, this._myObjectPoolParams.myEnableDebugLog);
             object = this._myAvailableObjects.shift();
         }
 
-        this._myBusyObjects.push(object);
+        //object could still be null if the amountToAdd is 0
+        if (object != null) {
+            this._myBusyObjects.push(object);
+        }
 
         return object;
     }
@@ -96,6 +101,10 @@ PP.ObjectPool = class ObjectPool {
     }
 
     _addToPool(size, log) {
+        if (size <= 0) {
+            return;
+        }
+
         for (let i = 0; i < size; i++) {
             this._myAvailableObjects.push(this._clone(this._myPrototype));
         }
