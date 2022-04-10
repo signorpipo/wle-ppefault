@@ -1,4 +1,4 @@
-WL.registerComponent('pp-debug-global-data', {
+WL.registerComponent('pp-debug-data', {
     _myCubeMesh: { type: WL.Type.Mesh },
     _myFlatMaterial: { type: WL.Type.Material },
 }, {
