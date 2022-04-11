@@ -298,6 +298,10 @@ PP.SaveManager = class SaveManager {
         let valueIDMap = this._myDeleteIDCallbacks.get(valueID);
         if (valueIDMap != null) {
             valueIDMap.delete(callbackID);
+
+            if (valueIDMap.size <= 0) {
+                this._myDeleteIDCallbacks.delete(valueID);
+            }
         }
     }
 
@@ -323,6 +327,10 @@ PP.SaveManager = class SaveManager {
         let valueIDMap = this._mySaveIDCallbacks.get(valueID);
         if (valueIDMap != null) {
             valueIDMap.delete(callbackID);
+
+            if (valueIDMap.size <= 0) {
+                this._mySaveIDCallbacks.delete(valueID);
+            }
         }
     }
 
@@ -348,6 +356,10 @@ PP.SaveManager = class SaveManager {
         let valueIDMap = this._mySaveValueChangedIDCallbacks.get(valueID);
         if (valueIDMap != null) {
             valueIDMap.delete(callbackID);
+
+            if (valueIDMap.size <= 0) {
+                this._mySaveValueChangedIDCallbacks.delete(valueID);
+            }
         }
     }
 
@@ -381,6 +393,10 @@ PP.SaveManager = class SaveManager {
         let valueIDMap = this._myCommitSaveIDCallbacks.get(valueID);
         if (valueIDMap != null) {
             valueIDMap.delete(callbackID);
+
+            if (valueIDMap.size <= 0) {
+                this._myCommitSaveIDCallbacks.delete(valueID);
+            }
         }
     }
 
@@ -406,6 +422,10 @@ PP.SaveManager = class SaveManager {
         let valueIDMap = this._myLoadIDCallbacks.get(valueID);
         if (valueIDMap != null) {
             valueIDMap.delete(callbackID);
+
+            if (valueIDMap.size <= 0) {
+                this._myLoadIDCallbacks.delete(valueID);
+            }
         }
     }
 };

@@ -486,6 +486,10 @@ PP.FSM = class FSM {
         let iniStateIDMap = this._myInitIDCallbacks.get(iniStateID);
         if (iniStateIDMap != null) {
             iniStateIDMap.delete(callbackID);
+
+            if (iniStateIDMap.size <= 0) {
+                this._myInitIDCallbacks.delete(iniStateID);
+            }
         }
     }
 
@@ -534,6 +538,10 @@ PP.FSM = class FSM {
 
         if (transitionIDMap != null) {
             transitionIDMap.delete(callbackID);
+
+            if (transitionIDMap.size <= 0) {
+                this._myTransitionIDCallbacks.pp_remove(element => element[0] == fromStateID && element[1] == toStateID && element[2] == transitionID);
+            }
         }
     }
 

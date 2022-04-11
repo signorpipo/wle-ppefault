@@ -260,9 +260,7 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.doUpdate = functi
             this.cursorObject.setTranslationWorld(this.cursorPos);
             this._setCursorRayTransform(this.cursorPos);
         } else {
-            this._setCursorVisibility(false);
-
-            if (this.cursorRayObject) {
+            if (this.visible && this.cursorRayObject) {
                 this.object.getTranslationWorld(this.origin);
                 this.object.getForward(this.direction);
                 this._setCursorRayTransform([
@@ -270,6 +268,8 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.doUpdate = functi
                     this.origin[1] + this.direction[1],
                     this.origin[2] + this.direction[2]]);
             }
+
+            this._setCursorVisibility(false);
         }
 
         if (this.cursorRayObject) {
