@@ -22,6 +22,8 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.update = function
     }
 
     this.doUpdate(false);
+
+    this.isUpWithNoDown = false;
 };
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onSelect = function (e) {
@@ -34,15 +36,20 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onSelectStart = f
             this.isDown = true;
         }
     }
+    this.isRealDown = true;
 };
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onSelectEnd = function (e) {
     if (this.active) {
         this.arTouchDown = false;
         if (e.inputSource.handedness == this.handedness) {
+            if (!this.isDown) {
+                this.isUpWithNoDown = true;
+            }
             this.isDown = false;
         }
     }
+    this.isRealDown = false;
 };
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = function (rayHit, doClick) {
@@ -53,10 +60,10 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
                 let cursorTarget = this.hoveringObject.getComponent("cursor-target");
                 if (cursorTarget) cursorTarget.onUnhover(this.hoveringObject, this);
                 this.globalTarget.onUnhover(this.hoveringObject, this);
-
-                this.isDown = false;
-                this.lastIsDown = false;
             }
+
+            this.isDown = false;
+            this.lastIsDown = false;
 
             /* Hover new object */
             this.hoveringObject = rayHit.objects[0];
@@ -68,6 +75,11 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
                 cursorTarget.onHover(this.hoveringObject, this);
             }
             this.globalTarget.onHover(this.hoveringObject, this);
+
+            if (this.isRealDown) {
+                if (cursorTarget) cursorTarget.onDownOnHover(this.hoveringObject, this);
+                this.globalTarget.onDownOnHover(this.hoveringObject, this);
+            }
         }
 
         if (this.hoveringObjectTarget) {
@@ -77,13 +89,12 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
         let cursorTarget = this.hoveringObject.getComponent("cursor-target");
 
         /* Cursor down */
-        if (this.isDown !== this.lastIsDown) {
-            if (this.isDown) {
-                if (cursorTarget) cursorTarget.onDown(this.hoveringObject, this);
-                this.globalTarget.onDown(this.hoveringObject, this);
-            }
+        if (this.isDown !== this.lastIsDown && this.isDown) {
+            if (cursorTarget) cursorTarget.onDown(this.hoveringObject, this);
+            this.globalTarget.onDown(this.hoveringObject, this);
         }
 
+        let upDone = false;
         /* Click */
         if (this.isDown !== this.lastIsDown && !this.isDown) {
             if (this.tripleClickTimer > 0 && this.multipleClickObject && this.multipleClickObject.equals(this.hoveringObject)) {
@@ -106,8 +117,16 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
                 this.multipleClickObject = this.hoveringObject;
             }
 
+            /* Cursor up */
             if (cursorTarget) cursorTarget.onUp(this.hoveringObject, this);
             this.globalTarget.onUp(this.hoveringObject, this);
+
+            upDone = true;
+        }
+
+        if (this.isUpWithNoDown && !upDone) {
+            if (cursorTarget) cursorTarget.onUpWithNoDown(this.hoveringObject, this);
+            this.globalTarget.onUpWithNoDown(this.hoveringObject, this);
         }
     } else if (this.hoveringObject && rayHit.hitCount == 0) {
         let cursorTarget = this.hoveringObject.getComponent("cursor-target");
@@ -132,14 +151,15 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onDeactivate = fu
         const cursorTarget = this.hoveringObject.getComponent('cursor-target');
         if (cursorTarget) cursorTarget.onUnhover(this.hoveringObject, this);
         this.globalTarget.onUnhover(this.hoveringObject, this);
-
-        this.isDown = false;
-        this.lastIsDown = false;
-
-        this.hoveringObject = null;
-        this.hoveringObjectTarget = null;
-        if (this.styleCursor) WL.canvas.style.cursor = "default";
     }
+
+    this.hoveringObject = null;
+    this.hoveringObjectTarget = null;
+    if (this.styleCursor) WL.canvas.style.cursor = "default";
+
+    this.isDown = false;
+    this.lastIsDown = false;
+    this.isUpWithNoDown = false;
 
     this._setCursorVisibility(false);
     if (this.cursorRayObject) {
@@ -202,6 +222,8 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.start = function 
     this.visible = true;
     this.isDown = false;
     this.lastIsDown = false;
+    this.isUpWithNoDown = false;
+    this.isRealDown = false;
 
     this.cursorPos = new Float32Array(3);
     this.hoveringObject = null;

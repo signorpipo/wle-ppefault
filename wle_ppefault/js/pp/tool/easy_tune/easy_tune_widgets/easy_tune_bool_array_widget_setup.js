@@ -107,5 +107,7 @@ PP.EasyTuneBoolArrayWidgetSetup = class EasyTuneBoolArrayWidgetSetup {
 
         this.myThumbstickToggleThreshold = 0.6;
         this.myButtonEditDelay = 0;
+
+        this.myScrollVariableDelay = 0.5;
     }
 };

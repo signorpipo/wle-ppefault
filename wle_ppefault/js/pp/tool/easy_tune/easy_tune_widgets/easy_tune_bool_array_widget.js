@@ -19,6 +19,11 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
         this._myValueButtonEditIntensity = 0;
         this._myValueButtonEditIntensityTimer = 0;
         this._myValueEditActive = false;
+
+        this._myScrollVariableActive = false;
+        this._myScrollDirection = 0;
+        this._myScrollVariableTimer = 0;
+        this._myHasScrolled = false;
     }
 
     setEasyTuneVariable(variable, appendToVariableName) {
@@ -31,6 +36,21 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
         }
 
         this._refreshUI();
+    }
+
+    isScrollVariableActive() {
+        return this._myScrollVariableActive;
+    }
+
+    getScrollVariableDirection() {
+        return this._myScrollDirection;
+    }
+
+    setScrollVariableActive(active, scrollDirection) {
+        this._myScrollVariableActive = active;
+        this._myScrollDirection = scrollDirection;
+        this._myScrollVariableTimer = this._mySetup.myScrollVariableDelay;
+        this._myHasScrolled = false;
     }
 
     _refreshUI() {
@@ -70,6 +90,7 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
     update(dt) {
         if (this._isActive()) {
             this._updateValue(dt);
+            this._updateScrollVariable(dt);
         }
     }
 
@@ -97,6 +118,18 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
         }
     }
 
+    _updateScrollVariable(dt) {
+        if (this._myScrollVariableActive) {
+            if (this._myScrollVariableTimer <= 0) {
+                this._scrollVariableRequest(this._myScrollDirection);
+                this._myScrollVariableTimer = this._mySetup.myScrollVariableDelay;
+                this._myHasScrolled = true;
+            } else {
+                this._myScrollVariableTimer -= dt;
+            }
+        }
+    }
+
     _isActive() {
         return this._myIsVisible && this._myVariable;
     }
@@ -108,11 +141,19 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
         ui.myVariableLabelCursorTargetComponent.addHoverFunction(this._genericTextHover.bind(this, ui.myVariableLabelText));
         ui.myVariableLabelCursorTargetComponent.addUnHoverFunction(this._genericTextUnHover.bind(this, ui.myVariableLabelText, this._mySetup.myVariableLabelTextScale));
 
-        ui.myNextButtonCursorTargetComponent.addClickFunction(this._scrollVariableRequest.bind(this, 1));
+        ui.myNextButtonCursorTargetComponent.addDownFunction(this._setScrollVariableActive.bind(this, true, 1, false));
+        ui.myNextButtonCursorTargetComponent.addDownOnHoverFunction(this._setScrollVariableActive.bind(this, true, 1, false));
+        ui.myNextButtonCursorTargetComponent.addUpFunction(this._setScrollVariableActive.bind(this, false, 0, false));
+        ui.myNextButtonCursorTargetComponent.addUpWithNoDownFunction(this._setScrollVariableActive.bind(this, false, 0, true));
+        ui.myNextButtonCursorTargetComponent.addUnHoverFunction(this._setScrollVariableActive.bind(this, false, 0, true));
         ui.myNextButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myNextButtonBackgroundComponent.material));
         ui.myNextButtonCursorTargetComponent.addUnHoverFunction(this._genericUnHover.bind(this, ui.myNextButtonBackgroundComponent.material));
 
-        ui.myPreviousButtonCursorTargetComponent.addClickFunction(this._scrollVariableRequest.bind(this, -1));
+        ui.myPreviousButtonCursorTargetComponent.addDownFunction(this._setScrollVariableActive.bind(this, true, -1, false));
+        ui.myPreviousButtonCursorTargetComponent.addDownOnHoverFunction(this._setScrollVariableActive.bind(this, true, -1, false));
+        ui.myPreviousButtonCursorTargetComponent.addUpFunction(this._setScrollVariableActive.bind(this, false, 0, false));
+        ui.myPreviousButtonCursorTargetComponent.addUpWithNoDownFunction(this._setScrollVariableActive.bind(this, false, 0, true));
+        ui.myPreviousButtonCursorTargetComponent.addUnHoverFunction(this._setScrollVariableActive.bind(this, false, 0, true));
         ui.myPreviousButtonCursorTargetComponent.addHoverFunction(this._genericHover.bind(this, ui.myPreviousButtonBackgroundComponent.material));
         ui.myPreviousButtonCursorTargetComponent.addUnHoverFunction(this._genericUnHover.bind(this, ui.myPreviousButtonBackgroundComponent.material));
 
@@ -161,8 +202,21 @@ PP.EasyTuneBoolArrayWidget = class EasyTuneBoolArrayWidget {
         }
     }
 
+    _setScrollVariableActive(active, scrollDirection, skipForceScroll) {
+        if (this._isActive() || !active) {
+            let forceScroll = !active && !this._myHasScrolled && !skipForceScroll;
+            let oldScrollDirection = this._myScrollDirection;
+
+            this.setScrollVariableActive(active, scrollDirection);
+
+            if (forceScroll) {
+                this._scrollVariableRequest(oldScrollDirection);
+            }
+        }
+    }
+
     _scrollVariableRequest(amount) {
-        if (this._isActive()) {
+        if (this._isActive() && amount != 0) {
             for (let callback of this._myScrollVariableRequestCallbacks.values()) {
                 callback(amount);
             }

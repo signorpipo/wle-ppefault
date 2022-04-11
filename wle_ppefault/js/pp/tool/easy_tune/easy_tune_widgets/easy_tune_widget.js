@@ -129,19 +129,25 @@ PP.EasyTuneWidget = class EasyTuneWidget {
             return;
         }
 
+        let scrollVariableActive = false;
+        let scrollVariableDirection = 0;
+
         if (this._myCurrentWidget) {
+            scrollVariableActive = this._myCurrentWidget.isScrollVariableActive();
+            scrollVariableDirection = this._myCurrentWidget.getScrollVariableDirection();
+
             this._myCurrentWidget.setVisible(false);
         }
 
         if (this._myCurrentVariable.myType in this._myWidgets) {
             this._myCurrentWidget = this._myWidgets[this._myCurrentVariable.myType];
-            this._myCurrentWidget.setEasyTuneVariable(this._myCurrentVariable, this._createIndexString());
-            this._myCurrentWidget.setVisible(this._myWidgetFrame.myIsWidgetVisible);
         } else {
             this._myCurrentWidget = this._myWidgets[PP.EasyTuneVariableType.NONE];
-            this._myCurrentWidget.setEasyTuneVariable(this._myCurrentVariable, this._createIndexString());
-            this._myCurrentWidget.setVisible(this._myWidgetFrame.myIsWidgetVisible);
         }
+
+        this._myCurrentWidget.setEasyTuneVariable(this._myCurrentVariable, this._createIndexString());
+        this._myCurrentWidget.setVisible(this._myWidgetFrame.myIsWidgetVisible);
+        this._myCurrentWidget.setScrollVariableActive(scrollVariableActive, scrollVariableDirection);
     }
 
     _refreshEasyTuneVariables() {

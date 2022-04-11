@@ -83,5 +83,7 @@ PP.EasyTuneNoneWidgetSetup = class EasyTuneNoneWidgetSetup {
 
     _initializeRuntimeSetup() {
         this.myButtonHoverColor = [150 / 255, 150 / 255, 150 / 255, 1];
+
+        this.myScrollVariableDelay = 0.5;
     }
 };
