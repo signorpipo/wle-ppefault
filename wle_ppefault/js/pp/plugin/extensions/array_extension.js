@@ -31,7 +31,7 @@
         - the out parameter is always the last one
 
     List of methods:
-        Note:
+        Notes:
             - If a group of methods starts with ○ it means it modifies the variable itself
             - The suffixes (like Matrix or Radians) or prefixes (like degrees) are omitted 
 

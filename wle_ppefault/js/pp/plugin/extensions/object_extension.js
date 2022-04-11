@@ -34,7 +34,7 @@
         - the out parameter is always the last one
 
     List of methods:
-        Note:
+        Notes:
             - The suffixes (like World or Radians) are omitted 
 
         - pp_getPosition    / pp_setPosition    / pp_resetPosition
@@ -76,6 +76,9 @@
         - pp_destroy
 */
 
+if (!PP) {
+    var PP = {};
+}
 
 //GETTER
 
@@ -1813,10 +1816,6 @@ WL.Object.prototype.pp_hasUniformScaleLocal = function () {
 }();
 
 //Clone
-
-if (!PP) {
-    var PP = {};
-}
 
 PP.CloneParams = class CloneParams {
     constructor() {
