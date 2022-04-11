@@ -78,18 +78,14 @@
                     "type": "pp-console-vr",
                     "pp-console-vr": {
                         "_myHandedness": "left",
-                        "_myShowVisibilityButton": false,
                         "_myTextMaterial": "33",
-                        "_myPlaneMaterial": "32",
-                        "_myPulseOnNewMessage": "never"
+                        "_myPlaneMaterial": "32"
                     }
                 },
                 {
                     "type": "pp-easy-tune",
                     "pp-easy-tune": {
                         "_myHandedness": "left",
-                        "_myShowVisibilityButton": false,
-                        "_myEnableAdditionalButtons": true,
                         "_myPlaneMaterial": "32",
                         "_myTextMaterial": "33"
                     }

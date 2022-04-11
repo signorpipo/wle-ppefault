@@ -11,7 +11,7 @@ WL.registerComponent("pp-easy-set-tune-target-grab", {
         PP.myEasyTuneTarget = grabbable.object;
     },
     _onGrab: function (grabber, grabbable) {
-        PP.myEasyTuneTarget = null;
+        //PP.myEasyTuneTarget = null;
     },
     onActivate() {
         this._myGrabber.registerGrabEventListener(this, this._onGrab.bind(this));

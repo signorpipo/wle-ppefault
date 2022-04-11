@@ -2,7 +2,6 @@ WL.registerComponent('pp-easy-tune', {
     _myHandedness: { type: WL.Type.Enum, values: ['none', 'left', 'right'], default: 'none' },
     _myShowOnStart: { type: WL.Type.Bool, default: false },
     _myShowVisibilityButton: { type: WL.Type.Bool, default: false },
-    _myEnableAdditionalButtons: { type: WL.Type.Bool, default: true },
     _myEnableGamepadScrollVariable: { type: WL.Type.Bool, default: true },
     _myPlaneMaterial: { type: WL.Type.Material, default: null },
     _myTextMaterial: { type: WL.Type.Material, default: null }
@@ -29,7 +28,7 @@ WL.registerComponent('pp-easy-tune', {
         additionalSetup.myHandedness = [null, 'left', 'right'][this._myHandedness];
         additionalSetup.myShowOnStart = this._myShowOnStart;
         additionalSetup.myShowVisibilityButton = this._myShowVisibilityButton;
-        additionalSetup.myEnableAdditionalButtons = this._myEnableAdditionalButtons;
+        additionalSetup.myEnableAdditionalButtons = true;
         additionalSetup.myEnableGamepadScrollVariable = this._myEnableGamepadScrollVariable;
         additionalSetup.myPlaneMaterial = this._myPlaneMaterial;
         additionalSetup.myTextMaterial = this._myTextMaterial;

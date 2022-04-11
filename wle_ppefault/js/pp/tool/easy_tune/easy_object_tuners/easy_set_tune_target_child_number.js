@@ -49,12 +49,13 @@ WL.registerComponent("pp-easy-set-tune-target-child-number", {
 
             let childIndex = PP.myEasyTuneVariables.get(this._myEasyTuneVariableName);
             if (childIndex != this._myCurrentChildIndex) {
-                this._myCurrentChildIndex = childIndex;
-                if (this._myCurrentChildIndex == 0) {
+                if (childIndex == 0 && this._myCurrentChildIndex != -1) {
                     PP.myEasyTuneTarget = null;
-                } else {
-                    PP.myEasyTuneTarget = this.object.pp_getChildren()[this._myCurrentChildIndex - 1];
+                } else if (childIndex > 0) {
+                    PP.myEasyTuneTarget = this.object.pp_getChildren()[childIndex - 1];
                 }
+
+                this._myCurrentChildIndex = childIndex;
             }
         }
     }
