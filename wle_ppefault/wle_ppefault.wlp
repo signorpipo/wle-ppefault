@@ -226,7 +226,10 @@
             ],
             "components": [
                 {
-                    "type": "light"
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.075
+                    }
                 }
             ]
         },
@@ -235,7 +238,10 @@
             "parent": "28",
             "components": [
                 {
-                    "type": "light"
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.075
+                    }
                 }
             ],
             "transformation": [
