@@ -94,7 +94,6 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
             this.globalTarget.onDown(this.hoveringObject, this);
         }
 
-        let upDone = false;
         /* Click */
         if (this.isDown !== this.lastIsDown && !this.isDown) {
             if (this.tripleClickTimer > 0 && this.multipleClickObject && this.multipleClickObject.equals(this.hoveringObject)) {
@@ -116,15 +115,13 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.hoverBehaviour = 
                 this.doubleClickTimer = this.multipleClickDelay;
                 this.multipleClickObject = this.hoveringObject;
             }
-
-            /* Cursor up */
-            if (cursorTarget) cursorTarget.onUp(this.hoveringObject, this);
-            this.globalTarget.onUp(this.hoveringObject, this);
-
-            upDone = true;
         }
 
-        if (this.isUpWithNoDown && !upDone) {
+        /* Cursor up */
+        if (this.isDown !== this.lastIsDown && !this.isDown) {
+            if (cursorTarget) cursorTarget.onUp(this.hoveringObject, this);
+            this.globalTarget.onUp(this.hoveringObject, this);
+        } else if (this.isUpWithNoDown) {
             if (cursorTarget) cursorTarget.onUpWithNoDown(this.hoveringObject, this);
             this.globalTarget.onUpWithNoDown(this.hoveringObject, this);
         }
@@ -170,6 +167,10 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onDeactivate = fu
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onActivate = function () {
     this.showRay = true;
+
+    this.isDown = false;
+    this.lastIsDown = false;
+    this.isUpWithNoDown = false;
 };
 
 _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto._setCursorVisibility = function (visible) {
@@ -300,5 +301,44 @@ _WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.doUpdate = functi
                 this.showRay = false;
             }
         }
+    }
+};
+
+
+_WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onClick = function (e) {
+};
+
+_WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onPointerDown = function (e) {
+    if (this.active) {
+        /* Don't care about secondary pointers or non-left clicks */
+        if (!e.isPrimary || e.button !== 0) return;
+        const bounds = e.target.getBoundingClientRect();
+        const rayHit = this.updateMousePos(e.clientX, e.clientY, bounds.width, bounds.height);
+        this.isDown = true;
+        this.isRealDown = true;
+
+        this.hoverBehaviour(rayHit, false);
+    } else {
+        this.isRealDown = true;
+    }
+};
+
+_WL._componentTypes[_WL._componentTypeIndices["cursor"]].proto.onPointerUp = function (e) {
+    if (this.active) {
+        /* Don't care about secondary pointers or non-left clicks */
+        if (!e.isPrimary || e.button !== 0) return;
+        const bounds = e.target.getBoundingClientRect();
+        const rayHit = this.updateMousePos(e.clientX, e.clientY, bounds.width, bounds.height);
+
+        if (!this.isDown) {
+            this.isUpWithNoDown = true;
+        }
+
+        this.isDown = false;
+        this.isRealDown = false;
+
+        this.hoverBehaviour(rayHit, false);
+    } else {
+        this.isRealDown = false;
     }
 };
