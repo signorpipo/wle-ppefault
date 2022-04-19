@@ -1892,97 +1892,101 @@ PP.DeepCloneParams = class DeepCloneParams {
     }
 };
 
-WL.Object.prototype.pp_clone = function (params = new PP.CloneParams()) {
-    let clonedObject = null;
+WL.Object.prototype.pp_clone = function () {
+    let scale = glMatrix.vec3.create();
+    let transformQuat = glMatrix.quat2.create();
+    return function (params = new PP.CloneParams()) {
+        let clonedObject = null;
 
-    if (this.pp_isCloneable(params)) {
-        let objectsToCloneData = [];
-        objectsToCloneData.push([this.parent, this]);
+        if (this.pp_isCloneable(params)) {
+            let objectsToCloneData = [];
+            objectsToCloneData.push([this.parent, this]);
 
-        //Create object hierarchy
-        let objectsToCloneComponentsData = [];
-        while (objectsToCloneData.length > 0) {
-            let cloneData = objectsToCloneData.shift();
-            let parent = cloneData[0];
-            let objectToClone = cloneData[1];
+            //Create object hierarchy
+            let objectsToCloneComponentsData = [];
+            while (objectsToCloneData.length > 0) {
+                let cloneData = objectsToCloneData.shift();
+                let parent = cloneData[0];
+                let objectToClone = cloneData[1];
 
-            let currentClonedObject = WL.scene.addObject(parent);
-            currentClonedObject.name = objectToClone.name.slice(0);
+                let currentClonedObject = WL.scene.addObject(parent);
+                currentClonedObject.name = objectToClone.name;
 
-            currentClonedObject.pp_setScaleLocal(objectToClone.pp_getScaleLocal());
-            currentClonedObject.pp_setTransformLocalQuat(objectToClone.pp_getTransformLocalQuat());
+                currentClonedObject.pp_setScaleLocal(objectToClone.pp_getScaleLocal(scale));
+                currentClonedObject.pp_setTransformLocalQuat(objectToClone.pp_getTransformLocalQuat(transformQuat));
 
-            if (!params.myIgnoreComponents) {
-                objectsToCloneComponentsData.push([objectToClone, currentClonedObject]);
+                if (!params.myIgnoreComponents) {
+                    objectsToCloneComponentsData.push([objectToClone, currentClonedObject]);
+                }
+
+                if (!params.myIgnoreChildren) {
+                    for (let child of objectToClone.children) {
+                        let cloneChild = false;
+                        if (params.myChildrenToInclude.length > 0) {
+                            cloneChild = params.myChildrenToInclude.find(childToInclude => childToInclude.pp_equals(child)) != null;
+                        } else {
+                            cloneChild = params.myChildrenToIgnore.find(childToIgnore => childToIgnore.pp_equals(child)) == null;
+                        }
+
+                        if (cloneChild && params.myIgnoreChildCallback != null) {
+                            cloneChild = !params.myIgnoreChildCallback(child);
+                        }
+
+                        if (cloneChild) {
+                            objectsToCloneData.push([currentClonedObject, child]);
+                        }
+                    }
+                }
+
+                if (clonedObject == null) {
+                    clonedObject = currentClonedObject;
+                }
             }
 
-            if (!params.myIgnoreChildren) {
-                for (let child of objectToClone.children) {
-                    let cloneChild = false;
-                    if (params.myChildrenToInclude.length > 0) {
-                        cloneChild = params.myChildrenToInclude.find(childToInclude => childToInclude.pp_equals(child)) != null;
-                    } else {
-                        cloneChild = params.myChildrenToIgnore.find(childToIgnore => childToIgnore.pp_equals(child)) == null;
-                    }
+            //Create components
+            let componentsToCloneData = [];
+            while (objectsToCloneComponentsData.length > 0) {
+                let cloneData = objectsToCloneComponentsData.shift();
+                let objectToClone = cloneData[0];
+                let currentClonedObject = cloneData[1];
 
-                    if (cloneChild && params.myIgnoreChildCallback != null) {
-                        cloneChild = !params.myIgnoreChildCallback(child);
-                    }
+                let components = objectToClone.pp_getComponents();
+                for (let component of components) {
+                    if (component.pp_clone != null) {
+                        let cloneComponent = false;
+                        if (params.myComponentsToInclude.length > 0) {
+                            cloneComponent = params.myComponentsToInclude.indexOf(component.type) != -1;
+                        } else {
+                            cloneComponent = params.myComponentsToIgnore.indexOf(component.type) == -1;
+                        }
 
-                    if (cloneChild) {
-                        objectsToCloneData.push([currentClonedObject, child]);
+                        if (cloneComponent && params.myIgnoreComponentCallback != null) {
+                            cloneComponent = !params.myIgnoreComponentCallback(component);
+                        }
+
+                        if (cloneComponent) {
+                            //Not managing the fact that inactive components from editor haven't called start yet, but clones do, since there is no way to know
+                            let clonedComponent = currentClonedObject.pp_addComponent(component.type);
+                            clonedComponent.active = component.active;
+                            componentsToCloneData.push([component, clonedComponent]);
+                        }
                     }
                 }
             }
 
-            if (clonedObject == null) {
-                clonedObject = currentClonedObject;
+            //Now that all the hierarchy is completed (with components) we can clone them
+            while (componentsToCloneData.length > 0) {
+                let cloneData = componentsToCloneData.shift();
+                let componentToClone = cloneData[0];
+                let currentClonedComponent = cloneData[1];
+
+                componentToClone.pp_clone(currentClonedComponent, params.myDeepCloneParams, params.myExtraData);
             }
         }
 
-        //Create components
-        let componentsToCloneData = [];
-        while (objectsToCloneComponentsData.length > 0) {
-            let cloneData = objectsToCloneComponentsData.shift();
-            let objectToClone = cloneData[0];
-            let currentClonedObject = cloneData[1];
-
-            let components = objectToClone.pp_getComponents();
-            for (let component of components) {
-                if (component.pp_clone != null) {
-                    let cloneComponent = false;
-                    if (params.myComponentsToInclude.length > 0) {
-                        cloneComponent = params.myComponentsToInclude.indexOf(component.type) != -1;
-                    } else {
-                        cloneComponent = params.myComponentsToIgnore.indexOf(component.type) == -1;
-                    }
-
-                    if (cloneComponent && params.myIgnoreComponentCallback != null) {
-                        cloneComponent = !params.myIgnoreComponentCallback(component);
-                    }
-
-                    if (cloneComponent) {
-                        //Not managing the fact that inactive components from editor haven't called start yet, but clones do, since there is no way to know
-                        let clonedComponent = currentClonedObject.pp_addComponent(component.type);
-                        clonedComponent.active = component.active;
-                        componentsToCloneData.push([component, clonedComponent]);
-                    }
-                }
-            }
-        }
-
-        //Now that all the hierarchy is completed (with components) we can clone them
-        while (componentsToCloneData.length > 0) {
-            let cloneData = componentsToCloneData.shift();
-            let componentToClone = cloneData[0];
-            let currentClonedComponent = cloneData[1];
-
-            componentToClone.pp_clone(currentClonedComponent, params.myDeepCloneParams, params.myExtraData);
-        }
-    }
-
-    return clonedObject;
-};
+        return clonedObject;
+    };
+}();
 
 WL.Object.prototype.pp_isCloneable = function (params = new PP.CloneParams()) {
     if (params.myIgnoreNonCloneable || params.myIgnoreComponents) {
