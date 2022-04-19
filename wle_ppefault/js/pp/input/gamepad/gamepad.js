@@ -24,7 +24,10 @@ PP.ButtonEvent = {
 };
 
 PP.ButtonInfo = class ButtonInfo {
-    constructor() {
+    constructor(type, handedness) {
+        this.myType = type;
+        this.myHandedness = handedness;
+
         this.myIsPressed = false;
         this.myPrevIsPressed = false;
 
@@ -57,6 +60,14 @@ PP.ButtonInfo = class ButtonInfo {
         this.myPrevMultipleTouchEndCount = 0;
     }
 
+    getType() {
+        return this.myType;
+    }
+
+    getHandedness() {
+        return this.myHandedness;
+    }
+
     getValue() {
         return this.myValue;
     }
@@ -86,7 +97,7 @@ PP.ButtonInfo = class ButtonInfo {
     }
 
     clone() {
-        let value = new ButtonInfo();
+        let value = new ButtonInfo(this.myType, this.myHandedness);
         value.myIsPressed = this.myIsPressed;
         value.myPrevIsPressed = this.myPrevIsPressed;
         value.myIsTouched = this.myIsTouched;
@@ -127,7 +138,9 @@ PP.AxesEvent = {
 
 //index 0 is x, index 1 is y
 PP.AxesInfo = class AxesInfo {
-    constructor() {
+    constructor(handedness) {
+        this.myHandedness = handedness;
+
         this.myAxes = new Float32Array(2);
         this.myAxes.fill(0.0);
 
@@ -135,8 +148,16 @@ PP.AxesInfo = class AxesInfo {
         this.myPrevAxes.fill(0.0);
     }
 
+    getAxes() {
+        return this.myAxes;
+    }
+
+    getHandedness() {
+        return this.myHandedness;
+    }
+
     clone() {
-        let value = new AxesInfo();
+        let value = new AxesInfo(this.myHandedness);
         value.myAxes = this.myAxes;
         value.myPrevAxes = this.myPrevAxes;
 
@@ -177,10 +198,10 @@ PP.Gamepad = class Gamepad {
 
         this._myButtonInfos = [];
         for (let key in PP.ButtonType) {
-            this._myButtonInfos[PP.ButtonType[key]] = new PP.ButtonInfo();
+            this._myButtonInfos[PP.ButtonType[key]] = new PP.ButtonInfo(PP.ButtonType[key], this._myHandedness);
         }
 
-        this._myAxesInfo = new PP.AxesInfo();
+        this._myAxesInfo = new PP.AxesInfo(this._myHandedness);
 
         this._mySelectStart = false;
         this._mySelectEnd = false;
@@ -191,17 +212,17 @@ PP.Gamepad = class Gamepad {
         this._myInputSource = null;
         this._myGamepad = null;
 
-        this._myButtonCallbacks = [];
+        this._myButtonCallbacks = [];   // Signature: callback(ButtonInfo, Gamepad)
         for (let typeKey in PP.ButtonType) {
             this._myButtonCallbacks[PP.ButtonType[typeKey]] = [];
             for (let eventKey in PP.ButtonEvent) {
-                this._myButtonCallbacks[PP.ButtonType[typeKey]][PP.ButtonEvent[eventKey]] = new Map(); //keys = object, item = callback
+                this._myButtonCallbacks[PP.ButtonType[typeKey]][PP.ButtonEvent[eventKey]] = new Map();
             }
         }
 
-        this._myAxesCallbacks = [];
+        this._myAxesCallbacks = [];     // Signature: callback(AxesInfo, Gamepad)
         for (let eventKey in PP.AxesEvent) {
-            this._myAxesCallbacks[PP.AxesEvent[eventKey]] = new Map(); //keys = object, item = callback
+            this._myAxesCallbacks[PP.AxesEvent[eventKey]] = new Map();
         }
 
         this._myPulseInfo = new PP.PulseInfo();
