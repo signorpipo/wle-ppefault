@@ -136,38 +136,38 @@ Math.pp_interpolate = function (from, to, interpolationValue, easingFunction = P
     return Math.pp_lerp(from, to, lerpValue);
 };
 
-Math.pp_angleDistance = function (first, second) {
-    return Math.pp_angleDistanceDegrees(first, second);
+Math.pp_angleDistance = function (from, to) {
+    return Math.pp_angleDistanceDegrees(from, to);
 };
 
-Math.pp_angleDistanceDegrees = function (first, second) {
-    return Math.abs(Math.pp_angleDistanceSignedDegrees(first, second));
+Math.pp_angleDistanceDegrees = function (from, to) {
+    return Math.abs(Math.pp_angleDistanceSignedDegrees(from, to));
 };
 
-Math.pp_angleDistanceRadians = function (first, second) {
-    return Math.abs(Math.pp_angleDistanceSignedRadians(first, second));
+Math.pp_angleDistanceRadians = function (from, to) {
+    return Math.abs(Math.pp_angleDistanceSignedRadians(from, to));
 };
 
-Math.pp_angleDistanceSigned = function (first, second) {
-    return Math.pp_angleDistanceSignedDegrees(first, second);
+Math.pp_angleDistanceSigned = function (from, to) {
+    return Math.pp_angleDistanceSignedDegrees(from, to);
 };
 
-Math.pp_angleDistanceSignedDegrees = function (first, second) {
-    let clampedFirst = Math.pp_angleClampDegrees(first, true);
-    let clampedSecond = Math.pp_angleClampDegrees(second, true);
+Math.pp_angleDistanceSignedDegrees = function (from, to) {
+    let clampedFrom = Math.pp_angleClampDegrees(from, true);
+    let clampedTo = Math.pp_angleClampDegrees(to, true);
 
-    let distance = clampedSecond - clampedFirst;
-    if (clampedSecond - clampedFirst > 180) {
-        distance = (clampedSecond - clampedFirst) - 360;
-    } else if (clampedSecond - clampedFirst < -180) {
-        distance = (clampedSecond - clampedFirst) + 360;
+    let distance = clampedTo - clampedFrom;
+    if (clampedTo - clampedFrom > 180) {
+        distance = (clampedTo - clampedFrom) - 360;
+    } else if (clampedTo - clampedFrom < -180) {
+        distance = (clampedTo - clampedFrom) + 360;
     }
 
     return distance;
 };
 
-Math.pp_angleDistanceSignedRadians = function (first, second) {
-    return Math.pp_toRadians(Math.pp_angleDistanceSignedDegrees(Math.pp_toDegrees(first), Math.pp_toDegrees(second)));
+Math.pp_angleDistanceSignedRadians = function (from, to) {
+    return Math.pp_toRadians(Math.pp_angleDistanceSignedDegrees(Math.pp_toDegrees(from), Math.pp_toDegrees(to)));
 };
 
 //Clamp the angle to -180/+180, so that, for example, 270 will be -90
