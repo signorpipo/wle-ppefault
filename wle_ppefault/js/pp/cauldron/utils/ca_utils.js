@@ -11,9 +11,6 @@ PP.CAUtils = {
     setDummyServer: function (dummyServer) {
         PP.CAUtils._myDummyServer = dummyServer;
     },
-    isSDKAvailable: function () {
-        return "casdk" in window;
-    },
     isUseDummyServerOnSDKMissing: function () {
         return PP.CAUtils._myUseDummyServerOnSDKMissing;
     },
@@ -23,6 +20,10 @@ PP.CAUtils = {
     getDummyServer: function () {
         return PP.CAUtils._myDummyServer;
     },
+    isSDKAvailable: function () {
+        return "casdk" in window;
+    },
+
     getLeaderboard: function (leaderboardID, isAscending, isAroundPlayer, scoresAmount, callbackOnDone, callbackOnError, overrideUseDummyServer = null) {
         if (PP.CAUtils.isSDKAvailable()) {
             if (!isAroundPlayer) {

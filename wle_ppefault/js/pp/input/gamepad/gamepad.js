@@ -1,26 +1,29 @@
-//If you don't want the PP "namespace" just search and replace PP. with empty string
-//you must also add var in front of the enums (like var Handedness = {}) since now they are no longer child of PP
-//and also remove the class assignment to the same name (like ButtonInfo = class ButtonInfo{}) since now they can be global
-
 PP.ButtonType = {
-    SELECT: 0,  //Trigger
-    SQUEEZE: 1, //Grip
+    SELECT: 0,      //Trigger
+    SQUEEZE: 1,     //Grip
     THUMBSTICK: 3,
-    BOTTOM_BUTTON: 4, // A or X button on oculus quest controller, also triggered for "touchpad" press on other controllers
-    TOP_BUTTON: 5  // B or Y button
+    BOTTOM_BUTTON: 4,   // A or X button on oculus quest controller, also triggered for "touchpad" press on other controllers
+    TOP_BUTTON: 5       // B or Y button
 };
 
 PP.ButtonEvent = {
     PRESS_START: 0,
     PRESS_END: 1,
-    PRESSED: 2, //Every frame that it is pressed
+    PRESSED: 2,     //Every frame that it is pressed
     NOT_PRESSED: 3, //Every frame that it is not pressed
     TOUCH_START: 4,
     TOUCH_END: 5,
-    TOUCHED: 6, //Every frame that it is touched
+    TOUCHED: 6,     //Every frame that it is touched
     NOT_TOUCHED: 7, //Every frame that it is not touched
     VALUE_CHANGED: 8,
-    ALWAYS: 9, //callback every frame for this button
+    ALWAYS: 9,      //Every frame
+};
+
+PP.AxesEvent = {
+    X_CHANGED: 0,
+    Y_CHANGED: 1,
+    AXES_CHANGED: 2,
+    ALWAYS: 3
 };
 
 PP.ButtonInfo = class ButtonInfo {
@@ -129,19 +132,11 @@ PP.ButtonInfo = class ButtonInfo {
     }
 };
 
-PP.AxesEvent = {
-    X_CHANGED: 0,
-    Y_CHANGED: 1,
-    AXES_CHANGED: 2,
-    ALWAYS: 3
-};
-
-//index 0 is x, index 1 is y
 PP.AxesInfo = class AxesInfo {
     constructor(handedness) {
         this.myHandedness = handedness;
 
-        this.myAxes = new Float32Array(2);
+        this.myAxes = new Float32Array(2); // this.myAxes[0] is X,  this.myAxes[1] is Y
         this.myAxes.fill(0.0);
 
         this.myPrevAxes = new Float32Array(2);
@@ -184,7 +179,7 @@ PP.PulseInfo = class PulseInfo {
 };
 
 /**
- * Lets you easily retrieve the current state of a gamepad and register to events
+ * Let you easily retrieve the current state of a gamepad and register to events
  * 
  * xr-standard mapping is assumed for gamepad
  */
