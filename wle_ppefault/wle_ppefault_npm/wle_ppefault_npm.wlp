@@ -1029,7 +1029,8 @@
         },
         "scripting": {
             "sourcePaths": [
-                "/js/editor-components-bundle.js"
+                "js/bundle.js",
+                "js/bundles"
             ],
             "useInternalBundler": false
         },
