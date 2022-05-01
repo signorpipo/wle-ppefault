@@ -1030,7 +1030,7 @@
         "scripting": {
             "sourcePaths": [
                 "/js/editor-components-bundle.js",
-                "js/bundles/wle_pp_bundle.js"
+                "js/bundles"
             ]
         },
         "vr": {
