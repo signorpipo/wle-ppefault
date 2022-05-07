@@ -35,22 +35,22 @@ The Scene object has 4 components on it:
 
 The Player object includes:
 - Pivot
-  * Can be used to offset the head and the hands, for example to have a specific height
-  * The pivot includes the `pp-player-height` component disabled, you can enable it to set a specific height from the floor
-  * If `local-floor` is enabled, the `pp-player-height` component will automatically stop, so that the height will be the real one of the user
+  * can be used to offset the head and the hands, for example to have a specific height
+  * the pivot includes the `pp-player-height` component disabled, you can enable it to set a specific height from the floor
+  * if `local-floor` is enabled, the `pp-player-height` component will automatically stop, so that the height will be the real one of the user
 - Non VR Camera
-  * Used to render when you have not entered in the VR view yet
+  * used to render the view when you have not entered the VR session yet
 - Eyes
-  * Used to render the VR view
+  * used to render the VR view
 - Hands
-  * Follow the controllers position
-  * Represented by 2 Oculus Quest controllers that are animated, that means buttons react when pressed in real life
-  * Includes `pp-console-vr` and 'pp-easy-tune`, 2 tools that can be useful while debugging and tuning
+  * follow the controllers positions
+  * represented by 2 Oculus Quest controllers that are animated, that means buttons react when pressed in real life
+  * includes `pp-console-vr` and 'pp-easy-tune`, 2 tools that can be useful while debugging and tuning
 - Head
-  * Represent the head of the player
-  * Its transform is computed as the average between the eyes
-  * Not really needed but can be useful to avoid having to compute it yourself
-  * Includes a `pp-audio-listener` component, disabled to avoid extra computation if u don't want to use audio
+  * follows the head of the player
+  * its transform is computed as the average between the eyes ones
+  * not really needed but can be useful to avoid having to compute it yourself
+  * includes a `pp-audio-listener` component, disabled to avoid extra computation if u don't want to use audio
 
 # License
 You are free to use this in your projects, just remember to credit me somewhere!
