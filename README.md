@@ -3,7 +3,9 @@
 Default project for the [Wonderland Engine](https://wonderlandengine.com/).  
 
 It is supposed to be like a template to use when starting a new Wonderland Engine project.  
-In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete.  
+
+In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete. 
+
 The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp).
 
 There are a few versions of this default project:
