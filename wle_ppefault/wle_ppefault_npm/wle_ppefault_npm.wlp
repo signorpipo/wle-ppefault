@@ -7,8 +7,8 @@
                     "type": "pp-gamepad-manager"
                 },
                 {
-                    "type": "pp-debug-data",
-                    "pp-debug-data": {
+                    "type": "pp-debug-manager",
+                    "pp-debug-manager": {
                         "_myCubeMesh": "p1",
                         "_myFlatMaterial": "31"
                     }
@@ -31,7 +31,7 @@
             "parent": "19",
             "components": [
                 {
-                    "type": "pp-player-height",
+                    "type": "pp-set-player-height",
                     "active": false
                 }
             ]
@@ -72,7 +72,7 @@
             ],
             "components": [
                 {
-                    "type": "pp-set-hand-transform"
+                    "type": "pp-set-hand-local-transform"
                 },
                 {
                     "type": "pp-console-vr",
@@ -107,8 +107,8 @@
             "parent": "20",
             "components": [
                 {
-                    "type": "pp-set-hand-transform",
-                    "pp-set-hand-transform": {
+                    "type": "pp-set-hand-local-transform",
+                    "pp-set-hand-local-transform": {
                         "_myHandedness": "right"
                     }
                 },
@@ -157,11 +157,14 @@
             "parent": "20",
             "components": [
                 {
-                    "type": "pp-set-head-transform"
+                    "type": "pp-set-head-local-transform"
                 },
                 {
-                    "type": "pp-audio-listener",
-                    "active": false
+                    "type": "pp-spatial-audio-listener",
+                    "active": true,
+                    "pp-spatial-audio-listener": {
+                        "_myEnabled": "vr"
+                    }
                 }
             ]
         },
@@ -716,6 +719,24 @@
         "70": {
             "name": "Mesh",
             "parent": "24"
+        },
+        "71": {
+            "name": "Non VR Head",
+            "parent": "20",
+            "components": [
+                {
+                    "type": "pp-set-non-vr-head-local-transform",
+                    "pp-set-non-vr-head-local-transform": {
+                        "_myNonVRCamera": "21"
+                    }
+                },
+                {
+                    "type": "pp-spatial-audio-listener",
+                    "pp-spatial-audio-listener": {
+                        "_myEnabled": "non vr"
+                    }
+                }
+            ]
         }
     },
     "meshes": {
