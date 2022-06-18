@@ -10,7 +10,23 @@
                     "type": "pp-debug-manager",
                     "pp-debug-manager": {
                         "_myCubeMesh": "p1",
-                        "_myFlatMaterial": "31"
+                        "_myFlatMaterial": "31",
+                        "_mySphereMesh": "p2",
+                        "_myConeMesh": "p3"
+                    }
+                },
+                {
+                    "type": "pp-get-player-objects",
+                    "pp-get-player-objects": {
+                        "_myPlayer": "19",
+                        "_myPlayerPivot": "20",
+                        "_myNonVRCamera": "21",
+                        "_myNonVRHead": "71",
+                        "_myVRHead": "25",
+                        "_myEyeLeft": "26",
+                        "_myEyeRight": "27",
+                        "_myHandLeft": "23",
+                        "_myHandRight": "24"
                     }
                 },
                 {
@@ -34,6 +50,24 @@
                     "type": "pp-set-player-height",
                     "active": false
                 }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
             ]
         },
         "21": {
@@ -153,15 +187,14 @@
             ]
         },
         "25": {
-            "name": "Head",
+            "name": "VR Head",
             "parent": "20",
             "components": [
                 {
-                    "type": "pp-set-head-local-transform"
+                    "type": "pp-set-vr-head-local-transform"
                 },
                 {
                     "type": "pp-spatial-audio-listener",
-                    "active": true,
                     "pp-spatial-audio-listener": {
                         "_myEnabled": "vr"
                     }
