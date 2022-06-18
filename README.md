@@ -1,12 +1,12 @@
 # Overview
 
-Default project for the [Wonderland Engine](https://wonderlandengine.com/).  
+Default project for the [Wonderland Engine](https://wonderlandengine.com/). 
+
+The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp). 
 
 It is supposed to be like a template to use when starting a new Wonderland Engine project.  
 
 In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete. 
-
-The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp).
 
 There are a few versions of this default project:
 - `wle_ppefault`
@@ -21,13 +21,16 @@ There are a few versions of this default project:
 # Scene Structure
 The scene is composed by a Scene object that contains a Player and 2 Lights.
 
-The Scene object has 4 components on it:
+The Scene object has 5 components on it:
 - `pp-gamepad-manager`
-  * create and update the gamepads
-  * create a global `PP.myLeftGamepad` and a global `PP.myRightGamepad`
-  * also create a global `PP.myGamepads` that contains both controllers and use `PP.Handedness` as index
-- `pp-debug-data`
+  * creates and updates the gamepads
+  * creates a global `PP.myLeftGamepad` and a global `PP.myRightGamepad`
+  * also creates a global `PP.myGamepads` that contains both controllers and use `PP.Handedness` as index
+- `pp-debug-manager`
   * takes care of initializing the debug data used by the debug features
+  * creates and updates a global debug manager that can be accessed through the variable `PP.myDebugManager`
+- `pp-get-player-objects`
+  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
 - `pp-mute-all`
   * when active, mutes the game
 - `pp-clear-console-on-session`
@@ -48,9 +51,7 @@ The Player object includes:
   * includes `pp-console-vr` and 'pp-easy-tune`, 2 tools that can be useful while debugging and tuning
 - Head
   * follows the head of the player
-  * its transform is computed as the average between the eyes ones
-  * not really needed but can be useful to avoid having to compute it yourself
-  * includes a `pp-audio-listener` component, disabled to avoid extra computation if u don't want to use audio
+  * includes a `pp-spatial-audio-listener` component
 
 # License
 You are free to use this in your projects, just remember to credit me somewhere!
