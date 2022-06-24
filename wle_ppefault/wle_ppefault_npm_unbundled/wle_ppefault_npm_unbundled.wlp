@@ -333,7 +333,7 @@
         "51": {
             "link": {
                 "name": "Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
             "parent": "34",
             "transformation": [
@@ -359,182 +359,56 @@
         "52": {
             "link": {
                 "name": "Left_Body<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.0104435,
-                0.0091218,
-                -0.0187672,
-                1.0
-            ]
+            "parent": "67"
         },
         "53": {
             "link": {
                 "name": "Left_Bottom_Button<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.0015014,
-                0.000123,
-                -0.0252592,
-                1.0
-            ]
+            "parent": "67"
         },
         "54": {
             "link": {
                 "name": "Left_Option_Button<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.0096518,
-                0.0081721,
-                -0.0086631,
-                1.0
-            ]
+            "parent": "67"
         },
         "55": {
             "link": {
                 "name": "Left_Select<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.009961,
-                -0.0240266,
-                -0.0500781,
-                1.0
-            ]
+            "parent": "67"
         },
         "56": {
             "link": {
                 "name": "Left_Squeeze<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.0098165,
-                0.0018168,
-                0.0005787,
-                0.0,
-                -0.0014374,
-                -0.0050561,
-                -0.0085068,
-                0.0,
-                -0.0012529,
-                -0.008434,
-                0.0052245,
-                0.0,
-                0.0019936,
-                -0.0052813,
-                0.0026141,
-                1.0
-            ]
+            "parent": "67"
         },
         "57": {
             "link": {
                 "name": "Left_Thumbstick<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.0179094,
-                -0.0037003,
-                -0.039634,
-                1.0
-            ]
+            "parent": "67"
         },
         "58": {
             "link": {
                 "name": "Left_Top_Button<Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "67",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.0025217,
-                -0.0069524,
-                -0.0371638,
-                1.0
-            ]
+            "parent": "67"
         },
         "59": {
             "link": {
                 "name": "Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
             "parent": "34",
             "transformation": [
@@ -560,193 +434,67 @@
         "60": {
             "link": {
                 "name": "Right_Body<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.0104433,
-                0.0091218,
-                -0.0187672,
-                1.0
-            ]
+            "parent": "68"
         },
         "61": {
             "link": {
                 "name": "Right_Bottom_Button<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.0015014,
-                0.000123,
-                -0.0252592,
-                1.0
-            ]
+            "parent": "68"
         },
         "62": {
             "link": {
                 "name": "Right_Option_Button<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.0096518,
-                0.0081721,
-                -0.0086631,
-                1.0
-            ]
+            "parent": "68"
         },
         "63": {
             "link": {
                 "name": "Right_Select<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.009961,
-                -0.0240266,
-                -0.0500781,
-                1.0
-            ]
+            "parent": "68"
         },
         "64": {
             "link": {
                 "name": "Right_Squeeze<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.0096597,
-                -0.0024702,
-                -0.0007666,
-                0.0,
-                0.0019505,
-                -0.0050111,
-                -0.0084311,
-                0.0,
-                0.0016984,
-                -0.0082937,
-                0.0053223,
-                0.0,
-                -0.0019936,
-                -0.0052813,
-                0.0026141,
-                1.0
-            ]
+            "parent": "68"
         },
         "65": {
             "link": {
                 "name": "Right_Thumbstick<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                0.0179094,
-                -0.0037003,
-                -0.039634,
-                1.0
-            ]
+            "parent": "68"
         },
         "66": {
             "link": {
                 "name": "Right_Top_Button<Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "parent": "68",
-            "transformation": [
-                -0.01,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                -0.0051091,
-                -0.0085962,
-                0.0,
-                0.0,
-                -0.0085962,
-                0.0051091,
-                0.0,
-                -0.0025217,
-                -0.0069524,
-                -0.0371638,
-                1.0
-            ]
+            "parent": "68"
         },
         "67": {
             "name": "Pivot",
             "parent": "69",
             "transformation": [
-                -0.9999993,
-                -1.509957456846678e-7,
-                8.742273394091171e-8,
+                0.9999992,
                 0.0,
-                -1.509958451606508e-7,
+                0.0,
+                0.0,
+                0.0,
                 1.0,
-                -1.509958167389414e-7,
                 0.0,
-                -8.742270551920228e-8,
-                -1.509957172629584e-7,
-                -0.9999993,
+                0.0,
+                0.0,
+                0.0,
+                0.9999992,
                 0.0,
                 0.0,
                 0.0,
@@ -758,17 +506,17 @@
             "name": "Pivot",
             "parent": "70",
             "transformation": [
-                -0.9999992,
-                -8.742271262462965e-8,
-                8.74229897362966e-8,
+                0.9999992,
                 0.0,
-                -8.7422797889758e-8,
+                0.0,
+                0.0,
+                0.0,
                 1.0000001,
-                -1.509958309497961e-7,
                 0.0,
-                -8.742306079057016e-8,
-                -1.509958593715055e-7,
-                -1.0000002,
+                0.0,
+                0.0,
+                0.0,
+                1.0000002,
                 0.0,
                 0.0,
                 0.0,
@@ -833,10 +581,7 @@
                     }
                 },
                 {
-                    "type": "pp-spatial-audio-listener",
-                    "pp-spatial-audio-listener": {
-                        "_myEnabled": "always"
-                    }
+                    "type": "pp-spatial-audio-listener"
                 }
             ]
         },
@@ -885,85 +630,85 @@
         "37": {
             "link": {
                 "name": "Mesh",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "38": {
             "link": {
                 "name": "Mesh.002",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "39": {
             "link": {
                 "name": "Mesh.003",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "40": {
             "link": {
                 "name": "Mesh.005",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "41": {
             "link": {
                 "name": "Mesh.006",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "42": {
             "link": {
                 "name": "Mesh.004",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "43": {
             "link": {
                 "name": "Mesh.001",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "44": {
             "link": {
                 "name": "Mesh.007",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "45": {
             "link": {
                 "name": "Mesh.009",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "46": {
             "link": {
                 "name": "Mesh.010",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "47": {
             "link": {
                 "name": "Mesh.012",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "48": {
             "link": {
                 "name": "Mesh.013",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "49": {
             "link": {
                 "name": "Mesh.011",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         },
         "50": {
             "link": {
                 "name": "Mesh.008",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             }
         }
     },
@@ -1008,16 +753,34 @@
         "35": {
             "link": {
                 "name": "Lambert_Body",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "name": "Quest Controller Body"
+            "name": "Quest Controller Body",
+            "Phong": {
+                "shininess": 2,
+                "specularColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.4472135
+                ]
+            }
         },
         "36": {
             "link": {
                 "name": "Lambert_Button",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.glb"
+                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
-            "name": "Quest Controller Button"
+            "name": "Quest Controller Button",
+            "Phong": {
+                "shininess": 2,
+                "specularColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.4472135
+                ]
+            }
         }
     },
     "shaders": {
@@ -1201,6 +964,6 @@
         }
     },
     "files": [
-        "assets/models/quest_controllers_credits_Jezza3D.glb"
+        "assets/models/quest_controllers_credits_Jezza3D.fbx"
     ]
 }

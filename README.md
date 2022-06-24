@@ -9,11 +9,11 @@ It is supposed to be like a template to use when starting a new Wonderland Engin
 In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete. 
 
 There are a few versions of this default project:
-- `wle_ppefault`
+- [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
   * a standard project (not `NPM`)
-- `wle_ppefault_npm`
+- [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm)
   * an `NPM` version of the same project
-- `wle_ppefault_npm_unbundled`
+- [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm_unbundled)
   * an `NPM` version of the same project
   * the PP APIs are not included as a bundle but as a list of files
   * can be useful if u plan to edit the PP APIs to adjust them to your need
