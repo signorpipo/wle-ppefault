@@ -928,7 +928,8 @@
                     "hand-tracking": false,
                     "hit-test": false
                 }
-            }
+            },
+            "viewObject": "21"
         },
         "scripting": {
             "sourcePaths": [
