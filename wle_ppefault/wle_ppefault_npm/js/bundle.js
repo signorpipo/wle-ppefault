@@ -24,4 +24,4 @@ require('@wonderlandengine/components/wonderleap-ad');
 
 //BUNDLES
 
-require('./bundles/wle_pp_bundle.js');
+require('wle_pp');

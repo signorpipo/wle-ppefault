@@ -10,12 +10,14 @@ In the scene you will find only a few objects that should make it easier and fas
 
 There are a few versions of this default project:
 - [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
-  * a standard project (not `NPM`)
+  * a standard project (not `npm`)
+  * the PP APIs are included as a bundle file
 - [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm)
-  * an `NPM` version of the same project
+  * an `npm` version of the same project
+  * the PP APIs are included as an installed `npm` package
 - [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm_unbundled)
-  * an `NPM` version of the same project
-  * the PP APIs are not included as a bundle but as a list of files
+  * an `npm` version of the same project
+  * the PP APIs are not included as an installed `npm` package, but as normal files in the project
   * can be useful if u plan to edit the PP APIs to adjust them to your need
 
 # Scene Structure

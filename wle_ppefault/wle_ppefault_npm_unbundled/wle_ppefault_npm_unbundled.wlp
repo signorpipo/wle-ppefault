@@ -12,7 +12,9 @@
                         "_myCubeMesh": "p1",
                         "_myFlatMaterial": "31",
                         "_myConeMesh": "p3",
-                        "_mySphereMesh": "p2"
+                        "_mySphereMesh": "p2",
+                        "_myDebugMaterial": "31",
+                        "_myTextMaterial": "86"
                     }
                 },
                 {
@@ -326,36 +328,6 @@
                 1.0
             ]
         },
-        "34": {
-            "name": "Empty",
-            "deleted": true
-        },
-        "51": {
-            "link": {
-                "name": "Left_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
-            },
-            "parent": "34",
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ],
-            "deleted": true
-        },
         "52": {
             "link": {
                 "name": "Left_Body<Left_Quest_Controller",
@@ -404,32 +376,6 @@
                 "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
             },
             "parent": "67"
-        },
-        "59": {
-            "link": {
-                "name": "Right_Quest_Controller",
-                "file": "assets\\models\\quest_controllers_credits_Jezza3D.fbx"
-            },
-            "parent": "34",
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ],
-            "deleted": true
         },
         "60": {
             "link": {
@@ -715,7 +661,7 @@
     "textures": {
         "t0": {
             "link": {
-                "name": "DefaultFont",
+                "name": "DefaultTexture",
                 "file": "default"
             }
         }
@@ -723,7 +669,7 @@
     "images": {
         "f0": {
             "link": {
-                "name": "DefaultFontImage",
+                "name": "DefaultImage",
                 "file": "default"
             }
         }
@@ -748,7 +694,7 @@
                 "name": "DefaultFontMaterial",
                 "file": "default"
             },
-            "name": "Tool Font"
+            "name": "Tool Text"
         },
         "35": {
             "link": {
@@ -781,54 +727,97 @@
                     0.4472135
                 ]
             }
+        },
+        "86": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "name": "Debug Text"
         }
     },
     "shaders": {
         "1": {
             "link": {
-                "name": "Depth",
+                "name": "Depth.frag",
                 "file": "default"
             }
         },
         "3": {
             "link": {
-                "name": "DistanceFieldVector",
+                "name": "DistanceFieldVector.frag",
                 "file": "default"
             }
         },
         "5": {
             "link": {
-                "name": "Dynamic",
+                "name": "Dynamic.vert",
                 "file": "default"
             }
         },
         "6": {
             "link": {
-                "name": "Flat",
+                "name": "Flat.frag",
                 "file": "default"
             }
         },
         "9": {
             "link": {
-                "name": "MeshVisualizer",
+                "name": "MeshVisualizer.frag",
                 "file": "default"
             }
         },
         "11": {
             "link": {
-                "name": "Skinning",
+                "name": "Skinning.vert",
                 "file": "default"
             }
         },
         "12": {
             "link": {
-                "name": "Phong",
+                "name": "Phong.frag",
                 "file": "default"
             }
         },
         "15": {
             "link": {
-                "name": "Particle",
+                "name": "Particle.frag",
+                "file": "default"
+            }
+        },
+        "76": {
+            "link": {
+                "name": "Physical.frag",
+                "file": "default"
+            }
+        },
+        "79": {
+            "link": {
+                "name": "Sky.frag",
+                "file": "default"
+            }
+        },
+        "80": {
+            "link": {
+                "name": "Sky.vert",
+                "file": "default"
+            }
+        },
+        "81": {
+            "link": {
+                "name": "Text.frag",
+                "file": "default"
+            }
+        },
+        "83": {
+            "link": {
+                "name": "Text.vert",
+                "file": "default"
+            }
+        },
+        "84": {
+            "link": {
+                "name": "TileFeedback.frag",
                 "file": "default"
             }
         }
@@ -889,6 +878,30 @@
                 "name": "Particle",
                 "file": "default"
             }
+        },
+        "77": {
+            "link": {
+                "name": "Physical Opaque",
+                "file": "default"
+            }
+        },
+        "78": {
+            "link": {
+                "name": "Physical Opaque Textured",
+                "file": "default"
+            }
+        },
+        "82": {
+            "link": {
+                "name": "Text",
+                "file": "default"
+            }
+        },
+        "85": {
+            "link": {
+                "name": "Sky",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -927,13 +940,19 @@
                 "js/pp/cauldron/components",
                 "js/pp/cauldron/fsm",
                 "js/pp/cauldron/utils",
+                "js/pp/cauldron/benchmarks",
                 "js/pp/debug",
                 "js/pp/debug/components",
                 "js/pp/gameplay",
+                "js/pp/gameplay/cauldron",
                 "js/pp/gameplay/grab_throw",
                 "js/pp/input",
                 "js/pp/input/cauldron",
                 "js/pp/input/gamepad",
+                "js/pp/input/gamepad/cauldron",
+                "js/pp/input/gamepad/gamepad_cores",
+                "js/pp/input/pose",
+                "js/pp/input/pose/components",
                 "js/pp/plugin",
                 "js/pp/plugin/component_mods",
                 "js/pp/plugin/extensions",
@@ -945,10 +964,7 @@
                 "js/pp/tool/easy_tune",
                 "js/pp/tool/easy_tune/easy_object_tuners",
                 "js/pp/tool/easy_tune/easy_tune_widgets",
-                "js/pp/tool/widget_frame",
-                "js/pp/cauldron/benchmarks",
-                "js/pp/input/pose",
-                "js/pp/input/pose/components"
+                "js/pp/tool/widget_frame"
             ],
             "useInternalBundler": false
         },
