@@ -23,16 +23,17 @@ There are a few versions of this default project:
 # Scene Structure
 The scene is composed by a Scene object that contains a Player and 2 Lights.
 
-The Scene object has 5 components on it:
-- `pp-gamepad-manager`
-  * creates and updates the gamepads
-  * creates a global `PP.myLeftGamepad` and a global `PP.myRightGamepad`
-  * also creates a global `PP.myGamepads` that contains both controllers and use `PP.Handedness` as index
+The Scene object has 6 components on it:
+- `pp-input-manager`
+  * creates and updates the input devices like the gamepads, the mouse and the keyboard
+  * creates some global variables like `PP.myMouse` or `PP.myGamepads` to easily access these devices
 - `pp-debug-manager`
   * takes care of initializing the debug data used by the debug features
   * creates and updates a global debug manager that can be accessed through the variable `PP.myDebugManager`
 - `pp-get-player-objects`
   * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
+- `pp-get-default-resources`
+  * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
 - `pp-mute-all`
   * when active, mutes the game
 - `pp-clear-console-on-session`

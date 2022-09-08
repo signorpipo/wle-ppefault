@@ -4,18 +4,8 @@
             "name": "Scene",
             "components": [
                 {
-                    "type": "pp-gamepad-manager"
-                },
-                {
                     "type": "pp-debug-manager",
-                    "pp-debug-manager": {
-                        "_myCubeMesh": "p1",
-                        "_myFlatMaterial": "31",
-                        "_myConeMesh": "p3",
-                        "_mySphereMesh": "p2",
-                        "_myDebugMaterial": "31",
-                        "_myTextMaterial": "86"
-                    }
+                    "pp-debug-manager": {}
                 },
                 {
                     "type": "pp-get-player-objects",
@@ -33,8 +23,24 @@
                     }
                 },
                 {
-                    "type": "pp-mute-all",
-                    "active": false
+                    "type": "pp-input-manager"
+                },
+                {
+                    "type": "pp-get-default-resources",
+                    "pp-get-default-resources": {
+                        "_myPlane": "p0",
+                        "_myCube": "p1",
+                        "_mySphere": "p2",
+                        "_myCone": "p3",
+                        "_myCylinder": "p4",
+                        "_myCircle": "p5",
+                        "_myFlatOpaque": "31",
+                        "_myPhongOpaque": "32",
+                        "_myText": "33"
+                    }
+                },
+                {
+                    "type": "pp-mute-all"
                 },
                 {
                     "type": "pp-clear-console-on-session"
@@ -132,17 +138,13 @@
                 {
                     "type": "pp-console-vr",
                     "pp-console-vr": {
-                        "_myHandedness": "left",
-                        "_myTextMaterial": "33",
-                        "_myPlaneMaterial": "32"
+                        "_myHandedness": "left"
                     }
                 },
                 {
                     "type": "pp-easy-tune",
                     "pp-easy-tune": {
-                        "_myHandedness": "left",
-                        "_myPlaneMaterial": "32",
-                        "_myTextMaterial": "33"
+                        "_myHandedness": "left"
                     }
                 },
                 {
@@ -171,9 +173,7 @@
                     "type": "pp-tool-cursor",
                     "pp-tool-cursor": {
                         "_myHandedness": "right",
-                        "_myPulseOnHover": false,
-                        "_myCursorMesh": "p2",
-                        "_myCursorMaterial": "32"
+                        "_myPulseOnHover": false
                     }
                 },
                 {
@@ -682,19 +682,19 @@
             }
         },
         "31": {
-            "name": "Debug Flat",
+            "name": "Flat Opaque",
             "pipeline": "7"
         },
         "32": {
-            "name": "Tool Flat",
-            "pipeline": "7"
+            "name": "Phong Opaque",
+            "pipeline": "13"
         },
         "33": {
             "link": {
                 "name": "DefaultFontMaterial",
                 "file": "default"
             },
-            "name": "Tool Text"
+            "name": "Text"
         },
         "35": {
             "link": {
@@ -727,13 +727,6 @@
                     0.4472135
                 ]
             }
-        },
-        "86": {
-            "link": {
-                "name": "DefaultFontMaterial",
-                "file": "default"
-            },
-            "name": "Debug Text"
         }
     },
     "shaders": {
@@ -799,7 +792,7 @@
         },
         "80": {
             "link": {
-                "name": "Sky.vert",
+                "name": "FullScreenTriangle.vert",
                 "file": "default"
             }
         },
@@ -818,6 +811,18 @@
         "84": {
             "link": {
                 "name": "TileFeedback.frag",
+                "file": "default"
+            }
+        },
+        "87": {
+            "link": {
+                "name": "Background.frag",
+                "file": "default"
+            }
+        },
+        "88": {
+            "link": {
+                "name": "FullScreenTriangle.vert",
                 "file": "default"
             }
         }
@@ -909,8 +914,8 @@
             "name": "wle_ppefault_npm_unbundled",
             "version": [
                 0,
-                8,
-                10
+                9,
+                1
             ]
         },
         "rendering": {
