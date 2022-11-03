@@ -1,39 +1,39 @@
 # Overview
 
-Default project for the [Wonderland Engine](https://wonderlandengine.com/). 
+Template project for the [Wonderland Engine](https://wonderlandengine.com/).
 
-The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp). 
+The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp).
 
-It is supposed to be like a template to use when starting a new Wonderland Engine project.  
+In the scene of this project you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete. 
 
-In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete. 
-
-There are a few versions of this default project:
+There are a few versions of this project:
 - [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
   * a standard project (not `npm`)
   * the PP APIs are included as a bundle file
 - [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm)
   * an `npm` version of the same project
-  * the PP APIs are included as an installed `npm` package
+  * the PP APIs are included as an `npm` package
+  * u need to run `npm install` in the project folder in order to install the dependencies
 - [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm_unbundled)
   * an `npm` version of the same project
-  * the PP APIs are not included as an installed `npm` package, but as normal files in the project
+  * the PP APIs are not included as an `npm` package, but as files in the project
   * can be useful if u plan to edit the PP APIs to adjust them to your need
+  * u need to run `npm install` in the project folder in order to install the dependencies
 
 # Scene Structure
 The scene is composed by a Scene object that contains a Player and 2 Lights.
 
 The Scene object has 6 components on it:
+- `pp-get-player-objects`
+  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
+- `pp-get-default-resources`
+  * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
 - `pp-input-manager`
   * creates and updates the input devices like the gamepads, the mouse and the keyboard
   * creates some global variables like `PP.myMouse` or `PP.myGamepads` to easily access these devices
 - `pp-debug-manager`
   * takes care of initializing the debug data used by the debug features
   * creates and updates a global debug manager that can be accessed through the variable `PP.myDebugManager`
-- `pp-get-player-objects`
-  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
-- `pp-get-default-resources`
-  * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
 - `pp-mute-all`
   * when active, mutes the game
 - `pp-clear-console-on-session`
