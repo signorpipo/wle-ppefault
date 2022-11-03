@@ -1,6 +1,7 @@
-
 cache/
 
 deploy/
+
+node_modules/
 
 imgui.ini
