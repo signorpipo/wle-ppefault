@@ -4,10 +4,6 @@
             "name": "Scene",
             "components": [
                 {
-                    "type": "pp-debug-manager",
-                    "pp-debug-manager": {}
-                },
-                {
                     "type": "pp-get-player-objects",
                     "pp-get-player-objects": {
                         "_myPlayer": "19",
@@ -17,13 +13,10 @@
                         "_myVRHead": "25",
                         "_myEyeLeft": "26",
                         "_myEyeRight": "27",
-                        "_myHandLeft": "23",
-                        "_myHandRight": "24",
+                        "_myHandLeft": "99",
+                        "_myHandRight": "107",
                         "_myHead": "74"
                     }
-                },
-                {
-                    "type": "pp-input-manager"
                 },
                 {
                     "type": "pp-get-default-resources",
@@ -36,11 +29,19 @@
                         "_myCircle": "p5",
                         "_myFlatOpaque": "31",
                         "_myPhongOpaque": "32",
-                        "_myText": "33"
+                        "_myText": "33",
+                        "_myFlatTransparentNoDepth": "90"
                     }
                 },
                 {
-                    "type": "pp-mute-all"
+                    "type": "pp-input-manager"
+                },
+                {
+                    "type": "pp-debug-manager"
+                },
+                {
+                    "type": "pp-mute-all",
+                    "active": false
                 },
                 {
                     "type": "pp-clear-console-on-session"
@@ -68,143 +69,37 @@
                 {
                     "type": "view"
                 }
-            ],
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
             ]
         },
         "22": {
             "name": "Eyes",
-            "parent": "72",
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ]
+            "parent": "72"
         },
         "23": {
-            "name": "Hand Left",
+            "name": "Hands Left",
             "parent": "75",
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                -0.1,
-                0.0,
-                0.0,
-                1.0
-            ],
             "components": [
                 {
-                    "type": "pp-set-hand-local-transform"
-                },
-                {
-                    "type": "pp-console-vr",
-                    "pp-console-vr": {
-                        "_myHandedness": "left"
-                    }
-                },
-                {
-                    "type": "pp-easy-tune",
-                    "pp-easy-tune": {
-                        "_myHandedness": "left"
-                    }
-                },
-                {
-                    "type": "pp-gamepad-animator",
-                    "pp-gamepad-animator": {
-                        "_mySelect": "55",
-                        "_mySqueeze": "56",
-                        "_myThumbstick": "57",
-                        "_myBottomButton": "53",
-                        "_myTopButton": "58"
+                    "type": "pp-switch-hand-object",
+                    "pp-switch-hand-object": {
+                        "_myGamepad": "102",
+                        "_myTrackedHand": "105"
                     }
                 }
             ]
         },
         "24": {
-            "name": "Hand Right",
+            "name": "Hands Right",
             "parent": "75",
             "components": [
                 {
-                    "type": "pp-set-hand-local-transform",
-                    "pp-set-hand-local-transform": {
-                        "_myHandedness": "right"
-                    }
-                },
-                {
-                    "type": "pp-tool-cursor",
-                    "pp-tool-cursor": {
+                    "type": "pp-switch-hand-object",
+                    "pp-switch-hand-object": {
                         "_myHandedness": "right",
-                        "_myPulseOnHover": false
-                    }
-                },
-                {
-                    "type": "pp-gamepad-animator",
-                    "pp-gamepad-animator": {
-                        "_myHandedness": "right",
-                        "_mySelect": "63",
-                        "_mySqueeze": "64",
-                        "_myThumbstick": "65",
-                        "_myBottomButton": "61",
-                        "_myTopButton": "66"
+                        "_myGamepad": "106",
+                        "_myTrackedHand": "108"
                     }
                 }
-            ],
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.1,
-                0.0,
-                0.0,
-                1.0
             ]
         },
         "25": {
@@ -214,24 +109,6 @@
                 {
                     "type": "pp-set-vr-head-local-transform"
                 }
-            ],
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
             ]
         },
         "26": {
@@ -428,55 +305,19 @@
         },
         "67": {
             "name": "Pivot",
-            "parent": "69",
-            "transformation": [
-                0.9999992,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.9999992,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ]
+            "parent": "69"
         },
         "68": {
             "name": "Pivot",
-            "parent": "70",
-            "transformation": [
-                0.9999992,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0000001,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0000002,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ]
+            "parent": "70"
         },
         "69": {
             "name": "Mesh",
-            "parent": "23"
+            "parent": "102"
         },
         "70": {
             "name": "Mesh",
-            "parent": "24"
+            "parent": "106"
         },
         "71": {
             "name": "Non VR Head",
@@ -488,24 +329,6 @@
                         "_myNonVRCamera": "21"
                     }
                 }
-            ],
-            "transformation": [
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1.0
             ]
         },
         "72": {
@@ -534,6 +357,172 @@
         "75": {
             "name": "Hands",
             "parent": "20"
+        },
+        "99": {
+            "name": "Hand Left",
+            "parent": "23",
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform"
+                }
+            ]
+        },
+        "102": {
+            "name": "Gamepad Left",
+            "parent": "23",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -0.1,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform"
+                },
+                {
+                    "type": "pp-gamepad-animator",
+                    "pp-gamepad-animator": {
+                        "_mySelect": "55",
+                        "_mySqueeze": "56",
+                        "_myThumbstick": "57",
+                        "_myBottomButton": "53",
+                        "_myTopButton": "58"
+                    }
+                }
+            ]
+        },
+        "104": {
+            "name": "Tool Hand Left",
+            "parent": "23",
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform"
+                },
+                {
+                    "type": "pp-console-vr",
+                    "pp-console-vr": {
+                        "_myHandedness": "left"
+                    }
+                },
+                {
+                    "type": "pp-easy-tune",
+                    "pp-easy-tune": {
+                        "_myHandedness": "left"
+                    }
+                }
+            ]
+        },
+        "105": {
+            "name": "Tracked Hand Left",
+            "parent": "23",
+            "components": [
+                {
+                    "type": "pp-tracked-hand-draw-all-joints",
+                    "pp-tracked-hand-draw-all-joints": {
+                        "_myJointMesh": "p1",
+                        "_myJointMaterial": "35"
+                    }
+                }
+            ]
+        },
+        "106": {
+            "name": "Gamepad Right",
+            "parent": "24",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.1,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform",
+                    "pp-set-hand-local-transform": {
+                        "_myHandedness": "right"
+                    }
+                },
+                {
+                    "type": "pp-gamepad-animator",
+                    "pp-gamepad-animator": {
+                        "_myHandedness": "right",
+                        "_mySelect": "63",
+                        "_mySqueeze": "64",
+                        "_myThumbstick": "65",
+                        "_myBottomButton": "61",
+                        "_myTopButton": "66"
+                    }
+                }
+            ]
+        },
+        "107": {
+            "name": "Hand Right",
+            "parent": "24",
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform",
+                    "pp-set-hand-local-transform": {
+                        "_myHandedness": "right"
+                    }
+                }
+            ]
+        },
+        "108": {
+            "name": "Tracked Hand Right",
+            "parent": "24",
+            "components": [
+                {
+                    "type": "pp-tracked-hand-draw-all-joints",
+                    "pp-tracked-hand-draw-all-joints": {
+                        "_myJointMesh": "p1",
+                        "_myJointMaterial": "35",
+                        "_myHandedness": "right"
+                    }
+                }
+            ]
+        },
+        "109": {
+            "name": "Tool Hand Right",
+            "parent": "24",
+            "components": [
+                {
+                    "type": "pp-set-hand-local-transform",
+                    "pp-set-hand-local-transform": {
+                        "_myHandedness": "right"
+                    }
+                },
+                {
+                    "type": "pp-tool-cursor",
+                    "pp-tool-cursor": {
+                        "_myHandedness": "right",
+                        "_myPulseOnHover": false
+                    }
+                }
+            ]
         }
     },
     "meshes": {
@@ -727,6 +716,10 @@
                     0.4472135
                 ]
             }
+        },
+        "90": {
+            "name": "Flat Transparent No Depth",
+            "pipeline": "89"
         }
     },
     "shaders": {
@@ -907,6 +900,25 @@
                 "name": "Sky",
                 "file": "default"
             }
+        },
+        "89": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            },
+            "name": "Flat Transparent No Depth",
+            "features": {
+                "ALPHA": true,
+                "ALPHA_MASKED": true
+            },
+            "depthTest": false,
+            "depthFunction": "always",
+            "blending": true,
+            "blendSrcRgb": "source alpha",
+            "blendSrcAlpha": "source alpha",
+            "blendDestRgb": "one minus source alpha",
+            "blendDestAlpha": "one minus source alpha",
+            "blendEqAlpha": "max"
         }
     },
     "settings": {
@@ -915,7 +927,7 @@
             "version": [
                 0,
                 9,
-                1
+                3
             ]
         },
         "rendering": {
@@ -930,8 +942,9 @@
             "xrButtonColor": "black",
             "webxr": {
                 "optionalFeatures": {
-                    "hand-tracking": false,
-                    "hit-test": false
+                    "hand-tracking": true,
+                    "hit-test": false,
+                    "local-floor": true
                 }
             },
             "viewObject": "21"
