@@ -7,6 +7,7 @@ WL.registerComponent('pp-get-default-resources', {
     _myCircle: { type: WL.Type.Mesh },
 
     _myFlatOpaque: { type: WL.Type.Material },
+    _myFlatTransparentNoDepth: { type: WL.Type.Material },
     _myPhongOpaque: { type: WL.Type.Material },
     _myText: { type: WL.Type.Material },
 
@@ -19,9 +20,26 @@ WL.registerComponent('pp-get-default-resources', {
         PP.myDefaultResources.myMeshes.myCylinder = PP.MeshUtils.cloneMesh(this._myCylinder);
         PP.myDefaultResources.myMeshes.myCircle = PP.MeshUtils.cloneMesh(this._myCircle);
 
-        PP.myDefaultResources.myMaterials.myFlatOpaque = this._myFlatOpaque.clone();
-        PP.myDefaultResources.myMaterials.myPhongOpaque = this._myPhongOpaque.clone();
-        PP.myDefaultResources.myMaterials.myText = this._myText.clone();
+        PP.myDefaultResources.myMeshes.myInvertedCube = PP.MeshUtils.invertMesh(this._myCube);
+        PP.myDefaultResources.myMeshes.myInvertedSphere = PP.MeshUtils.invertMesh(this._mySphere);
+        PP.myDefaultResources.myMeshes.myInvertedCone = PP.MeshUtils.invertMesh(this._myCone);
+        PP.myDefaultResources.myMeshes.myInvertedCylinder = PP.MeshUtils.invertMesh(this._myCylinder);
+
+        if (this._myFlatOpaque != null) {
+            PP.myDefaultResources.myMaterials.myFlatOpaque = this._myFlatOpaque.clone();
+        }
+
+        if (this._myFlatTransparentNoDepth != null) {
+            PP.myDefaultResources.myMaterials.myFlatTransparentNoDepth = this._myFlatTransparentNoDepth.clone();
+        }
+
+        if (this._myPhongOpaque != null) {
+            PP.myDefaultResources.myMaterials.myPhongOpaque = this._myPhongOpaque.clone();
+        }
+
+        if (this._myText != null) {
+            PP.myDefaultResources.myMaterials.myText = this._myText.clone();
+        }
     }
 });
 
@@ -32,11 +50,17 @@ PP.myDefaultResources = {
         mySphere: null,
         myCone: null,
         myCylinder: null,
-        myCircle: null
+        myCircle: null,
+
+        myInvertedCube: null,
+        myInvertedSphere: null,
+        myInvertedCone: null,
+        myInvertedCylinder: null
     },
     myMaterials: {
         myFlatOpaque: null,
+        myFlatTransparentNoDepth: null, // for now the pipeline needs to be the last one to make this work properly
         myPhongOpaque: null,
-        myText: null
+        myText: null,
     }
 };
