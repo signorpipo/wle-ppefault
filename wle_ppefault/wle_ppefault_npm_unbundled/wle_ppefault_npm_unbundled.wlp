@@ -37,14 +37,10 @@
                     "type": "pp-input-manager"
                 },
                 {
+                    "type": "pp-visual-manager"
+                },
+                {
                     "type": "pp-debug-manager"
-                },
-                {
-                    "type": "pp-mute-all",
-                    "active": false
-                },
-                {
-                    "type": "pp-clear-console-on-session"
                 }
             ]
         },
@@ -942,9 +938,7 @@
             "xrButtonColor": "black",
             "webxr": {
                 "optionalFeatures": {
-                    "hand-tracking": true,
-                    "hit-test": false,
-                    "local-floor": true
+                    "hand-tracking": true
                 }
             },
             "viewObject": "21"
