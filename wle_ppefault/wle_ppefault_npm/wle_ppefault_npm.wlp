@@ -389,13 +389,15 @@
                     "type": "pp-set-hand-local-transform"
                 },
                 {
-                    "type": "pp-gamepad-animator",
-                    "pp-gamepad-animator": {
+                    "type": "pp-gamepad-mesh-animator",
+                    "pp-gamepad-mesh-animator": {
+                        "_myGamepad": "69",
                         "_mySelect": "55",
                         "_mySqueeze": "56",
                         "_myThumbstick": "57",
+                        "_myTopButton": "58",
                         "_myBottomButton": "53",
-                        "_myTopButton": "58"
+                        "_myUsePressForSqueeze": true
                     }
                 }
             ]
@@ -463,14 +465,16 @@
                     }
                 },
                 {
-                    "type": "pp-gamepad-animator",
-                    "pp-gamepad-animator": {
-                        "_myHandedness": "right",
+                    "type": "pp-gamepad-mesh-animator",
+                    "pp-gamepad-mesh-animator": {
+                        "_myGamepad": "70",
                         "_mySelect": "63",
                         "_mySqueeze": "64",
                         "_myThumbstick": "65",
+                        "_myTopButton": "66",
                         "_myBottomButton": "61",
-                        "_myTopButton": "66"
+                        "_myUsePressForSqueeze": true,
+                        "_myHandedness": "right"
                     }
                 }
             ]

@@ -1,7 +1,7 @@
 {
   "name": "wle_ppefault_npm",
-  "version": "1.0.0",
-  "description": "Default npm project for the Wonderland Engine",
+  "version": "0.2.4",
+  "description": "Template npm project for the Wonderland Engine",
   "main": "./js/bundle.js",
   "scripts": {
     "build": "esbuild ./js/bundle.js --sourcemap --bundle --outfile=\"deploy/wle_ppefault_npm-bundle.js\""
@@ -14,6 +14,6 @@
   "dependencies": {
     "@wonderlandengine/components": "^0.8.16",
     "gl-matrix": "^3.4.3",
-    "wle_pp": "^0.2.2"
+    "wle_pp": "^0.2.4"
   }
 }
