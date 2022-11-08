@@ -65,4 +65,4 @@ You are free to use this in your projects, just remember to credit me somewhere!
 
 # Credits
 
-- Meta Quest 1 Low Poly Gamepads by [Jezza3D](https://sketchfab.com/Jezza3D), with small adjustments made by me
+- [Meta Quest 1 Gamepads Low Poly](https://github.com/SignorPipo/wle_ppefault/blob/main/wle_ppefault/wle_ppefault/assets/models/quest_controllers_credits_Jezza3D.fbx) by [Jezza3D](https://sketchfab.com/Jezza3D), with small adjustments made by me
