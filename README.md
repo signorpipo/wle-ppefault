@@ -51,8 +51,9 @@ The `Player` object includes:
 - `Eyes`
   * used to render the VR view
 - `Hands`
-  * follow the gamepads positions
-  * represented by two Meta Quest gamepads that are animated, that means buttons react when pressed in real life
+  * follow the gamepads/tracked hands positions
+  * the gamepads are displayed as two Meta Quest gamepads that are animated, that means buttons react when pressed in real life
+  * the tracked hands are displayed through cubes positioned on the tracked hand joints
   * includes `pp-console-vr` and 'pp-easy-tune`, two tools that can be useful while debugging and tuning
 - `Head`
   * follows the head of the player

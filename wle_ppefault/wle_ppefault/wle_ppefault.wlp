@@ -391,7 +391,6 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_myGamepad": "69",
                         "_mySelect": "55",
                         "_mySqueeze": "56",
                         "_myThumbstick": "57",
@@ -467,7 +466,6 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_myGamepad": "70",
                         "_mySelect": "63",
                         "_mySqueeze": "64",
                         "_myThumbstick": "65",
@@ -518,8 +516,7 @@
                 {
                     "type": "pp-tool-cursor",
                     "pp-tool-cursor": {
-                        "_myHandedness": "right",
-                        "_myPulseOnHover": false
+                        "_myHandedness": "right"
                     }
                 }
             ]
