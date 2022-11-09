@@ -1,6 +1,6 @@
 {
   "name": "wle_ppefault_npm_unbundled",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Template npm project for the Wonderland Engine",
   "main": "./js/bundle.js",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@wonderlandengine/components": "^0.8.16",
-    "gl-matrix": "^3.4.3"
+    "gl-matrix": "^3.4.3",
+    "howler": "^2.2.3"
   }
 }
