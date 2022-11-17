@@ -2,7 +2,6 @@
   "name": "wle_ppefault_npm",
   "version": "0.2.7",
   "description": "Template npm project for the Wonderland Engine",
-  "main": "./js/bundle.js",
   "scripts": {
     "build": "esbuild ./js/bundle.js --sourcemap --bundle --outfile=\"deploy/wle_ppefault_npm-bundle.js\""
   },
@@ -16,5 +15,23 @@
     "gl-matrix": "^3.4.3",
     "howler": "^2.2.3",
     "wle_pp": "^0.2.7"
+  },
+  "files": [
+    "assets",
+    "js",
+    "package-lock.json",
+    "wle_ppefault_npm.wlp"
+  ],
+  "keywords": [
+    "wonderland",
+    "wonderlandengine",
+    "wonderland engine",
+    "wle",
+    "webxr"
+  ],
+  "homepage": "https://github.com/SignorPipo/wle_ppefault",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SignorPipo/wle_ppefault"
   }
 }
