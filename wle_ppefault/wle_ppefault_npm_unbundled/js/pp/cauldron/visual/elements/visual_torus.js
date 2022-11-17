@@ -16,17 +16,18 @@ let visualTorus = new PP.VisualTorus(visualParams);
 PP.VisualTorusParams = class VisualTorusParams {
 
     constructor() {
+        this.myTransform = PP.mat4_create();
         this.myRadius = 0;
 
         this.mySegmentAmount = 12;
         this.mySegmentThickness = 0.05;
 
-        this.myTransform = PP.mat4_create();
+        this.mySegmentMesh = null;  // the mesh is scaled along up axis, null means it will default on PP.myDefaultResources.myMeshes.myCylinder
 
-        this.myMaterial = null;
-        this.myColor = null; // if this is set and material is null, it will use the default flat opaque material with this color
+        this.myMaterial = null;     // null means it will default on PP.myDefaultResources.myMaterials.myFlatOpaque
+        this.myColor = null;        // if this is set and material is null, it will use the default flat opaque material with this color
 
-        this.myParent = null; // if this is set the parent will not be the visual root anymore, the positions will be local to this object
+        this.myParent = null;       // if this is set the parent will not be the visual root anymore, the positions will be local to this object
 
         this.myType = PP.VisualElementType.TORUS;
     }
@@ -49,6 +50,7 @@ PP.VisualTorus = class VisualTorus {
         this._myFlatOpaqueMaterial = null;
 
         this._build();
+        this.forceRefresh();
 
         this.setVisible(true);
     }
@@ -96,7 +98,10 @@ PP.VisualTorus = class VisualTorus {
     forceRefresh() {
         this._refresh();
 
-        for (let visualSegment of this._myVisualSegmentList) {
+        let segmentToRefresh = Math.min(this._myParams.mySegmentAmount, this._myVisualSegmentList.length);
+
+        for (let i = 0; i < segmentToRefresh; i++) {
+            let visualSegment = this._myVisualSegmentList[i];
             visualSegment.forceRefresh();
         }
     }
@@ -147,6 +152,8 @@ PP.VisualTorus = class VisualTorus {
         clonedParams.mySegmentThickness = this._myParams.mySegmentThickness;
 
         clonedParams.myTransform.mat4_copy(this._myParams.myTransform);
+
+        clonedParams.mySegmentMesh = this._myParams.mySegmentMesh;
 
         if (this._myParams.myMaterial != null) {
             clonedParams.myMaterial = this._myParams.myMaterial.clone();
@@ -208,6 +215,8 @@ PP.VisualTorus.prototype._refresh = function () {
             let visualSegmentParams = visualSegment.getParams();
             visualSegmentParams.setStartEnd(fixedSegmentStart, fixedSegmentEnd);
             visualSegmentParams.myThickness = this._myParams.mySegmentThickness;
+
+            visualSegmentParams.myMesh = this._myParams.mySegmentMesh;
 
             if (this._myParams.myMaterial == null) {
                 if (this._myParams.myColor == null) {
