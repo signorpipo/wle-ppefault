@@ -8,7 +8,14 @@ A collection of assets that can be useful while working with the Wonderland Engi
 
 In the scene of this project you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete.
 
-You can also get this template through `npm`: 
+# Downloads
+
+You can download this template through the following links:
+  * [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault.zip)
+  * [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_npm.zip)
+  * [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_npm_unbundled.zip)
+
+You can also download this template through `npm`: 
   * `npm install wle_ppefault`
   * `npm install wle_ppefault_npm`
   * `npm install wle_ppefault_npm_unbundled`

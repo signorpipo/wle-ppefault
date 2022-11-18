@@ -1,6 +1,6 @@
 {
   "name": "wle_ppefault_npm_unbundled",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Template npm project for the Wonderland Engine",
   "scripts": {
     "build": "esbuild ./js/bundle.js --sourcemap --bundle --outfile=\"deploy/wle_ppefault_npm_unbundled-bundle.js\""
