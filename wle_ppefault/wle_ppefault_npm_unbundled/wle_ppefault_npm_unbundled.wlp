@@ -316,7 +316,7 @@
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "35"
+                        "_myJointMaterial": "144"
                     }
                 }
             ]
@@ -383,7 +383,7 @@
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "35",
+                        "_myJointMaterial": "144",
                         "_myHandedness": "right"
                     }
                 }
@@ -749,6 +749,35 @@
                     0.4980392
                 ],
                 "ambientFactor": 0.05
+            }
+        },
+        "144": {
+            "name": "Tracked Hand Joint",
+            "Phong": {
+                "ambientColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "diffuseColor": [
+                    0.0784,
+                    0.0784,
+                    0.0784,
+                    1.0
+                ],
+                "specularColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.4980392
+                ],
+                "fogColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.0
+                ]
             }
         }
     },
