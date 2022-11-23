@@ -2,11 +2,9 @@
 
 Template project for the [Wonderland Engine](https://wonderlandengine.com/).
 
-The project includes the APIs from the [PP bundle](https://github.com/SignorPipo/wle_pp).
+The project includes the [PP library](https://github.com/SignorPipo/wle_pp).
 
 A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/SignorPipo/wle_assets).
-
-In the scene of this project you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete.
 
 # Downloads
 
@@ -25,18 +23,20 @@ You can also download this template through `npm`:
 There are a few versions of this template:
 - [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
   * a standard project (not `npm`)
-  * the PP APIs are included as a bundle file
+  * the PP library is included as a bundle file
 - [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm)
   * an `npm` version of the same project
-  * the PP APIs are included as an `npm` package
+  * the PP library is included as an `npm` package
   * u need to run `npm install` in the project folder in order to install the dependencies
 - [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm_unbundled)
   * an `npm` version of the same project
-  * the PP APIs are not included as an `npm` package, but as files in the project
-  * can be useful if u plan to edit the PP APIs to adjust them to your need
+  * the PP library is not included as an `npm` package, but as files in the project
+  * can be useful if u plan to edit the PP library to adjust them to your need
   * u need to run `npm install` in the project folder in order to install the dependencies
 
 # Scene Structure
+
+In the scene you will find only a few objects that should make it easier and faster to get started with the development, without adding too many things you may have to delete.
 
 The scene is composed by a `Scene` object that contains a `Player` and two `Lights`.
 
