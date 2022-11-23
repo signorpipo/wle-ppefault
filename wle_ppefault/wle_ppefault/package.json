@@ -1,8 +1,13 @@
 {
   "name": "wle_ppefault",
-  "version": "0.2.8",
-  "description": "Template project for the Wonderland Engine",
+  "version": "0.2.9",
   "author": "Pipo",
+  "description": "Template project for the Wonderland Engine - Standard Version",
+  "homepage": "https://github.com/SignorPipo/wle_ppefault",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SignorPipo/wle_ppefault"
+  },
   "license": "ISC",
   "files": [
     "assets",
@@ -15,10 +20,5 @@
     "wonderland engine",
     "wle",
     "webxr"
-  ],
-  "homepage": "https://github.com/SignorPipo/wle_ppefault",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SignorPipo/wle_ppefault"
-  }
+  ]
 }

@@ -701,6 +701,9 @@
             "link": {
                 "name": "DefaultFontMaterial",
                 "file": "default"
+            },
+            "Text": {
+                "font": "147"
             }
         },
         "31": {
@@ -717,7 +720,10 @@
         },
         "110": {
             "name": "Text",
-            "pipeline": "82"
+            "pipeline": "82",
+            "Text": {
+                "font": "147"
+            }
         },
         "111": {
             "link": {
@@ -904,6 +910,9 @@
             "link": {
                 "name": "Flat Opaque Textured",
                 "file": "default"
+            },
+            "features": {
+                "ALPHA_MASKED": true
             }
         },
         "10": {
@@ -922,6 +931,9 @@
             "link": {
                 "name": "Phong Opaque Textured",
                 "file": "default"
+            },
+            "features": {
+                "ALPHA_MASKED": true
             }
         },
         "16": {
@@ -946,6 +958,9 @@
             "link": {
                 "name": "Physical Opaque Textured",
                 "file": "default"
+            },
+            "features": {
+                "ALPHA_MASKED": true
             }
         },
         "82": {
@@ -967,7 +982,6 @@
             },
             "name": "Flat Transparent No Depth",
             "features": {
-                "ALPHA": true,
                 "ALPHA_MASKED": true
             },
             "depthTest": false,
@@ -978,6 +992,18 @@
             "blendDestRgb": "one minus source alpha",
             "blendDestAlpha": "one minus source alpha",
             "blendEqAlpha": "max"
+        },
+        "145": {
+            "link": {
+                "name": "Phong Normalmapped",
+                "file": "default"
+            }
+        },
+        "146": {
+            "link": {
+                "name": "Phong Lightmapped",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -986,7 +1012,7 @@
             "version": [
                 0,
                 9,
-                3
+                4
             ]
         },
         "rendering": {
@@ -1026,5 +1052,13 @@
     },
     "files": [
         "assets/models/meta_quest_1_gamepads_credits_Jezza3D.fbx"
-    ]
+    ],
+    "fonts": {
+        "147": {
+            "link": {
+                "name": "DejaVuSans.ttf",
+                "file": "default"
+            }
+        }
+    }
 }
