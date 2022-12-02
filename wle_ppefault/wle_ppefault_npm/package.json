@@ -1,6 +1,6 @@
 {
   "name": "wle_ppefault_npm",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "author": "Pipo",
   "description": "Template project for the Wonderland Engine - NPM Version",
   "homepage": "https://github.com/SignorPipo/wle_ppefault",
@@ -26,7 +26,7 @@
     "@wonderlandengine/components": "^0.8.16",
     "gl-matrix": "^3.4.3",
     "howler": "^2.2.3",
-    "wle_pp": "^0.2.9"
+    "wle_pp": "^0.2.10"
   },
   "devDependencies": {
     "esbuild": "^0.14.54"
