@@ -14,9 +14,9 @@ You can download this template through the following links:
   * [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_npm_unbundled.zip)
 
 You can also download this template through `npm`: 
-  * `npm install wle_ppefault`
-  * `npm install wle_ppefault_npm`
-  * `npm install wle_ppefault_npm_unbundled`
+  * [`npm install wle_ppefault`](https://www.npmjs.com/package/wle_ppefault)
+  * [`npm install wle_ppefault_npm`](https://www.npmjs.com/package/wle_ppefault_npm) 
+  * [`npm install wle_ppefault_npm_unbundled`](https://www.npmjs.com/package/wle_ppefault_npm_unbundled)
 
 # Template Versions
 
