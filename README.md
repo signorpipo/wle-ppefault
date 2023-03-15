@@ -41,23 +41,17 @@ In the scene you will find only a few objects that should make it easier and fas
 The scene is composed by a `Scene` object that contains a `Player` and two `Lights`.
 
 The `Scene` object has the following components on it:
-- `pp-get-player-objects`
-  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
+- `pp-gateway`
+  * entry point of the PP library
+  * setup some stuff like creating the `PP.InputManager` and the `PP.VisualManager`
 - `pp-get-default-resources`
   * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
-- `pp-input-manager`
-  * creates and updates the input devices like the gamepads, the mouse and the keyboard
-  * creates some global variables like `PP.myMouse` or `PP.myGamepads` to easily access these devices
-- `pp-visual-manager`
-  * creates and updates a global visual manager that can be accessed through the variable `PP.myVisualManager`
-- `pp-debug-manager`
-  * creates and updates a global debug manager that can be accessed through the variable `PP.myDebugManager`
+- `pp-get-player-objects`
+  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
 
 The `Player` object includes:
 - `Pivot`
   * can be used to offset the head and the hands, for example to have a specific height
-  * the pivot includes the `pp-player-height` component disabled, you can enable it to set a specific height from the floor
-  * if `local-floor` is enabled, the `pp-player-height` component will automatically stop, so that the height will be the real one of the user
 - `Non VR Camera`
   * used to render the view when you have not entered the VR session yet
 - `Eyes`
