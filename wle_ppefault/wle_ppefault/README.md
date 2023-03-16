@@ -1,8 +1,10 @@
 # Overview
 
-Template project for the [Wonderland Engine](https://wonderlandengine.com/).
+Default template project for the [Wonderland Engine](https://wonderlandengine.com/).
 
 The project includes the [PP library](https://github.com/SignorPipo/wle_pp).
+
+If u prefer to start with a more elaborated template project that uses the PP library, you can use one of the [pplayground templates](https://github.com/SignorPipo/wle_pplaygrounds) instead.
 
 A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/SignorPipo/wle_assets).
 
@@ -42,7 +44,7 @@ The scene is composed by a `Scene` object that contains a `Player` and two `Ligh
 
 The `Scene` object has the following components on it:
 - `pp-gateway`
-  * entry point of the `PP` library
+  * entry point of the PP library
   * setup some stuff like creating the `PP.InputManager` and the `PP.VisualManager`
 - `pp-get-default-resources`
   * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code

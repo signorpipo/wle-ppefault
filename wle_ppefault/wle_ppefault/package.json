@@ -2,7 +2,7 @@
   "name": "wle_ppefault",
   "version": "0.3.5",
   "author": "Pipo",
-  "description": "Template project for the Wonderland Engine - Standard Version",
+  "description": "Default template project for the Wonderland Engine - Standard Version",
   "homepage": "https://github.com/SignorPipo/wle_ppefault",
   "repository": {
     "type": "git",
