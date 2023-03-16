@@ -42,7 +42,7 @@ The scene is composed by a `Scene` object that contains a `Player` and two `Ligh
 
 The `Scene` object has the following components on it:
 - `pp-gateway`
-  * entry point of the PP library
+  * entry point of the `PP` library
   * setup some stuff like creating the `PP.InputManager` and the `PP.VisualManager`
 - `pp-get-default-resources`
   * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
