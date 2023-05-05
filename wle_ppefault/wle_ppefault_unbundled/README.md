@@ -12,29 +12,16 @@ A collection of assets that can be useful while working with the Wonderland Engi
 
 You can download this template through the following links:
   * [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault.zip)
-  * [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_npm.zip)
-  * [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_npm_unbundled.zip)
-
-You can also download this template through `npm`: 
-  * [`npm install wle_ppefault`](https://www.npmjs.com/package/wle_ppefault)
-  * [`npm install wle_ppefault_npm`](https://www.npmjs.com/package/wle_ppefault_npm) 
-  * [`npm install wle_ppefault_npm_unbundled`](https://www.npmjs.com/package/wle_ppefault_npm_unbundled)
+  * [`wle_ppefault_unbundled`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_unbundled.zip)
 
 # Template Versions
 
-There are a few versions of this template:
+There are two versions of this template:
 - [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
-  * a standard project (not `npm`)
-  * the PP library is included as a bundle file
-- [`wle_ppefault_npm`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm)
-  * an `npm` version of the same project
   * the PP library is included as an `npm` package
-  * u need to run `npm install` in the project folder in order to install the dependencies
-- [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_npm_unbundled)
-  * an `npm` version of the same project
+- [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
   * the PP library is not included as an `npm` package, but as files in the project
   * can be useful if u plan to edit the PP library to adjust them to your need
-  * u need to run `npm install` in the project folder in order to install the dependencies
 
 # Scene Structure
 
@@ -45,24 +32,21 @@ The scene is composed by a `Scene` object that contains a `Player` and two `Ligh
 The `Scene` object has the following components on it:
 - `pp-gateway`
   * entry point of the PP library
-  * setup some stuff like creating the `PP.InputManager` and the `PP.VisualManager`
-- `pp-get-default-resources`
-  * get some engine resources (meshes, materials) and put them in a global variable `PP.myDefaultResources` to make them easily accessible in the code
-- `pp-get-player-objects`
-  * get all the objects related to the player and put them in a global variable `PP.myPlayerObjects`
+  * let you specify some settings like if the debugs are enabled or not
+  * setup some stuff like the `InputManager` and the `SceneObjects`
 
 The `Player` object includes:
-- `Pivot`
+- `Player Pivot`
   * can be used to offset the head and the hands, for example to have a specific height
-- `Non VR Camera`
-  * used to render the view when you have not entered the VR session yet
+- `Camera Non XR`
+  * used to render the view when you have not entered an XR session yet
 - `Eyes`
-  * used to render the VR view
+  * used to render the XR view
 - `Hands`
   * follow the gamepads/tracked hands positions
-  * the gamepads are displayed as two Meta Quest gamepads that are animated, that means buttons react when pressed in real life
+  * the gamepads are displayed as two low poly Meta Quest gamepads that are animated, that means buttons react when pressed in real life
   * the tracked hands are displayed through cubes positioned on the tracked hand joints
-  * includes `pp-console-vr` and 'pp-easy-tune`, two tools that can be useful while debugging and tuning
+  * includes `pp-console-vr-tool` and `pp-easy-tune-tool`, two tools that can be useful while debugging and tuning
 - `Head`
   * follows the head of the player
   * includes a `pp-spatial-audio-listener` component

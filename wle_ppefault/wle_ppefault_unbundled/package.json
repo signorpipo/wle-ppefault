@@ -12,7 +12,6 @@
   "files": [
     "assets",
     "js",
-    "package-lock.json",
     "wle_ppefault_unbundled.wlp"
   ],
   "keywords": [
