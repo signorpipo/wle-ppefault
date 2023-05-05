@@ -846,7 +846,7 @@
     },
     "settings": {
         "project": {
-            "name": "wle_ppefault",
+            "name": "wle_ppefault_unbundled",
             "version": [
                 1,
                 0,
@@ -872,7 +872,8 @@
         },
         "scripting": {
             "sourcePaths": [
-                "js"
+                "js",
+                "js/pp/index.js"
             ],
             "bundlingType": "esbuild",
             "libraryPaths": [

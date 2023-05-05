@@ -1,8 +1,8 @@
 {
-  "name": "wle_ppefault",
+  "name": "wle_ppefault_unbundled",
   "version": "0.4.0",
   "author": "Pipo",
-  "description": "Default template project for the Wonderland Engine",
+  "description": "Default template project for the Wonderland Engine - Unbundled Version",
   "homepage": "https://github.com/SignorPipo/wle_ppefault",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "assets",
     "js",
     "package-lock.json",
-    "wle_ppefault.wlp"
+    "wle_ppefault_unbundled.wlp"
   ],
   "keywords": [
     "wonderland",
@@ -25,7 +25,6 @@
   "dependencies": {
     "@wonderlandengine/api": "^1.0.0",
     "@wonderlandengine/components": "^1.0.3",
-    "wle_pp": "^0.4.0",
     "gl-matrix": "^3.4.3",
     "howler": "^2.2.3"
   },
