@@ -4,7 +4,7 @@ Default template project for the [Wonderland Engine](https://wonderlandengine.co
 
 The project includes the [PP library](https://github.com/SignorPipo/wle_pp).
 
-If u prefer to start with a more elaborated template project that uses the PP library, you can use one of the [pplayground templates](https://github.com/SignorPipo/wle_pplaygrounds) instead.
+If u prefer to start with a more elaborated template project that uses the PP library, you can use one of the [PPlayground templates](https://github.com/SignorPipo/wle_pplaygrounds) instead.
 
 A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/SignorPipo/wle_assets).
 
@@ -53,7 +53,7 @@ The `Player` object includes:
 
 # License
 
-You are free to use this in your projects, just remember to credit me somewhere!
+You are free to use this in your projects, just remember to credit it somewhere, if possible!
 
 # Credits
 
