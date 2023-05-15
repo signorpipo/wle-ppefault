@@ -1,12 +1,12 @@
 {
-    "name": "wle_ppefault",
+    "name": "wle-ppefault",
     "version": "0.4.1",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine",
-    "homepage": "https://github.com/SignorPipo/wle_ppefault",
+    "homepage": "https://github.com/SignorPipo/wle-ppefault",
     "repository": {
         "type": "git",
-        "url": "https://github.com/SignorPipo/wle_ppefault"
+        "url": "https://github.com/SignorPipo/wle-ppefault"
     },
     "license": "ISC",
     "files": [
