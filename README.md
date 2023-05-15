@@ -2,24 +2,24 @@
 
 Default template project for the [Wonderland Engine](https://wonderlandengine.com/).
 
-The project includes the [PP library](https://github.com/SignorPipo/wle_pp).
+The project includes the [PP library](https://github.com/SignorPipo/wle-pp).
 
-If u prefer to start with a more elaborated template project that uses the PP library, you can use one of the [PPlayground templates](https://github.com/SignorPipo/wle_pplaygrounds) instead.
+If u prefer to start with a more elaborated template project that uses the PP library, you can use one of the [PPlayground templates](https://github.com/SignorPipo/wle-pplaygrounds) instead.
 
-A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/SignorPipo/wle_assets).
+A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/SignorPipo/wle-assets).
 
 # Downloads
 
 You can download this template through the following links:
-  * [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault.zip)
-  * [`wle_ppefault_unbundled`](https://github.com/SignorPipo/wle_ppefault/releases/latest/download/wle_ppefault_unbundled.zip)
+  * [`wle-ppefault`](https://github.com/SignorPipo/wle-ppefault/releases/latest/download/wle_ppefault.zip)
+  * [`wle-ppefault-unbundled`](https://github.com/SignorPipo/wle-ppefault/releases/latest/download/wle_ppefault_unbundled.zip)
 
 # Template Versions
 
 There are two versions of this template:
-- [`wle_ppefault`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault)
+- [`wle-ppefault`](https://github.com/SignorPipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault)
   * the PP library is included as an `npm` package
-- [`wle_ppefault_npm_unbundled`](https://github.com/SignorPipo/wle_ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
+- [`wle-ppefault-npm-unbundled`](https://github.com/SignorPipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
   * the PP library is not included as an `npm` package, but as files in the project
   * can be useful if u plan to edit the PP library to adjust them to your need
 
@@ -57,5 +57,5 @@ You are free to use this in your projects, just remember to credit it somewhere,
 
 # Credits
 
-- [Meta Quest 1 Gamepads Low Poly](https://github.com/SignorPipo/wle_ppefault/blob/main/wle_ppefault/wle_ppefault/assets/models/meta_quest_1_gamepads_credits_Jezza3D.fbx) by [Jezza3D](https://sketchfab.com/Jezza3D)
-- Made using [PP](https://github.com/SignorPipo/wle_pp)
+- [Meta Quest 1 Gamepads Low Poly](https://github.com/SignorPipo/wle-ppefault/blob/main/wle_ppefault/wle_ppefault/assets/models/pp/meta_quest_1_gamepads_credits_Jezza3D.fbx) by [Jezza3D](https://sketchfab.com/Jezza3D)
+- Made using [PP](https://github.com/SignorPipo/wle-pp)
