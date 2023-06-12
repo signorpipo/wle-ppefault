@@ -7,7 +7,7 @@
                     "type": "pp-gateway",
                     "pp-gateway": {
                         "_myPlayer": "19",
-                        "_myPlayerPivot": "20",
+                        "_myReferenceSpace": "20",
                         "_myCameraNonXR": "21",
                         "_myEyeLeft": "26",
                         "_myEyeRight": "27",
@@ -31,11 +31,23 @@
         },
         "19": {
             "name": "Player",
-            "parent": "18"
+            "parent": "18",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
         },
         "20": {
-            "name": "Player Pivot",
-            "parent": "19"
+            "name": "Reference Space",
+            "parent": "19",
+            "rotation": [
+                0.0,
+                1.0,
+                0.0,
+                -4.3711388286737935e-8
+            ]
         },
         "21": {
             "name": "Camera Non XR",
@@ -850,7 +862,7 @@
             "version": [
                 1,
                 0,
-                0
+                3
             ]
         },
         "rendering": {
