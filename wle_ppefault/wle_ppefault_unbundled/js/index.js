@@ -34,7 +34,7 @@ const RuntimeOptions = {
     canvas: 'canvas',
 };
 const Constants = {
-    ProjectName: 'wle_ppefault_unbundled',
+    ProjectName: 'wle-ppefault-unbundled',
     RuntimeBaseName: 'WonderlandRuntime',
     WebXRRequiredFeatures: ['local',],
     WebXROptionalFeatures: ['local','hand-tracking','hit-test',],

@@ -858,7 +858,7 @@
     },
     "settings": {
         "project": {
-            "name": "wle_ppefault_unbundled",
+            "name": "wle-ppefault-unbundled",
             "version": [
                 1,
                 0,
