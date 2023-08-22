@@ -1,6 +1,6 @@
 {
     "name": "wle-ppefault-unbundled",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine - Unbundled Version",
     "homepage": "https://github.com/SignorPipo/wle-ppefault",
@@ -26,8 +26,8 @@
     ],
     "type": "module",
     "dependencies": {
-        "@wonderlandengine/api": "^1.0.0",
-        "@wonderlandengine/components": "^1.0.3",
+        "@wonderlandengine/api": "^1.0.1",
+        "@wonderlandengine/components": "^1.0.5",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.3"
     }
