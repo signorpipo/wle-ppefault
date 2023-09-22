@@ -854,6 +854,96 @@
                 "name": "FullScreenTriangle.vert",
                 "file": "default"
             }
+        },
+        "148": {
+            "link": {
+                "name": "lib\\Color.glsl",
+                "file": "default"
+            }
+        },
+        "149": {
+            "link": {
+                "name": "lib\\Compatibility.frag",
+                "file": "default"
+            }
+        },
+        "150": {
+            "link": {
+                "name": "lib\\CoordinateSystems.glsl",
+                "file": "default"
+            }
+        },
+        "151": {
+            "link": {
+                "name": "lib\\GI.frag",
+                "file": "default"
+            }
+        },
+        "152": {
+            "link": {
+                "name": "lib\\Inputs.frag",
+                "file": "default"
+            }
+        },
+        "153": {
+            "link": {
+                "name": "lib\\Lights.frag",
+                "file": "default"
+            }
+        },
+        "154": {
+            "link": {
+                "name": "lib\\Materials.frag",
+                "file": "default"
+            }
+        },
+        "155": {
+            "link": {
+                "name": "lib\\Math.glsl",
+                "file": "default"
+            }
+        },
+        "156": {
+            "link": {
+                "name": "lib\\Packing.frag",
+                "file": "default"
+            }
+        },
+        "157": {
+            "link": {
+                "name": "lib\\Quaternion.glsl",
+                "file": "default"
+            }
+        },
+        "158": {
+            "link": {
+                "name": "lib\\Slug.frag",
+                "file": "default"
+            }
+        },
+        "159": {
+            "link": {
+                "name": "lib\\Slug.vert",
+                "file": "default"
+            }
+        },
+        "160": {
+            "link": {
+                "name": "lib\\Surface.frag",
+                "file": "default"
+            }
+        },
+        "161": {
+            "link": {
+                "name": "lib\\Textures.frag",
+                "file": "default"
+            }
+        },
+        "163": {
+            "link": {
+                "name": "lib\\Uniforms.glsl",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -861,8 +951,9 @@
             "name": "wle-ppefault",
             "version": [
                 1,
-                0,
-                4
+                1,
+                1,
+                1
             ]
         },
         "rendering": {
@@ -1017,6 +1108,12 @@
                 "file": "default"
             }
         },
+        "162": {
+            "link": {
+                "name": "TileFeedback",
+                "file": "default"
+            }
+        },
         "89": {
             "link": {
                 "name": "Flat Opaque",
@@ -1030,20 +1127,20 @@
             "depthFunction": "always",
             "blending": true,
             "blendSrcRgb": "source alpha",
-            "blendSrcAlpha": "source alpha",
+            "blendSrcAlpha": "one minus destination alpha",
             "blendDestRgb": "one minus source alpha",
-            "blendDestAlpha": "one minus source alpha",
-            "blendEqAlpha": "max"
+            "blendDestAlpha": "one",
+            "blendEqAlpha": "add"
         }
     },
     "textures": {},
     "images": {},
-    "files": [
-        {
+    "files": {
+        "164": {
             "fileName": "assets/models/pp/meta_quest_1_gamepads_credits_Jezza3D.fbx",
             "importerName": "AssimpImporter"
         }
-    ],
+    },
     "fonts": {
         "147": {
             "link": {
