@@ -89,7 +89,8 @@ engine.registerComponent(ToolCursorComponent);
 engine.registerComponent(TrackedHandDrawAllJointsComponent);
 /* wle:auto-register:end */
 
-engine.scene.load(`${Constants.ProjectName}.bin`);
+let loadDelaySeconds = 0;
+setTimeout(() => engine.scene.load(`${Constants.ProjectName}.bin`), loadDelaySeconds * 1000);
 
 /* wle:auto-benchmark:start */
 /* wle:auto-benchmark:end */

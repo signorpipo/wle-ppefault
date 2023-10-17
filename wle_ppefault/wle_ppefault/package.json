@@ -1,6 +1,6 @@
 {
     "name": "wle-ppefault",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine",
     "homepage": "https://github.com/SignorPipo/wle-ppefault",
@@ -30,6 +30,6 @@
         "@wonderlandengine/components": "^1.0.6",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.4",
-        "wle-pp": "^0.5.1"
+        "wle-pp": "^0.5.2"
     }
 }
