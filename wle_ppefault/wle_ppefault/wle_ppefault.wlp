@@ -1073,8 +1073,7 @@
             "blendSrcRgb": "source alpha",
             "blendSrcAlpha": "one minus destination alpha",
             "blendDestRgb": "one minus source alpha",
-            "blendDestAlpha": "one",
-            "blendEqAlpha": "add"
+            "blendDestAlpha": "one"
         }
     },
     "textures": {},
