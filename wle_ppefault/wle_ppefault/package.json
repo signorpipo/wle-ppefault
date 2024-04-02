@@ -11,7 +11,7 @@
     "license": "ISC",
     "files": [
         "assets",
-        "js",
+        "src",
         "wle_ppefault.wlp"
     ],
     "keywords": [
