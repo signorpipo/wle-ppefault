@@ -19,7 +19,7 @@ You can download this template through the following links:
 There are two versions of this template:
 - [`wle-ppefault`](https://github.com/signorpipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault)
   - the PP library is included as an `npm` package
-- [`wle-ppefault-npm-unbundled`](https://github.com/signorpipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
+- [`wle-ppefault-unbundled`](https://github.com/signorpipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
   - the PP library is not included as an `npm` package, but as files in the project
   - can be useful if u plan to edit the PP library to adjust them to your need
 
@@ -50,6 +50,15 @@ The `Player` object includes:
 - `Head`
   - follows the head of the player
   - includes a `pp-spatial-audio-listener` component
+
+# Things To Know
+
+When using this template, there are certain things to take into consideration:
+  - if u change the structure of the `Player` object, some features might not work properly anymore
+  - inside the `index.js` file of the `wle-ppefault` template, the following line is added to make type extensions available to typescript
+    - `import "wle-pp/add_type_extensions_to_typescript";`
+    - if u delete the `index.js` file and auto generate it again, type extensions might cause type errors until you add this line back manually
+
 
 # License
 
