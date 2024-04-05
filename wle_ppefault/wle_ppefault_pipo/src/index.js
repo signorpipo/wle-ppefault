@@ -28,7 +28,7 @@ import { loadRuntime } from '@wonderlandengine/api';
 
 /* wle:auto-constants:start */
 const Constants = {
-    ProjectName: 'wle-ppefault-unbundled',
+    ProjectName: 'wle-ppefault-pipo',
     RuntimeBaseName: 'WonderlandRuntime',
     WebXRRequiredFeatures: ['local',],
     WebXROptionalFeatures: ['local','hand-tracking','hit-test',],
@@ -37,11 +37,6 @@ const RuntimeOptions = {
     physx: true,
     loader: false,
     xrFramebufferScaleFactor: 1,
-    xrOfferSession: {
-        mode: 'auto',
-        features: Constants.WebXRRequiredFeatures,
-        optionalFeatures: Constants.WebXROptionalFeatures,
-    },
     canvas: 'canvas',
 };
 /* wle:auto-constants:end */
