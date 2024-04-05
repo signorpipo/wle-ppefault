@@ -13,6 +13,7 @@ A collection of assets that can be useful while working with the Wonderland Engi
 You can download this template through the following links:
   - [`wle-ppefault`](https://github.com/signorpipo/wle-ppefault/releases/latest/download/wle_ppefault.zip)
   - [`wle-ppefault-unbundled`](https://github.com/signorpipo/wle-ppefault/releases/latest/download/wle_ppefault_unbundled.zip)
+  - [`wle-ppefault-pipo`](https://github.com/signorpipo/wle-ppefault/releases/latest/download/wle_ppefault_pipo.zip)
 
 # Template Versions
 
@@ -22,6 +23,9 @@ There are two versions of this template:
 - [`wle-ppefault-unbundled`](https://github.com/signorpipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault_unbundled)
   - the PP library is not included as an `npm` package, but as files in the project
   - can be useful if u plan to edit the PP library to adjust them to your need
+- [`wle-ppefault-pipo`](https://github.com/signorpipo/wle-ppefault/tree/main/wle_ppefault/wle_ppefault_pipo)
+  - a specific version made for myself
+  - it is based on the unbundled version plus some extras like the PWA support
 
 # Scene Structure
 
