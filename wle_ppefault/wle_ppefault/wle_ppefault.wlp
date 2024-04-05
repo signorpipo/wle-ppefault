@@ -940,7 +940,8 @@
             "bundlingType": "esbuild",
             "libraryPaths": [
                 "/js/lib/"
-            ]
+            ],
+            "entryPoint": "src/index.js"
         },
         "vr": {
             "leftEyeObject": "26",

@@ -913,7 +913,8 @@
                 1,
                 1,
                 6
-            ]
+            ],
+            "customIndexHtml": true
         },
         "rendering": {
             "clearColor": [
@@ -934,13 +935,14 @@
         },
         "scripting": {
             "sourcePaths": [
-                "js",
-                "js/pp/index.js"
+                "src",
+                "src/pp/index.js"
             ],
             "bundlingType": "esbuild",
             "libraryPaths": [
                 "/js/lib/"
-            ]
+            ],
+            "entryPoint": "src/index.js"
         },
         "vr": {
             "leftEyeObject": "26",
