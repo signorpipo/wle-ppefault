@@ -26,6 +26,9 @@
                         "_myText": "110",
                         "_myScene": "18"
                     }
+                },
+                {
+                    "type": "pp-show-xr-buttons"
                 }
             ]
         },
