@@ -1,41 +1,41 @@
 {
     "objects": {
-        "236dfcfa-7c7d-4748-9f90-d79487bfd67f": {
+        "ea2d149d-d18c-4968-afde-0b9c1f7ecd3f": {
             "name": "Scene",
             "components": [
                 {
                     "type": "pp-gateway",
                     "pp-gateway": {
-                        "_myPlayer": "8295fe5f-c075-45a1-9ab9-c59a59b25063",
-                        "_myReferenceSpace": "35272537-e0c9-411f-9e37-bc63bfdd3d99",
-                        "_myCameraNonXR": "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf",
-                        "_myEyeLeft": "679b8504-dd5a-4b37-b370-74d7a6e6ee50",
-                        "_myEyeRight": "29d001a7-5b69-449c-88b2-342b0d36bde5",
-                        "_myHead": "0611e6b2-4f0c-408a-aea8-604ab53fec0b",
-                        "_myHandRight": "f49a8f1e-6e5a-4e5c-a1ed-47163a8bc8bf",
-                        "_myHandLeft": "67b5e026-4620-47f1-88d5-ecdd7a3f577d",
+                        "_myPlayer": "98e84281-c0c7-4db3-8773-585cbf687aff",
+                        "_myReferenceSpace": "5503f8af-6bfc-4d97-b2cc-3e4d8fd44d09",
+                        "_myCameraNonXR": "8022bc4c-dcb9-461f-9f47-70f2c9ab943a",
+                        "_myEyeLeft": "bfeccf36-046b-49b5-b355-da4ede4daf21",
+                        "_myEyeRight": "665488c7-f768-473e-8fe7-8b4ccd5bc647",
+                        "_myHead": "ff9bf13e-8f93-4f3e-8865-52f81cd5130b",
+                        "_myHandRight": "f51fe37d-3aea-4317-af6b-e76b64a41b54",
+                        "_myHandLeft": "f0cbb5f3-92cc-4f20-941c-2e7a438f166c",
                         "_myPlane": "p0",
                         "_myCube": "p1",
                         "_mySphere": "p2",
                         "_myCone": "p3",
                         "_myCylinder": "p4",
                         "_myCircle": "p5",
-                        "_myFlatOpaque": "c21926f4-8929-4b54-838d-c67a26f11841",
-                        "_myFlatTransparentNoDepth": "ea87cb31-35f9-4941-bb3b-7c883c9de887",
-                        "_myPhongOpaque": "fb83e3a4-9152-4725-93f8-4ab6504c42c2",
-                        "_myText": "e17082e0-ca8b-4dc0-8f13-5e64079bab54",
-                        "_myScene": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
+                        "_myFlatOpaque": "cffc8c8c-c158-4950-88b3-de627375c2ed",
+                        "_myFlatTransparentNoDepth": "f791ea4a-29da-46c4-80a2-09027d17fa30",
+                        "_myPhongOpaque": "e972069e-66ee-4d9c-959d-8a78d9ddb9f9",
+                        "_myText": "04b7f97e-2921-4f88-91f3-20e62ec5c355",
+                        "_myScene": "ea2d149d-d18c-4968-afde-0b9c1f7ecd3f"
                     }
                 }
             ]
         },
-        "8295fe5f-c075-45a1-9ab9-c59a59b25063": {
+        "98e84281-c0c7-4db3-8773-585cbf687aff": {
             "name": "Player",
-            "parent": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
+            "parent": "ea2d149d-d18c-4968-afde-0b9c1f7ecd3f"
         },
-        "35272537-e0c9-411f-9e37-bc63bfdd3d99": {
+        "5503f8af-6bfc-4d97-b2cc-3e4d8fd44d09": {
             "name": "Reference Space",
-            "parent": "8295fe5f-c075-45a1-9ab9-c59a59b25063",
+            "parent": "98e84281-c0c7-4db3-8773-585cbf687aff",
             "rotation": [
                 0.0,
                 1.0,
@@ -43,49 +43,49 @@
                 0.0
             ]
         },
-        "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf": {
+        "8022bc4c-dcb9-461f-9f47-70f2c9ab943a": {
             "name": "Camera Non XR",
-            "parent": "4c162991-35c2-4628-8891-250910f1c18e",
+            "parent": "8be78c73-85be-4c1e-8f67-fd89305ab2ae",
             "components": [
                 {
                     "type": "view"
                 }
             ]
         },
-        "b240e652-a81e-4951-8b80-d138a0782ac9": {
+        "be12c4ed-e083-4ba0-b305-1e17ca69fe19": {
             "name": "Eyes",
-            "parent": "4c162991-35c2-4628-8891-250910f1c18e"
+            "parent": "8be78c73-85be-4c1e-8f67-fd89305ab2ae"
         },
-        "410467aa-e7f8-46de-bae7-3903a39de6db": {
+        "f72caa43-ac99-4b19-ab19-706fc24c1021": {
             "name": "Hands Left",
-            "parent": "6a86473a-7402-45af-8fda-8c4c25998b59",
+            "parent": "32423927-72cb-41bf-a0ab-7bba6e6eb1da",
             "components": [
                 {
                     "type": "pp-switch-hand-object",
                     "pp-switch-hand-object": {
-                        "_myGamepad": "850663c6-c729-47c9-a513-a438155b0dc3",
-                        "_myTrackedHand": "872de178-1eab-41fc-9f76-195550d28d97"
+                        "_myGamepad": "21e6e4ba-b097-4abb-97b4-a7d82fb86986",
+                        "_myTrackedHand": "00bc279b-2a05-400e-8c6f-738f7627c931"
                     }
                 }
             ]
         },
-        "0f20af8e-2f14-48ae-8c42-ec5286ca3a03": {
+        "9b2e8503-98e1-4cb5-ba06-65357a460f21": {
             "name": "Hands Right",
-            "parent": "6a86473a-7402-45af-8fda-8c4c25998b59",
+            "parent": "32423927-72cb-41bf-a0ab-7bba6e6eb1da",
             "components": [
                 {
                     "type": "pp-switch-hand-object",
                     "pp-switch-hand-object": {
                         "_myHandedness": "Right",
-                        "_myGamepad": "fe8944e2-784f-4d58-9af0-bdaa711069e8",
-                        "_myTrackedHand": "d1f0e516-6ed6-47ed-ac0d-23ad67a2e493"
+                        "_myGamepad": "ead4fe79-25ef-49b0-8feb-c0487bc6378f",
+                        "_myTrackedHand": "836077c0-3e6f-447e-ba52-d9e52b9cd182"
                     }
                 }
             ]
         },
-        "679b8504-dd5a-4b37-b370-74d7a6e6ee50": {
+        "bfeccf36-046b-49b5-b355-da4ede4daf21": {
             "name": "Eye Left",
-            "parent": "b240e652-a81e-4951-8b80-d138a0782ac9",
+            "parent": "be12c4ed-e083-4ba0-b305-1e17ca69fe19",
             "components": [
                 {
                     "type": "view"
@@ -98,9 +98,9 @@
                 }
             ]
         },
-        "29d001a7-5b69-449c-88b2-342b0d36bde5": {
+        "665488c7-f768-473e-8fe7-8b4ccd5bc647": {
             "name": "Eye Right",
-            "parent": "b240e652-a81e-4951-8b80-d138a0782ac9",
+            "parent": "be12c4ed-e083-4ba0-b305-1e17ca69fe19",
             "components": [
                 {
                     "type": "view"
@@ -113,13 +113,13 @@
                 }
             ]
         },
-        "1b42d5c5-1add-41c2-8807-0278c063b831": {
+        "26727e6b-7a15-4314-8a36-b7bf99ece0fa": {
             "name": "Lights",
-            "parent": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
+            "parent": "ea2d149d-d18c-4968-afde-0b9c1f7ecd3f"
         },
-        "71789853-878a-4720-abd0-7fc10d10d107": {
+        "56e8a8af-dbb5-4d5e-bf3d-2c61897ed25b": {
             "name": "Light 1",
-            "parent": "1b42d5c5-1add-41c2-8807-0278c063b831",
+            "parent": "26727e6b-7a15-4314-8a36-b7bf99ece0fa",
             "components": [
                 {
                     "type": "light",
@@ -134,9 +134,9 @@
                 1.0
             ]
         },
-        "8bf824c7-bf64-477d-872d-4665f41d1967": {
+        "8cd24f76-f5f3-4f30-9742-2ac04ef0cc16": {
             "name": "Light 2",
-            "parent": "1b42d5c5-1add-41c2-8807-0278c063b831",
+            "parent": "26727e6b-7a15-4314-8a36-b7bf99ece0fa",
             "components": [
                 {
                     "type": "light",
@@ -151,17 +151,17 @@
                 -1.0
             ]
         },
-        "4c162991-35c2-4628-8891-250910f1c18e": {
+        "8be78c73-85be-4c1e-8f67-fd89305ab2ae": {
             "name": "Cameras",
-            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
+            "parent": "5503f8af-6bfc-4d97-b2cc-3e4d8fd44d09"
         },
-        "16e55931-340b-45f3-88a4-31f5aac56e56": {
+        "6d6968ab-fff0-454a-9d65-cd26adc4b958": {
             "name": "Heads",
-            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
+            "parent": "5503f8af-6bfc-4d97-b2cc-3e4d8fd44d09"
         },
-        "0611e6b2-4f0c-408a-aea8-604ab53fec0b": {
+        "ff9bf13e-8f93-4f3e-8865-52f81cd5130b": {
             "name": "Head",
-            "parent": "16e55931-340b-45f3-88a4-31f5aac56e56",
+            "parent": "6d6968ab-fff0-454a-9d65-cd26adc4b958",
             "components": [
                 {
                     "type": "pp-set-head-local-transform"
@@ -171,22 +171,22 @@
                 }
             ]
         },
-        "6a86473a-7402-45af-8fda-8c4c25998b59": {
+        "32423927-72cb-41bf-a0ab-7bba6e6eb1da": {
             "name": "Hands",
-            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
+            "parent": "5503f8af-6bfc-4d97-b2cc-3e4d8fd44d09"
         },
-        "67b5e026-4620-47f1-88d5-ecdd7a3f577d": {
+        "f0cbb5f3-92cc-4f20-941c-2e7a438f166c": {
             "name": "Hand Left",
-            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
+            "parent": "f72caa43-ac99-4b19-ab19-706fc24c1021",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
                 }
             ]
         },
-        "850663c6-c729-47c9-a513-a438155b0dc3": {
+        "21e6e4ba-b097-4abb-97b4-a7d82fb86986": {
             "name": "Gamepad Left",
-            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
+            "parent": "f72caa43-ac99-4b19-ab19-706fc24c1021",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
@@ -194,11 +194,11 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_mySelect": "1ff9a93c-9a50-491a-8c45-d1628693ee29",
-                        "_mySqueeze": "7e1a05f3-ccce-42b3-a94e-16583af5ec94",
-                        "_myThumbstick": "453f9228-aaf7-4e4d-8d05-5299e235dc6f",
-                        "_myTopButton": "48bbdb21-4927-4ede-b9ab-1e1e960964cd",
-                        "_myBottomButton": "e75a9663-f5f5-4ee6-9af7-029dc4105f9b",
+                        "_mySelect": "7fc51146-3466-473e-b902-b24e76db5d74",
+                        "_mySqueeze": "eee4fde8-c0f1-4509-9421-d53f28b8cd62",
+                        "_myThumbstick": "8984159e-e77c-4868-80da-0e1ba158b6f2",
+                        "_myTopButton": "2c631628-a33e-44fc-ad0b-cfee9a9024e1",
+                        "_myBottomButton": "5258a1cb-41fb-4c28-b468-ef03f5319216",
                         "_myUsePressForSqueeze": true
                     }
                 }
@@ -215,9 +215,9 @@
                 0.0
             ]
         },
-        "dd725df6-4dc0-4f20-b351-32107aece76b": {
+        "8c2abb39-80a9-4b88-b74a-bba27a371acb": {
             "name": "Tool Hand Left",
-            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
+            "parent": "f72caa43-ac99-4b19-ab19-706fc24c1021",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
@@ -236,22 +236,22 @@
                 }
             ]
         },
-        "872de178-1eab-41fc-9f76-195550d28d97": {
+        "00bc279b-2a05-400e-8c6f-738f7627c931": {
             "name": "Tracked Hand Left",
-            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
+            "parent": "f72caa43-ac99-4b19-ab19-706fc24c1021",
             "components": [
                 {
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "9af7a6a7-c42a-4a33-9765-30dfa00fed68"
+                        "_myJointMaterial": "f9c59c9d-4599-40d6-abdb-8caadc0bee21"
                     }
                 }
             ]
         },
-        "fe8944e2-784f-4d58-9af0-bdaa711069e8": {
+        "ead4fe79-25ef-49b0-8feb-c0487bc6378f": {
             "name": "Gamepad Right",
-            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
+            "parent": "9b2e8503-98e1-4cb5-ba06-65357a460f21",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -262,11 +262,11 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_mySelect": "c426c9de-8594-456e-a121-03be8bb87edd",
-                        "_mySqueeze": "14d73437-78d1-42f1-bce8-c13c254a0e1a",
-                        "_myThumbstick": "798025de-6287-4fe6-870d-b3ca1d32c733",
-                        "_myTopButton": "276c12af-dab5-41ab-bebc-ba507747b46a",
-                        "_myBottomButton": "c52cc27d-dd9e-4d46-924a-9137087655d8",
+                        "_mySelect": "8642fcf2-a358-4c33-9778-be39d581c0c1",
+                        "_mySqueeze": "dddb489f-647f-4f64-9da4-f1476d782764",
+                        "_myThumbstick": "03073d0b-7ab4-4473-8cd9-2fd726e946d7",
+                        "_myTopButton": "ba9789dc-704f-48e4-aeaf-05879fb8db53",
+                        "_myBottomButton": "24aab85e-ecd1-43af-9770-3a98bc6725b9",
                         "_myUsePressForSqueeze": true,
                         "_myHandedness": "Right"
                     }
@@ -284,9 +284,9 @@
                 0.0
             ]
         },
-        "f49a8f1e-6e5a-4e5c-a1ed-47163a8bc8bf": {
+        "f51fe37d-3aea-4317-af6b-e76b64a41b54": {
             "name": "Hand Right",
-            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
+            "parent": "9b2e8503-98e1-4cb5-ba06-65357a460f21",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -296,23 +296,23 @@
                 }
             ]
         },
-        "d1f0e516-6ed6-47ed-ac0d-23ad67a2e493": {
+        "836077c0-3e6f-447e-ba52-d9e52b9cd182": {
             "name": "Tracked Hand Right",
-            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
+            "parent": "9b2e8503-98e1-4cb5-ba06-65357a460f21",
             "components": [
                 {
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "9af7a6a7-c42a-4a33-9765-30dfa00fed68",
+                        "_myJointMaterial": "f9c59c9d-4599-40d6-abdb-8caadc0bee21",
                         "_myHandedness": "Right"
                     }
                 }
             ]
         },
-        "6b630a48-40ff-4fe2-b493-b906270b826c": {
+        "16decf90-6c33-450d-bd58-e1ba25943627": {
             "name": "Tool Hand Right",
-            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
+            "parent": "9b2e8503-98e1-4cb5-ba06-65357a460f21",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -328,12 +328,12 @@
                 }
             ]
         },
-        "ce5709e2-74f8-4adb-8b37-c5e7eb44f731": {
+        "cdac6dc4-9811-44ff-af5d-b1048e3055c0": {
             "link": {
                 "name": "Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "850663c6-c729-47c9-a513-a438155b0dc3",
+            "parent": "21e6e4ba-b097-4abb-97b4-a7d82fb86986",
             "name": "Gamepad Left Mesh",
             "translation": [
                 0.0,
@@ -352,61 +352,61 @@
                 1.0
             ]
         },
-        "47c1d284-f5a7-4236-9bdd-f0d3fc2fbd89": {
+        "97340755-3bb1-4d78-91d1-128772f0ea64": {
             "link": {
                 "name": "Gamepad Body Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "e75a9663-f5f5-4ee6-9af7-029dc4105f9b": {
+        "5258a1cb-41fb-4c28-b468-ef03f5319216": {
             "link": {
                 "name": "Gamepad Bottom Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "e86ed66e-dd49-4258-b5a4-31d0b0bb57f5": {
+        "2efd83f3-6ac5-4e05-919b-ab69c8876e17": {
             "link": {
                 "name": "Gamepad Option Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "1ff9a93c-9a50-491a-8c45-d1628693ee29": {
+        "7fc51146-3466-473e-b902-b24e76db5d74": {
             "link": {
                 "name": "Gamepad Select Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "7e1a05f3-ccce-42b3-a94e-16583af5ec94": {
+        "eee4fde8-c0f1-4509-9421-d53f28b8cd62": {
             "link": {
                 "name": "Gamepad Squeeze Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "453f9228-aaf7-4e4d-8d05-5299e235dc6f": {
+        "8984159e-e77c-4868-80da-0e1ba158b6f2": {
             "link": {
                 "name": "Gamepad Thumbstick Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "48bbdb21-4927-4ede-b9ab-1e1e960964cd": {
+        "2c631628-a33e-44fc-ad0b-cfee9a9024e1": {
             "link": {
                 "name": "Gamepad Top Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
+            "parent": "cdac6dc4-9811-44ff-af5d-b1048e3055c0"
         },
-        "e35309f2-68c8-441f-ace0-4ca194561416": {
+        "2ee7091e-c470-4e12-a1c2-bedcaf7d6083": {
             "link": {
                 "name": "Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "fe8944e2-784f-4d58-9af0-bdaa711069e8",
+            "parent": "ead4fe79-25ef-49b0-8feb-c0487bc6378f",
             "name": "Gamepad Right Mesh",
             "translation": [
                 0.0,
@@ -425,54 +425,54 @@
                 1.0
             ]
         },
-        "50c6836f-09b5-4cc8-a177-3f5d42e32959": {
+        "c2dc2ede-1d99-4a4a-899b-685f926bd473": {
             "link": {
                 "name": "Gamepad Body Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "c52cc27d-dd9e-4d46-924a-9137087655d8": {
+        "24aab85e-ecd1-43af-9770-3a98bc6725b9": {
             "link": {
                 "name": "Gamepad Bottom Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "83c8d424-2a3a-4f61-8145-63f1b15882ed": {
+        "e9e62968-c6c1-4c38-8d94-cea03f9bd80a": {
             "link": {
                 "name": "Gamepad Option Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "c426c9de-8594-456e-a121-03be8bb87edd": {
+        "8642fcf2-a358-4c33-9778-be39d581c0c1": {
             "link": {
                 "name": "Gamepad Select Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "14d73437-78d1-42f1-bce8-c13c254a0e1a": {
+        "dddb489f-647f-4f64-9da4-f1476d782764": {
             "link": {
                 "name": "Gamepad Squeeze Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "798025de-6287-4fe6-870d-b3ca1d32c733": {
+        "03073d0b-7ab4-4473-8cd9-2fd726e946d7": {
             "link": {
                 "name": "Gamepad Thumbstick Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         },
-        "276c12af-dab5-41ab-bebc-ba507747b46a": {
+        "ba9789dc-704f-48e4-aeaf-05879fb8db53": {
             "link": {
                 "name": "Gamepad Top Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
+            "parent": "2ee7091e-c470-4e12-a1c2-bedcaf7d6083"
         }
     },
     "meshes": {
@@ -512,85 +512,85 @@
                 "file": "default"
             }
         },
-        "8cb379a9-bfbe-41f6-8707-1405ffaabf5f": {
+        "9b2ba32a-b64c-4148-9ee0-d7dd937e197d": {
             "link": {
                 "name": "Gamepad Body Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "51569a18-9e50-4ac7-9f1a-8227c1a87483": {
+        "2b989606-ce05-4f0a-b545-1cda400ef7f7": {
             "link": {
                 "name": "Gamepad Bottom Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "eef27750-f9a2-4609-8a53-074a464478f3": {
+        "b0fa4477-c7fa-4d73-aec2-6561d9259864": {
             "link": {
                 "name": "Gamepad Option Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "952f20e6-8470-44fe-9583-2cb9b0b62998": {
+        "8587e9b2-6ef2-412e-8a19-6a91c9734fbd": {
             "link": {
                 "name": "Gamepad Select Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "ef1c9eb5-0e2a-4148-ac86-4f4ccd21ec8f": {
+        "b92c8150-5628-4d6a-a99c-a1fae0428afe": {
             "link": {
                 "name": "Gamepad Squeeze Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "38e0c84f-41a2-46c7-8789-5776f76489fb": {
+        "dde91172-a80b-4235-9027-ca5e80d8d7b4": {
             "link": {
                 "name": "Gamepad Thumbstick Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "cc8eb937-7002-461e-aa96-de5fd1900cbd": {
+        "507e5bd4-27af-415a-a2c2-e0900eb1a7c3": {
             "link": {
                 "name": "Gamepad Top Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "a5121464-99c4-46b3-9c9c-6f7ebee617ad": {
+        "02bbe095-bdbc-4414-a16e-4da30877a08f": {
             "link": {
                 "name": "Gamepad Body Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "977de6f9-ed59-4568-bfb8-5b6b9749a62a": {
+        "7a4a1a55-ba35-443b-a60f-dab51e50837d": {
             "link": {
                 "name": "Gamepad Bottom Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "a5a252c9-8f47-4e1c-abdf-b00d53b9cf5b": {
+        "575be484-82e7-4472-9f1d-09dd3ee32eb6": {
             "link": {
                 "name": "Gamepad Option Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "fc6733e2-519a-49ea-8e51-f5b63ecc86c1": {
+        "9054e5b6-79f4-4877-bb44-19813ac830a6": {
             "link": {
                 "name": "Gamepad Select Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "49ed83d0-c15a-4860-ae3b-f11d8c2e73b6": {
+        "19aa656d-ab76-4e1c-8db9-c9f35cbed3eb": {
             "link": {
                 "name": "Gamepad Squeeze Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "1f77c210-978a-416e-89a2-5b1d09e8b153": {
+        "349d275f-8d35-438a-ac0f-441cf1ab1483": {
             "link": {
                 "name": "Gamepad Thumbstick Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "765a6b41-3808-4eac-9ec9-2bbbc1e8e7b3": {
+        "eba50574-8f1e-4139-889f-f2f5a921cb7f": {
             "link": {
                 "name": "Gamepad Top Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -604,16 +604,16 @@
                 "file": "default"
             },
             "Text": {
-                "font": "ac92eacc-5a74-4793-b7bc-6e621107c640"
+                "font": "f5ed4fb0-a0a2-47f4-8b4d-a3e02ea4898e"
             }
         },
-        "c21926f4-8929-4b54-838d-c67a26f11841": {
+        "cffc8c8c-c158-4950-88b3-de627375c2ed": {
             "name": "Flat Opaque",
-            "pipeline": "3a022c6a-23e3-440c-94da-f27cbbf69398"
+            "pipeline": "6e3da297-ea04-4d73-a0c7-3889145038df"
         },
-        "fb83e3a4-9152-4725-93f8-4ab6504c42c2": {
+        "e972069e-66ee-4d9c-959d-8a78d9ddb9f9": {
             "name": "Phong Opaque",
-            "pipeline": "70aaebb4-8e02-4072-834b-6b89f9ac5c2a",
+            "pipeline": "313227a6-182e-4b31-9838-632a9291f4d2",
             "Phong": {
                 "ambientColor": [
                     0.5,
@@ -623,18 +623,18 @@
                 ]
             }
         },
-        "ea87cb31-35f9-4941-bb3b-7c883c9de887": {
+        "f791ea4a-29da-46c4-80a2-09027d17fa30": {
             "name": "Flat Transparent No Depth",
-            "pipeline": "26419c59-5199-41de-9725-61102231d44d"
+            "pipeline": "cac99800-8c59-4748-8014-03df6ad16252"
         },
-        "e17082e0-ca8b-4dc0-8f13-5e64079bab54": {
+        "04b7f97e-2921-4f88-91f3-20e62ec5c355": {
             "name": "Text",
-            "pipeline": "98452a29-068f-4dc4-9e04-053a4aa2bfc6",
+            "pipeline": "5959fca9-9575-43d8-b76f-603dcaa66ebd",
             "Text": {
-                "font": "ac92eacc-5a74-4793-b7bc-6e621107c640"
+                "font": "f5ed4fb0-a0a2-47f4-8b4d-a3e02ea4898e"
             }
         },
-        "e87735df-aef3-48d1-9fd1-7e1999337413": {
+        "dfa19ab9-7e1c-45b6-b3c8-b0959fd9c50d": {
             "link": {
                 "name": "Gamepad Body",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -661,7 +661,7 @@
                 ]
             }
         },
-        "b28c66c1-081a-485b-81a0-6b336108b847": {
+        "8056c698-b1c4-4a6f-838f-f80fb4b37a9f": {
             "link": {
                 "name": "Gamepad Button",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -688,7 +688,7 @@
                 ]
             }
         },
-        "9af7a6a7-c42a-4a33-9765-30dfa00fed68": {
+        "f9c59c9d-4599-40d6-abdb-8caadc0bee21": {
             "name": "Tracked Hand Joint",
             "Phong": {
                 "ambientColor": [
@@ -719,61 +719,61 @@
         }
     },
     "shaders": {
-        "adb0bbf6-6c5c-4540-a1ec-32b1f13e445b": {
+        "6577e0ac-8bde-4f81-a94c-9aaf3ecb6300": {
             "link": {
                 "name": "Depth.frag",
                 "file": "default"
             }
         },
-        "6fcd9f55-0492-40ca-8bb2-159e36d27628": {
+        "106c2490-e64d-411a-8546-71abee1b8fbb": {
             "link": {
                 "name": "DistanceFieldVector.frag",
                 "file": "default"
             }
         },
-        "4781c7ed-ed3e-42ec-8278-c1777e8a7f10": {
+        "e6b2f7fc-6cf0-4329-979c-cf524886be59": {
             "link": {
                 "name": "Dynamic.vert",
                 "file": "default"
             }
         },
-        "38f75438-8351-4428-bb5f-f1160aefdb39": {
+        "66488ae9-353e-4fcd-a04f-135fd53e42b1": {
             "link": {
                 "name": "Flat.frag",
                 "file": "default"
             }
         },
-        "171af9fa-8dcf-4f9e-911d-8254af505773": {
+        "aaa7e919-e745-434d-a0ed-f768a48bceb7": {
             "link": {
                 "name": "MeshVisualizer.frag",
                 "file": "default"
             }
         },
-        "30d60cde-7672-4035-b3a2-332f1b785578": {
+        "26cf0b60-d37f-4a77-89e3-6d666685510b": {
             "link": {
                 "name": "Skinning.vert",
                 "file": "default"
             }
         },
-        "e7c0797a-66f2-4c75-9d91-a0b372108b1a": {
+        "98f31f7c-5675-4c2e-8c44-3df27cb437bc": {
             "link": {
                 "name": "Phong.frag",
                 "file": "default"
             }
         },
-        "faecbdeb-0aab-400d-a613-b4632b436b1c": {
+        "93b103cb-3252-4d97-9d57-f7e8fd53eea8": {
             "link": {
                 "name": "Particle.frag",
                 "file": "default"
             }
         },
-        "38db9fe0-07fa-47fb-8cfd-77540ab7d32b": {
+        "9b31b513-9351-4934-88ae-d1511b2c09cf": {
             "link": {
                 "name": "Physical.frag",
                 "file": "default"
             }
         },
-        "6dc1f01b-ea82-4f8d-8da5-a6787dfb0d71": {
+        "4c7e0fbf-da82-44ff-8e7b-ae64c2567363": {
             "link": {
                 "name": "Sky.frag",
                 "file": "default"
@@ -785,25 +785,25 @@
                 "file": "default"
             }
         },
-        "ba16964d-95af-4ee8-999a-0f7ff0189a6c": {
+        "1cc81c3b-8371-4ab9-99d5-f17a28c49b72": {
             "link": {
                 "name": "Text.frag",
                 "file": "default"
             }
         },
-        "4011b45f-02c3-46c7-af49-1b09915cc5e6": {
+        "63ff9c14-e22f-4e22-a75a-a6cf54c044e2": {
             "link": {
                 "name": "Text.vert",
                 "file": "default"
             }
         },
-        "9e0405e0-b4a8-450b-8fc2-7b985575e2d5": {
+        "df397a10-7ddc-487c-9eab-d761c66f17d2": {
             "link": {
                 "name": "TileFeedback.frag",
                 "file": "default"
             }
         },
-        "ee4a4631-e12e-478c-b464-7dcb6759428c": {
+        "7d6fd1c1-8b22-4518-8016-61d945fc3417": {
             "link": {
                 "name": "Background.frag",
                 "file": "default"
@@ -815,91 +815,91 @@
                 "file": "default"
             }
         },
-        "46da31d6-1383-41af-bb33-8ccff9ae544c": {
+        "5441ff0d-85ec-4631-8af3-6730f46c2ce8": {
             "link": {
                 "name": "lib\\Color.glsl",
                 "file": "default"
             }
         },
-        "405fe89d-e62d-4765-a17b-7d334ed2c9b1": {
+        "db47625f-c472-4ba6-84f2-92ac04eaef74": {
             "link": {
                 "name": "lib\\Compatibility.frag",
                 "file": "default"
             }
         },
-        "c56e9224-602c-43de-a3ff-cada7e66f6f4": {
+        "ae1111b8-6c76-403b-a966-49dc641bf6c6": {
             "link": {
                 "name": "lib\\CoordinateSystems.glsl",
                 "file": "default"
             }
         },
-        "01ae8c79-16eb-4444-ac33-d1febc2509e2": {
+        "93ae94dd-8359-46a9-997d-c85b1b308ad5": {
             "link": {
                 "name": "lib\\GI.frag",
                 "file": "default"
             }
         },
-        "488f4a16-7269-4a92-8d8a-cfee3109e33e": {
+        "c0a6359a-3165-4ef5-85e2-2e1d3dd3ee33": {
             "link": {
                 "name": "lib\\Inputs.frag",
                 "file": "default"
             }
         },
-        "90f3cb5d-3759-4f7b-abbd-80e219fc3803": {
+        "f285dce6-4581-44dc-9f0f-cb4bf4c8b830": {
             "link": {
                 "name": "lib\\Lights.frag",
                 "file": "default"
             }
         },
-        "2796fd5d-eb73-46ea-ac4e-60918676d852": {
+        "869e83ac-1495-4ca6-b0d0-8240d622714d": {
             "link": {
                 "name": "lib\\Materials.frag",
                 "file": "default"
             }
         },
-        "ccd4281b-2953-4d35-b2b1-0a2fbba68ec6": {
+        "09bda2ec-5c3c-4e18-a411-0e11c7aa37a9": {
             "link": {
                 "name": "lib\\Math.glsl",
                 "file": "default"
             }
         },
-        "cf603bad-0e94-4549-a2b4-57f97230c034": {
+        "33337941-e2c3-4a09-b7c0-8bbd998a2f90": {
             "link": {
                 "name": "lib\\Packing.frag",
                 "file": "default"
             }
         },
-        "4fa215c5-e8c1-4e66-bea7-d0123fe145d2": {
+        "5033911a-2cc7-4a73-907c-7c8927ad62f5": {
             "link": {
                 "name": "lib\\Quaternion.glsl",
                 "file": "default"
             }
         },
-        "92231e0d-be1f-4f62-93ed-872e65eac514": {
+        "8c10b2fc-528c-4970-a642-571a618e4c81": {
             "link": {
                 "name": "lib\\Slug.frag",
                 "file": "default"
             }
         },
-        "88f7fd4a-d304-4665-89fa-a107b03ce9a8": {
+        "88f3d9f5-09cd-4bf0-8c7d-8f025ce7f7a7": {
             "link": {
                 "name": "lib\\Slug.vert",
                 "file": "default"
             }
         },
-        "e1ca0fee-29c0-4950-8c2b-ed1c41a8278c": {
+        "7886dc0b-f76a-4a10-a328-c3aa7b941472": {
             "link": {
                 "name": "lib\\Surface.frag",
                 "file": "default"
             }
         },
-        "8bd526fb-aeef-4d1c-b4a4-10541faa00f0": {
+        "aff338d8-4cb8-4e68-8e1c-9f4f4ebeb7e1": {
             "link": {
                 "name": "lib\\Textures.frag",
                 "file": "default"
             }
         },
-        "4b67e3d9-3445-416f-9c49-1cb5718727db": {
+        "9224f9d4-a499-477c-94bc-ad56b88c0768": {
             "link": {
                 "name": "lib\\Uniforms.glsl",
                 "file": "default"
@@ -931,7 +931,7 @@
                     "hand-tracking": true
                 }
             },
-            "viewObject": "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf"
+            "viewObject": "8022bc4c-dcb9-461f-9f47-70f2c9ab943a"
         },
         "scripting": {
             "sourcePaths": [
@@ -945,8 +945,8 @@
             "entryPoint": "src/index.js"
         },
         "vr": {
-            "leftEyeObject": "679b8504-dd5a-4b37-b370-74d7a6e6ee50",
-            "rightEyeObject": "29d001a7-5b69-449c-88b2-342b0d36bde5"
+            "leftEyeObject": "bfeccf36-046b-49b5-b355-da4ede4daf21",
+            "rightEyeObject": "665488c7-f768-473e-8fe7-8b4ccd5bc647"
         },
         "editor": {
             "camera": {
@@ -972,25 +972,25 @@
     "animations": {},
     "skins": {},
     "pipelines": {
-        "8200850e-b5c8-4642-8a1b-b5393567951e": {
+        "bdd1dff9-1f51-491a-9356-abff93fe5a19": {
             "link": {
                 "name": "Depth",
                 "file": "default"
             }
         },
-        "b39439e4-9018-4280-a747-6ac755e9134e": {
+        "337ffefa-a1c3-42af-bba6-9b1c467819c2": {
             "link": {
                 "name": "DistanceFieldVector",
                 "file": "default"
             }
         },
-        "3a022c6a-23e3-440c-94da-f27cbbf69398": {
+        "6e3da297-ea04-4d73-a0c7-3889145038df": {
             "link": {
                 "name": "Flat Opaque",
                 "file": "default"
             }
         },
-        "d38134bf-7331-4a00-b336-9c0849e61759": {
+        "09918bfd-8188-4615-be85-7a100306f4f2": {
             "link": {
                 "name": "Flat Opaque Textured",
                 "file": "default"
@@ -999,19 +999,19 @@
                 "ALPHA_MASKED": true
             }
         },
-        "59f15aaf-81b1-4862-b77c-95ddafdb9ed2": {
+        "db2e77f7-8680-4a52-b7a2-72840aca6440": {
             "link": {
                 "name": "MeshVisualizer",
                 "file": "default"
             }
         },
-        "70aaebb4-8e02-4072-834b-6b89f9ac5c2a": {
+        "313227a6-182e-4b31-9838-632a9291f4d2": {
             "link": {
                 "name": "Phong Opaque",
                 "file": "default"
             }
         },
-        "e28122a2-27dc-4074-9969-25e876273f4a": {
+        "2762071d-3ed2-487d-9b98-0bf0a6e8f24c": {
             "link": {
                 "name": "Phong Opaque Textured",
                 "file": "default"
@@ -1020,25 +1020,25 @@
                 "ALPHA_MASKED": true
             }
         },
-        "1c445d74-8983-443a-96fc-8cce934ef667": {
+        "34d9e3a1-e64c-4786-b7ef-581ce83aaf88": {
             "link": {
                 "name": "Foliage",
                 "file": "default"
             }
         },
-        "facf6213-472b-40e6-9398-ae0b2fa12ac1": {
+        "b8d672a6-da28-4516-bf27-c5a97c029987": {
             "link": {
                 "name": "Particle",
                 "file": "default"
             }
         },
-        "46915285-a148-4b14-8f20-d9945c1c0441": {
+        "2d2fb7df-35f2-4ea3-a493-70fe1235b94f": {
             "link": {
                 "name": "Physical Opaque",
                 "file": "default"
             }
         },
-        "0f3281a7-abbe-4589-8168-2aca10223015": {
+        "9104535f-2c03-4d28-8052-347735487f59": {
             "link": {
                 "name": "Physical Opaque Textured",
                 "file": "default"
@@ -1047,37 +1047,37 @@
                 "ALPHA_MASKED": true
             }
         },
-        "98452a29-068f-4dc4-9e04-053a4aa2bfc6": {
+        "5959fca9-9575-43d8-b76f-603dcaa66ebd": {
             "link": {
                 "name": "Text",
                 "file": "default"
             }
         },
-        "19892fd0-19cd-469e-afdb-a0c80a114452": {
+        "6a25dc7c-d12d-45a0-8e15-ace3bd9637e6": {
             "link": {
                 "name": "Sky",
                 "file": "default"
             }
         },
-        "2fcbc0e3-d7a6-4d36-a34f-1595fbdb39f7": {
+        "89a3238c-ae6c-41f3-a9af-4fd4c6e1564b": {
             "link": {
                 "name": "Phong Normalmapped",
                 "file": "default"
             }
         },
-        "b4de5b83-132b-4213-8867-50d79ed531a9": {
+        "23d2e5ed-cb5d-4166-b156-400853518648": {
             "link": {
                 "name": "Phong Lightmapped",
                 "file": "default"
             }
         },
-        "56fe0f88-13f9-4762-82c4-6c765a5c08ca": {
+        "e315536e-27b7-4d15-b229-0228a292799d": {
             "link": {
                 "name": "TileFeedback",
                 "file": "default"
             }
         },
-        "26419c59-5199-41de-9725-61102231d44d": {
+        "cac99800-8c59-4748-8014-03df6ad16252": {
             "link": {
                 "name": "Flat Opaque",
                 "file": "default"
@@ -1095,13 +1095,13 @@
     "textures": {},
     "images": {},
     "files": {
-        "2e39da35-8fcf-442e-85dc-bed5656e9ff4": {
+        "69feadb3-3dce-463a-b4ca-2264f5b4ca6e": {
             "fileName": "assets/models/pp/meta_quest_1_gamepads_credits_Jezza3D.fbx",
             "importerName": "AssimpImporter"
         }
     },
     "fonts": {
-        "ac92eacc-5a74-4793-b7bc-6e621107c640": {
+        "f5ed4fb0-a0a2-47f4-8b4d-a3e02ea4898e": {
             "link": {
                 "name": "DejaVuSans.ttf",
                 "file": "default"
