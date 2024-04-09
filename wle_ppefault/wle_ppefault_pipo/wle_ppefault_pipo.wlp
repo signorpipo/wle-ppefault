@@ -601,7 +601,7 @@
         }
     },
     "materials": {
-        "DefaultFontMaterial": {
+        "236dfcfa-7c7d-4748-9f90-d79487bfd67f": {
             "link": {
                 "name": "DefaultFontMaterial",
                 "file": "default"
