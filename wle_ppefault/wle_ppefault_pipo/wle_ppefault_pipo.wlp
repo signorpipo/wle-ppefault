@@ -12,8 +12,8 @@
                         "_myEyeLeft": "bfeccf36-046b-49b5-b355-da4ede4daf21",
                         "_myEyeRight": "665488c7-f768-473e-8fe7-8b4ccd5bc647",
                         "_myHead": "ff9bf13e-8f93-4f3e-8865-52f81cd5130b",
-                        "_myHandRight": "f51fe37d-3aea-4317-af6b-e76b64a41b54",
                         "_myHandLeft": "f0cbb5f3-92cc-4f20-941c-2e7a438f166c",
+                        "_myHandRight": "f51fe37d-3aea-4317-af6b-e76b64a41b54",
                         "_myPlane": "p0",
                         "_myCube": "p1",
                         "_mySphere": "p2",
@@ -782,12 +782,6 @@
                 "file": "default"
             }
         },
-        "3a3ded33-8e60-4bf1-87be-b94a7ef5067f": {
-            "link": {
-                "name": "FullScreenTriangle.vert",
-                "file": "default"
-            }
-        },
         "1cc81c3b-8371-4ab9-99d5-f17a28c49b72": {
             "link": {
                 "name": "Text.frag",
@@ -812,7 +806,7 @@
                 "file": "default"
             }
         },
-        "60d3ad7b-23f6-4f5e-b712-577dcf7737cc": {
+        "df2c5ee9-d8fa-4548-bf58-93e47e270d21": {
             "link": {
                 "name": "FullScreenTriangle.vert",
                 "file": "default"
@@ -937,10 +931,10 @@
             },
             "viewObject": "8022bc4c-dcb9-461f-9f47-70f2c9ab943a",
             "pwa": {
-                "appIcon": "d1550dc2-2b9c-4c80-a575-22f58d3850d8",
                 "enable": true,
                 "customServiceWorker": true,
-                "customManifest": true
+                "customManifest": true,
+                "appIcon": "d1550dc2-2b9c-4c80-a575-22f58d3850d8"
             }
         },
         "scripting": {
