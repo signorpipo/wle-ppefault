@@ -1,41 +1,41 @@
 {
     "objects": {
-        "18": {
+        "236dfcfa-7c7d-4748-9f90-d79487bfd67f": {
             "name": "Scene",
             "components": [
                 {
                     "type": "pp-gateway",
                     "pp-gateway": {
-                        "_myPlayer": "19",
-                        "_myReferenceSpace": "20",
-                        "_myCameraNonXR": "21",
-                        "_myEyeLeft": "26",
-                        "_myEyeRight": "27",
-                        "_myHead": "74",
-                        "_myHandRight": "107",
-                        "_myHandLeft": "99",
+                        "_myPlayer": "8295fe5f-c075-45a1-9ab9-c59a59b25063",
+                        "_myReferenceSpace": "35272537-e0c9-411f-9e37-bc63bfdd3d99",
+                        "_myCameraNonXR": "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf",
+                        "_myEyeLeft": "679b8504-dd5a-4b37-b370-74d7a6e6ee50",
+                        "_myEyeRight": "29d001a7-5b69-449c-88b2-342b0d36bde5",
+                        "_myHead": "0611e6b2-4f0c-408a-aea8-604ab53fec0b",
+                        "_myHandRight": "f49a8f1e-6e5a-4e5c-a1ed-47163a8bc8bf",
+                        "_myHandLeft": "67b5e026-4620-47f1-88d5-ecdd7a3f577d",
                         "_myPlane": "p0",
                         "_myCube": "p1",
                         "_mySphere": "p2",
                         "_myCone": "p3",
                         "_myCylinder": "p4",
                         "_myCircle": "p5",
-                        "_myFlatOpaque": "31",
-                        "_myFlatTransparentNoDepth": "90",
-                        "_myPhongOpaque": "32",
-                        "_myText": "110",
-                        "_myScene": "18"
+                        "_myFlatOpaque": "c21926f4-8929-4b54-838d-c67a26f11841",
+                        "_myFlatTransparentNoDepth": "ea87cb31-35f9-4941-bb3b-7c883c9de887",
+                        "_myPhongOpaque": "fb83e3a4-9152-4725-93f8-4ab6504c42c2",
+                        "_myText": "e17082e0-ca8b-4dc0-8f13-5e64079bab54",
+                        "_myScene": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
                     }
                 }
             ]
         },
-        "19": {
+        "8295fe5f-c075-45a1-9ab9-c59a59b25063": {
             "name": "Player",
-            "parent": "18"
+            "parent": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
         },
-        "20": {
+        "35272537-e0c9-411f-9e37-bc63bfdd3d99": {
             "name": "Reference Space",
-            "parent": "19",
+            "parent": "8295fe5f-c075-45a1-9ab9-c59a59b25063",
             "rotation": [
                 0.0,
                 1.0,
@@ -43,49 +43,49 @@
                 0.0
             ]
         },
-        "21": {
+        "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf": {
             "name": "Camera Non XR",
-            "parent": "72",
+            "parent": "4c162991-35c2-4628-8891-250910f1c18e",
             "components": [
                 {
                     "type": "view"
                 }
             ]
         },
-        "22": {
+        "b240e652-a81e-4951-8b80-d138a0782ac9": {
             "name": "Eyes",
-            "parent": "72"
+            "parent": "4c162991-35c2-4628-8891-250910f1c18e"
         },
-        "23": {
+        "410467aa-e7f8-46de-bae7-3903a39de6db": {
             "name": "Hands Left",
-            "parent": "75",
+            "parent": "6a86473a-7402-45af-8fda-8c4c25998b59",
             "components": [
                 {
                     "type": "pp-switch-hand-object",
                     "pp-switch-hand-object": {
-                        "_myGamepad": "102",
-                        "_myTrackedHand": "105"
+                        "_myGamepad": "850663c6-c729-47c9-a513-a438155b0dc3",
+                        "_myTrackedHand": "872de178-1eab-41fc-9f76-195550d28d97"
                     }
                 }
             ]
         },
-        "24": {
+        "0f20af8e-2f14-48ae-8c42-ec5286ca3a03": {
             "name": "Hands Right",
-            "parent": "75",
+            "parent": "6a86473a-7402-45af-8fda-8c4c25998b59",
             "components": [
                 {
                     "type": "pp-switch-hand-object",
                     "pp-switch-hand-object": {
                         "_myHandedness": "Right",
-                        "_myGamepad": "106",
-                        "_myTrackedHand": "108"
+                        "_myGamepad": "fe8944e2-784f-4d58-9af0-bdaa711069e8",
+                        "_myTrackedHand": "d1f0e516-6ed6-47ed-ac0d-23ad67a2e493"
                     }
                 }
             ]
         },
-        "26": {
+        "679b8504-dd5a-4b37-b370-74d7a6e6ee50": {
             "name": "Eye Left",
-            "parent": "22",
+            "parent": "b240e652-a81e-4951-8b80-d138a0782ac9",
             "components": [
                 {
                     "type": "view"
@@ -98,9 +98,9 @@
                 }
             ]
         },
-        "27": {
+        "29d001a7-5b69-449c-88b2-342b0d36bde5": {
             "name": "Eye Right",
-            "parent": "22",
+            "parent": "b240e652-a81e-4951-8b80-d138a0782ac9",
             "components": [
                 {
                     "type": "view"
@@ -113,13 +113,13 @@
                 }
             ]
         },
-        "28": {
+        "1b42d5c5-1add-41c2-8807-0278c063b831": {
             "name": "Lights",
-            "parent": "18"
+            "parent": "236dfcfa-7c7d-4748-9f90-d79487bfd67f"
         },
-        "29": {
+        "71789853-878a-4720-abd0-7fc10d10d107": {
             "name": "Light 1",
-            "parent": "28",
+            "parent": "1b42d5c5-1add-41c2-8807-0278c063b831",
             "components": [
                 {
                     "type": "light",
@@ -134,9 +134,9 @@
                 1.0
             ]
         },
-        "30": {
+        "8bf824c7-bf64-477d-872d-4665f41d1967": {
             "name": "Light 2",
-            "parent": "28",
+            "parent": "1b42d5c5-1add-41c2-8807-0278c063b831",
             "components": [
                 {
                     "type": "light",
@@ -151,17 +151,17 @@
                 -1.0
             ]
         },
-        "72": {
+        "4c162991-35c2-4628-8891-250910f1c18e": {
             "name": "Cameras",
-            "parent": "20"
+            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
         },
-        "73": {
+        "16e55931-340b-45f3-88a4-31f5aac56e56": {
             "name": "Heads",
-            "parent": "20"
+            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
         },
-        "74": {
+        "0611e6b2-4f0c-408a-aea8-604ab53fec0b": {
             "name": "Head",
-            "parent": "73",
+            "parent": "16e55931-340b-45f3-88a4-31f5aac56e56",
             "components": [
                 {
                     "type": "pp-set-head-local-transform"
@@ -171,22 +171,22 @@
                 }
             ]
         },
-        "75": {
+        "6a86473a-7402-45af-8fda-8c4c25998b59": {
             "name": "Hands",
-            "parent": "20"
+            "parent": "35272537-e0c9-411f-9e37-bc63bfdd3d99"
         },
-        "99": {
+        "67b5e026-4620-47f1-88d5-ecdd7a3f577d": {
             "name": "Hand Left",
-            "parent": "23",
+            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
                 }
             ]
         },
-        "102": {
+        "850663c6-c729-47c9-a513-a438155b0dc3": {
             "name": "Gamepad Left",
-            "parent": "23",
+            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
@@ -194,11 +194,11 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_mySelect": "132",
-                        "_mySqueeze": "133",
-                        "_myThumbstick": "134",
-                        "_myTopButton": "135",
-                        "_myBottomButton": "130",
+                        "_mySelect": "1ff9a93c-9a50-491a-8c45-d1628693ee29",
+                        "_mySqueeze": "7e1a05f3-ccce-42b3-a94e-16583af5ec94",
+                        "_myThumbstick": "453f9228-aaf7-4e4d-8d05-5299e235dc6f",
+                        "_myTopButton": "48bbdb21-4927-4ede-b9ab-1e1e960964cd",
+                        "_myBottomButton": "e75a9663-f5f5-4ee6-9af7-029dc4105f9b",
                         "_myUsePressForSqueeze": true
                     }
                 }
@@ -215,9 +215,9 @@
                 0.0
             ]
         },
-        "104": {
+        "dd725df6-4dc0-4f20-b351-32107aece76b": {
             "name": "Tool Hand Left",
-            "parent": "23",
+            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
@@ -236,22 +236,22 @@
                 }
             ]
         },
-        "105": {
+        "872de178-1eab-41fc-9f76-195550d28d97": {
             "name": "Tracked Hand Left",
-            "parent": "23",
+            "parent": "410467aa-e7f8-46de-bae7-3903a39de6db",
             "components": [
                 {
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "144"
+                        "_myJointMaterial": "9af7a6a7-c42a-4a33-9765-30dfa00fed68"
                     }
                 }
             ]
         },
-        "106": {
+        "fe8944e2-784f-4d58-9af0-bdaa711069e8": {
             "name": "Gamepad Right",
-            "parent": "24",
+            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -262,11 +262,11 @@
                 {
                     "type": "pp-gamepad-mesh-animator",
                     "pp-gamepad-mesh-animator": {
-                        "_mySelect": "140",
-                        "_mySqueeze": "141",
-                        "_myThumbstick": "142",
-                        "_myTopButton": "143",
-                        "_myBottomButton": "138",
+                        "_mySelect": "c426c9de-8594-456e-a121-03be8bb87edd",
+                        "_mySqueeze": "14d73437-78d1-42f1-bce8-c13c254a0e1a",
+                        "_myThumbstick": "798025de-6287-4fe6-870d-b3ca1d32c733",
+                        "_myTopButton": "276c12af-dab5-41ab-bebc-ba507747b46a",
+                        "_myBottomButton": "c52cc27d-dd9e-4d46-924a-9137087655d8",
                         "_myUsePressForSqueeze": true,
                         "_myHandedness": "Right"
                     }
@@ -284,9 +284,9 @@
                 0.0
             ]
         },
-        "107": {
+        "f49a8f1e-6e5a-4e5c-a1ed-47163a8bc8bf": {
             "name": "Hand Right",
-            "parent": "24",
+            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -296,23 +296,23 @@
                 }
             ]
         },
-        "108": {
+        "d1f0e516-6ed6-47ed-ac0d-23ad67a2e493": {
             "name": "Tracked Hand Right",
-            "parent": "24",
+            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
             "components": [
                 {
                     "type": "pp-tracked-hand-draw-all-joints",
                     "pp-tracked-hand-draw-all-joints": {
                         "_myJointMesh": "p1",
-                        "_myJointMaterial": "144",
+                        "_myJointMaterial": "9af7a6a7-c42a-4a33-9765-30dfa00fed68",
                         "_myHandedness": "Right"
                     }
                 }
             ]
         },
-        "109": {
+        "6b630a48-40ff-4fe2-b493-b906270b826c": {
             "name": "Tool Hand Right",
-            "parent": "24",
+            "parent": "0f20af8e-2f14-48ae-8c42-ec5286ca3a03",
             "components": [
                 {
                     "type": "pp-set-hand-local-transform",
@@ -328,12 +328,12 @@
                 }
             ]
         },
-        "128": {
+        "ce5709e2-74f8-4adb-8b37-c5e7eb44f731": {
             "link": {
                 "name": "Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "102",
+            "parent": "850663c6-c729-47c9-a513-a438155b0dc3",
             "name": "Gamepad Left Mesh",
             "translation": [
                 0.0,
@@ -352,61 +352,61 @@
                 1.0
             ]
         },
-        "129": {
+        "47c1d284-f5a7-4236-9bdd-f0d3fc2fbd89": {
             "link": {
                 "name": "Gamepad Body Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "130": {
+        "e75a9663-f5f5-4ee6-9af7-029dc4105f9b": {
             "link": {
                 "name": "Gamepad Bottom Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "131": {
+        "e86ed66e-dd49-4258-b5a4-31d0b0bb57f5": {
             "link": {
                 "name": "Gamepad Option Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "132": {
+        "1ff9a93c-9a50-491a-8c45-d1628693ee29": {
             "link": {
                 "name": "Gamepad Select Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "133": {
+        "7e1a05f3-ccce-42b3-a94e-16583af5ec94": {
             "link": {
                 "name": "Gamepad Squeeze Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "134": {
+        "453f9228-aaf7-4e4d-8d05-5299e235dc6f": {
             "link": {
                 "name": "Gamepad Thumbstick Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "135": {
+        "48bbdb21-4927-4ede-b9ab-1e1e960964cd": {
             "link": {
                 "name": "Gamepad Top Button Left<Gamepad Left<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "128"
+            "parent": "ce5709e2-74f8-4adb-8b37-c5e7eb44f731"
         },
-        "136": {
+        "e35309f2-68c8-441f-ace0-4ca194561416": {
             "link": {
                 "name": "Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "106",
+            "parent": "fe8944e2-784f-4d58-9af0-bdaa711069e8",
             "name": "Gamepad Right Mesh",
             "translation": [
                 0.0,
@@ -425,54 +425,54 @@
                 1.0
             ]
         },
-        "137": {
+        "50c6836f-09b5-4cc8-a177-3f5d42e32959": {
             "link": {
                 "name": "Gamepad Body Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "138": {
+        "c52cc27d-dd9e-4d46-924a-9137087655d8": {
             "link": {
                 "name": "Gamepad Bottom Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "139": {
+        "83c8d424-2a3a-4f61-8145-63f1b15882ed": {
             "link": {
                 "name": "Gamepad Option Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "140": {
+        "c426c9de-8594-456e-a121-03be8bb87edd": {
             "link": {
                 "name": "Gamepad Select Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "141": {
+        "14d73437-78d1-42f1-bce8-c13c254a0e1a": {
             "link": {
                 "name": "Gamepad Squeeze Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "142": {
+        "798025de-6287-4fe6-870d-b3ca1d32c733": {
             "link": {
                 "name": "Gamepad Thumbstick Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         },
-        "143": {
+        "276c12af-dab5-41ab-bebc-ba507747b46a": {
             "link": {
                 "name": "Gamepad Top Button Right<Gamepad Right<Gamepads",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             },
-            "parent": "136"
+            "parent": "e35309f2-68c8-441f-ace0-4ca194561416"
         }
     },
     "meshes": {
@@ -512,85 +512,85 @@
                 "file": "default"
             }
         },
-        "113": {
+        "8cb379a9-bfbe-41f6-8707-1405ffaabf5f": {
             "link": {
                 "name": "Gamepad Body Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "114": {
+        "51569a18-9e50-4ac7-9f1a-8227c1a87483": {
             "link": {
                 "name": "Gamepad Bottom Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "115": {
+        "eef27750-f9a2-4609-8a53-074a464478f3": {
             "link": {
                 "name": "Gamepad Option Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "116": {
+        "952f20e6-8470-44fe-9583-2cb9b0b62998": {
             "link": {
                 "name": "Gamepad Select Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "117": {
+        "ef1c9eb5-0e2a-4148-ac86-4f4ccd21ec8f": {
             "link": {
                 "name": "Gamepad Squeeze Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "118": {
+        "38e0c84f-41a2-46c7-8789-5776f76489fb": {
             "link": {
                 "name": "Gamepad Thumbstick Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "119": {
+        "cc8eb937-7002-461e-aa96-de5fd1900cbd": {
             "link": {
                 "name": "Gamepad Top Button Left",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "120": {
+        "a5121464-99c4-46b3-9c9c-6f7ebee617ad": {
             "link": {
                 "name": "Gamepad Body Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "121": {
+        "977de6f9-ed59-4568-bfb8-5b6b9749a62a": {
             "link": {
                 "name": "Gamepad Bottom Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "122": {
+        "a5a252c9-8f47-4e1c-abdf-b00d53b9cf5b": {
             "link": {
                 "name": "Gamepad Option Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "123": {
+        "fc6733e2-519a-49ea-8e51-f5b63ecc86c1": {
             "link": {
                 "name": "Gamepad Select Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "124": {
+        "49ed83d0-c15a-4860-ae3b-f11d8c2e73b6": {
             "link": {
                 "name": "Gamepad Squeeze Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "125": {
+        "1f77c210-978a-416e-89a2-5b1d09e8b153": {
             "link": {
                 "name": "Gamepad Thumbstick Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
             }
         },
-        "126": {
+        "765a6b41-3808-4eac-9ec9-2bbbc1e8e7b3": {
             "link": {
                 "name": "Gamepad Top Button Right",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -604,16 +604,16 @@
                 "file": "default"
             },
             "Text": {
-                "font": "147"
+                "font": "ac92eacc-5a74-4793-b7bc-6e621107c640"
             }
         },
-        "31": {
+        "c21926f4-8929-4b54-838d-c67a26f11841": {
             "name": "Flat Opaque",
-            "pipeline": "7"
+            "pipeline": "3a022c6a-23e3-440c-94da-f27cbbf69398"
         },
-        "32": {
+        "fb83e3a4-9152-4725-93f8-4ab6504c42c2": {
             "name": "Phong Opaque",
-            "pipeline": "13",
+            "pipeline": "70aaebb4-8e02-4072-834b-6b89f9ac5c2a",
             "Phong": {
                 "ambientColor": [
                     0.5,
@@ -623,18 +623,18 @@
                 ]
             }
         },
-        "90": {
+        "ea87cb31-35f9-4941-bb3b-7c883c9de887": {
             "name": "Flat Transparent No Depth",
-            "pipeline": "89"
+            "pipeline": "26419c59-5199-41de-9725-61102231d44d"
         },
-        "110": {
+        "e17082e0-ca8b-4dc0-8f13-5e64079bab54": {
             "name": "Text",
-            "pipeline": "82",
+            "pipeline": "98452a29-068f-4dc4-9e04-053a4aa2bfc6",
             "Text": {
-                "font": "147"
+                "font": "ac92eacc-5a74-4793-b7bc-6e621107c640"
             }
         },
-        "111": {
+        "e87735df-aef3-48d1-9fd1-7e1999337413": {
             "link": {
                 "name": "Gamepad Body",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -661,7 +661,7 @@
                 ]
             }
         },
-        "112": {
+        "b28c66c1-081a-485b-81a0-6b336108b847": {
             "link": {
                 "name": "Gamepad Button",
                 "file": "assets\\models\\pp\\meta_quest_1_gamepads_credits_Jezza3D.fbx"
@@ -688,7 +688,7 @@
                 ]
             }
         },
-        "144": {
+        "9af7a6a7-c42a-4a33-9765-30dfa00fed68": {
             "name": "Tracked Hand Joint",
             "Phong": {
                 "ambientColor": [
@@ -719,187 +719,187 @@
         }
     },
     "shaders": {
-        "1": {
+        "adb0bbf6-6c5c-4540-a1ec-32b1f13e445b": {
             "link": {
                 "name": "Depth.frag",
                 "file": "default"
             }
         },
-        "3": {
+        "6fcd9f55-0492-40ca-8bb2-159e36d27628": {
             "link": {
                 "name": "DistanceFieldVector.frag",
                 "file": "default"
             }
         },
-        "5": {
+        "4781c7ed-ed3e-42ec-8278-c1777e8a7f10": {
             "link": {
                 "name": "Dynamic.vert",
                 "file": "default"
             }
         },
-        "6": {
+        "38f75438-8351-4428-bb5f-f1160aefdb39": {
             "link": {
                 "name": "Flat.frag",
                 "file": "default"
             }
         },
-        "9": {
+        "171af9fa-8dcf-4f9e-911d-8254af505773": {
             "link": {
                 "name": "MeshVisualizer.frag",
                 "file": "default"
             }
         },
-        "11": {
+        "30d60cde-7672-4035-b3a2-332f1b785578": {
             "link": {
                 "name": "Skinning.vert",
                 "file": "default"
             }
         },
-        "12": {
+        "e7c0797a-66f2-4c75-9d91-a0b372108b1a": {
             "link": {
                 "name": "Phong.frag",
                 "file": "default"
             }
         },
-        "15": {
+        "faecbdeb-0aab-400d-a613-b4632b436b1c": {
             "link": {
                 "name": "Particle.frag",
                 "file": "default"
             }
         },
-        "76": {
+        "38db9fe0-07fa-47fb-8cfd-77540ab7d32b": {
             "link": {
                 "name": "Physical.frag",
                 "file": "default"
             }
         },
-        "79": {
+        "6dc1f01b-ea82-4f8d-8da5-a6787dfb0d71": {
             "link": {
                 "name": "Sky.frag",
                 "file": "default"
             }
         },
-        "80": {
+        "3a3ded33-8e60-4bf1-87be-b94a7ef5067f": {
             "link": {
                 "name": "FullScreenTriangle.vert",
                 "file": "default"
             }
         },
-        "81": {
+        "ba16964d-95af-4ee8-999a-0f7ff0189a6c": {
             "link": {
                 "name": "Text.frag",
                 "file": "default"
             }
         },
-        "83": {
+        "4011b45f-02c3-46c7-af49-1b09915cc5e6": {
             "link": {
                 "name": "Text.vert",
                 "file": "default"
             }
         },
-        "84": {
+        "9e0405e0-b4a8-450b-8fc2-7b985575e2d5": {
             "link": {
                 "name": "TileFeedback.frag",
                 "file": "default"
             }
         },
-        "87": {
+        "ee4a4631-e12e-478c-b464-7dcb6759428c": {
             "link": {
                 "name": "Background.frag",
                 "file": "default"
             }
         },
-        "88": {
+        "60d3ad7b-23f6-4f5e-b712-577dcf7737cc": {
             "link": {
                 "name": "FullScreenTriangle.vert",
                 "file": "default"
             }
         },
-        "148": {
+        "46da31d6-1383-41af-bb33-8ccff9ae544c": {
             "link": {
                 "name": "lib\\Color.glsl",
                 "file": "default"
             }
         },
-        "149": {
+        "405fe89d-e62d-4765-a17b-7d334ed2c9b1": {
             "link": {
                 "name": "lib\\Compatibility.frag",
                 "file": "default"
             }
         },
-        "150": {
+        "c56e9224-602c-43de-a3ff-cada7e66f6f4": {
             "link": {
                 "name": "lib\\CoordinateSystems.glsl",
                 "file": "default"
             }
         },
-        "151": {
+        "01ae8c79-16eb-4444-ac33-d1febc2509e2": {
             "link": {
                 "name": "lib\\GI.frag",
                 "file": "default"
             }
         },
-        "152": {
+        "488f4a16-7269-4a92-8d8a-cfee3109e33e": {
             "link": {
                 "name": "lib\\Inputs.frag",
                 "file": "default"
             }
         },
-        "153": {
+        "90f3cb5d-3759-4f7b-abbd-80e219fc3803": {
             "link": {
                 "name": "lib\\Lights.frag",
                 "file": "default"
             }
         },
-        "154": {
+        "2796fd5d-eb73-46ea-ac4e-60918676d852": {
             "link": {
                 "name": "lib\\Materials.frag",
                 "file": "default"
             }
         },
-        "155": {
+        "ccd4281b-2953-4d35-b2b1-0a2fbba68ec6": {
             "link": {
                 "name": "lib\\Math.glsl",
                 "file": "default"
             }
         },
-        "156": {
+        "cf603bad-0e94-4549-a2b4-57f97230c034": {
             "link": {
                 "name": "lib\\Packing.frag",
                 "file": "default"
             }
         },
-        "157": {
+        "4fa215c5-e8c1-4e66-bea7-d0123fe145d2": {
             "link": {
                 "name": "lib\\Quaternion.glsl",
                 "file": "default"
             }
         },
-        "158": {
+        "92231e0d-be1f-4f62-93ed-872e65eac514": {
             "link": {
                 "name": "lib\\Slug.frag",
                 "file": "default"
             }
         },
-        "159": {
+        "88f7fd4a-d304-4665-89fa-a107b03ce9a8": {
             "link": {
                 "name": "lib\\Slug.vert",
                 "file": "default"
             }
         },
-        "160": {
+        "e1ca0fee-29c0-4950-8c2b-ed1c41a8278c": {
             "link": {
                 "name": "lib\\Surface.frag",
                 "file": "default"
             }
         },
-        "161": {
+        "8bd526fb-aeef-4d1c-b4a4-10541faa00f0": {
             "link": {
                 "name": "lib\\Textures.frag",
                 "file": "default"
             }
         },
-        "163": {
+        "4b67e3d9-3445-416f-9c49-1cb5718727db": {
             "link": {
                 "name": "lib\\Uniforms.glsl",
                 "file": "default"
@@ -931,7 +931,7 @@
                     "hand-tracking": true
                 }
             },
-            "viewObject": "21"
+            "viewObject": "5fa3036c-6809-41cf-9af0-dc0a48b1e6cf"
         },
         "scripting": {
             "sourcePaths": [
@@ -944,14 +944,15 @@
             "entryPoint": "src/index.js"
         },
         "vr": {
-            "leftEyeObject": "26",
-            "rightEyeObject": "27"
+            "leftEyeObject": "679b8504-dd5a-4b37-b370-74d7a6e6ee50",
+            "rightEyeObject": "29d001a7-5b69-449c-88b2-342b0d36bde5"
         },
         "editor": {
             "camera": {
                 "near": 0.0099999,
                 "far": 10000.0
-            }
+            },
+            "ids": "uuid"
         },
         "physx": {
             "enable": true,
@@ -970,25 +971,25 @@
     "animations": {},
     "skins": {},
     "pipelines": {
-        "2": {
+        "8200850e-b5c8-4642-8a1b-b5393567951e": {
             "link": {
                 "name": "Depth",
                 "file": "default"
             }
         },
-        "4": {
+        "b39439e4-9018-4280-a747-6ac755e9134e": {
             "link": {
                 "name": "DistanceFieldVector",
                 "file": "default"
             }
         },
-        "7": {
+        "3a022c6a-23e3-440c-94da-f27cbbf69398": {
             "link": {
                 "name": "Flat Opaque",
                 "file": "default"
             }
         },
-        "8": {
+        "d38134bf-7331-4a00-b336-9c0849e61759": {
             "link": {
                 "name": "Flat Opaque Textured",
                 "file": "default"
@@ -997,19 +998,19 @@
                 "ALPHA_MASKED": true
             }
         },
-        "10": {
+        "59f15aaf-81b1-4862-b77c-95ddafdb9ed2": {
             "link": {
                 "name": "MeshVisualizer",
                 "file": "default"
             }
         },
-        "13": {
+        "70aaebb4-8e02-4072-834b-6b89f9ac5c2a": {
             "link": {
                 "name": "Phong Opaque",
                 "file": "default"
             }
         },
-        "14": {
+        "e28122a2-27dc-4074-9969-25e876273f4a": {
             "link": {
                 "name": "Phong Opaque Textured",
                 "file": "default"
@@ -1018,25 +1019,25 @@
                 "ALPHA_MASKED": true
             }
         },
-        "16": {
+        "1c445d74-8983-443a-96fc-8cce934ef667": {
             "link": {
                 "name": "Foliage",
                 "file": "default"
             }
         },
-        "17": {
+        "facf6213-472b-40e6-9398-ae0b2fa12ac1": {
             "link": {
                 "name": "Particle",
                 "file": "default"
             }
         },
-        "77": {
+        "46915285-a148-4b14-8f20-d9945c1c0441": {
             "link": {
                 "name": "Physical Opaque",
                 "file": "default"
             }
         },
-        "78": {
+        "0f3281a7-abbe-4589-8168-2aca10223015": {
             "link": {
                 "name": "Physical Opaque Textured",
                 "file": "default"
@@ -1045,37 +1046,37 @@
                 "ALPHA_MASKED": true
             }
         },
-        "82": {
+        "98452a29-068f-4dc4-9e04-053a4aa2bfc6": {
             "link": {
                 "name": "Text",
                 "file": "default"
             }
         },
-        "85": {
+        "19892fd0-19cd-469e-afdb-a0c80a114452": {
             "link": {
                 "name": "Sky",
                 "file": "default"
             }
         },
-        "145": {
+        "2fcbc0e3-d7a6-4d36-a34f-1595fbdb39f7": {
             "link": {
                 "name": "Phong Normalmapped",
                 "file": "default"
             }
         },
-        "146": {
+        "b4de5b83-132b-4213-8867-50d79ed531a9": {
             "link": {
                 "name": "Phong Lightmapped",
                 "file": "default"
             }
         },
-        "162": {
+        "56fe0f88-13f9-4762-82c4-6c765a5c08ca": {
             "link": {
                 "name": "TileFeedback",
                 "file": "default"
             }
         },
-        "89": {
+        "26419c59-5199-41de-9725-61102231d44d": {
             "link": {
                 "name": "Flat Opaque",
                 "file": "default"
@@ -1093,13 +1094,13 @@
     "textures": {},
     "images": {},
     "files": {
-        "164": {
+        "2e39da35-8fcf-442e-85dc-bed5656e9ff4": {
             "fileName": "assets/models/pp/meta_quest_1_gamepads_credits_Jezza3D.fbx",
             "importerName": "AssimpImporter"
         }
     },
     "fonts": {
-        "147": {
+        "ac92eacc-5a74-4793-b7bc-6e621107c640": {
             "link": {
                 "name": "DejaVuSans.ttf",
                 "file": "default"
