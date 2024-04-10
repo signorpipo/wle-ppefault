@@ -9,21 +9,6 @@
         "url": "git+https://github.com/signorpipo/wle-ppefault.git"
     },
     "license": "ISC",
-    "files": [
-        "assets",
-        "src",
-        "wle_ppefault.wlp"
-    ],
-    "keywords": [
-        "pp",
-        "pipo",
-        "wonderland",
-        "wonderlandengine",
-        "wonderland-engine",
-        "wonderland engine",
-        "wle",
-        "webxr"
-    ],
     "type": "module",
     "dependencies": {
         "@wonderlandengine/api": "^1.1.3",
