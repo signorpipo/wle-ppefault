@@ -1,7 +1,9 @@
 import { Object3D } from "@wonderlandengine/api";
-import { Handedness } from "../input/cauldron/input_types.js";
+import { Handedness } from "../../../input/cauldron/input_types.js";
 
 export class SceneObjects {
+
+    public myRoot: Object3D | null = null;
 
     public myScene: Object3D | null = null;
 

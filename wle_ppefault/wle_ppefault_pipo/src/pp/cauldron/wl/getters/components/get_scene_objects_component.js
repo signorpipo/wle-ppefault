@@ -1,11 +1,13 @@
 import { Component, Property } from "@wonderlandengine/api";
-import { Handedness } from "../../input/cauldron/input_types.js";
-import { Globals } from "../globals.js";
+import { Handedness } from "../../../../input/cauldron/input_types.js";
+import { Globals } from "../../../../pp/globals.js";
 import { SceneObjects } from "../scene_objects.js";
 
 export class GetSceneObjectsComponent extends Component {
     static TypeName = "pp-get-scene-objects";
     static Properties = {
+        _myRoot: Property.object(),
+
         _myScene: Property.object(),
 
         _myPlayer: Property.object(),
@@ -24,6 +26,8 @@ export class GetSceneObjectsComponent extends Component {
         // Prevents double global from same engine
         if (!Globals.hasSceneObjects(this.engine)) {
             this._mySceneObjects = new SceneObjects();
+
+            this._mySceneObjects.myRoot = this._myRoot;
 
             this._mySceneObjects.myScene = this._myScene;
 
