@@ -25,7 +25,7 @@ import {TrackedHandDrawAllJointsComponent} from 'wle-pp';
 /* wle:auto-imports:end */
 
 import { loadRuntime } from '@wonderlandengine/api';
-import 'wle-pp/add_type_extensions_to_typescript';
+import 'wle-pp/add_type_extensions_to_typescript.js';
 
 /* wle:auto-constants:start */
 const Constants = {
