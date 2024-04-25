@@ -8,6 +8,8 @@ If u prefer to start with a more elaborated template project that uses the PP li
 
 A collection of assets that can be useful while working with the Wonderland Engine (like gamepads 3D models) can be found [here](https://github.com/signorpipo/wle-assets).
 
+The development of this template and the PP library is actually being done on the [wle-pp-dev](https://github.com/signorpipo/wle-pp-dev) repository, where you can find the most up to date version of the library, even though it might not be stable.
+
 # Downloads
 
 You can download this template through the following links:
