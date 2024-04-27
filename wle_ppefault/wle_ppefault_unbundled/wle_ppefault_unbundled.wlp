@@ -937,7 +937,7 @@
         "scripting": {
             "sourcePaths": [
                 "src",
-                "src/pp/index.js"
+                "src/pp/index.ts"
             ],
             "bundlingType": "esbuild",
             "libraryPaths": [
