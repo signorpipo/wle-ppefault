@@ -272,6 +272,9 @@
                         "_myJointMesh": "p1",
                         "_myJointMaterial": "f9c59c9d-4599-40d6-abdb-8caadc0bee21"
                     }
+                },
+                {
+                    "type": "pp-reset-local-transform"
                 }
             ],
             "translation": [
@@ -355,6 +358,9 @@
                         "_myJointMaterial": "f9c59c9d-4599-40d6-abdb-8caadc0bee21",
                         "_myHandedness": "Right"
                     }
+                },
+                {
+                    "type": "pp-reset-local-transform"
                 }
             ],
             "rotation": [
