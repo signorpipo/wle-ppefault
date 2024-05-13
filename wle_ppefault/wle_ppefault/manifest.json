@@ -1,6 +1,7 @@
 {
     "name": "wle-ppefault",
     "short_name": "wle-ppefault",
+    "version": "0.6.7",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine",
     "homepage_url": "https://github.com/signorpipo/wle-ppefault",
@@ -55,6 +56,22 @@
             "sizes": "48x48",
             "type": "image/png",
             "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "pwa/screenshots/pp/desktop_screenshot.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Default template project for the Wonderland Engine"
+        },
+        {
+            "src": "pwa/screenshots/pp/mobile_screenshot.png",
+            "sizes": "1080x1920",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Default template project for the Wonderland Engine"
         }
     ]
 }
