@@ -12,12 +12,40 @@
  */
 
 /* wle:auto-imports:start */
+import {ConsoleVRToolComponent} from 'wle-pp';
+import {EasyTuneToolComponent} from 'wle-pp';
+import {GamepadMeshAnimatorComponent} from 'wle-pp';
+import {PPGatewayComponent} from 'wle-pp';
+import {ResetLocalTransformComponent} from 'wle-pp';
+import {SetHandLocalTransformComponent} from 'wle-pp';
+import {SetHeadLocalTransformComponent} from 'wle-pp';
+import {SpatialAudioListenerComponent} from 'wle-pp';
+import {SwitchHandObjectComponent} from 'wle-pp';
+import {ToolCursorComponent} from 'wle-pp';
+import {TrackedHandDrawAllJointsComponent} from 'wle-pp';
 /* wle:auto-imports:end */
 
 import { loadRuntime, LogLevel } from '@wonderlandengine/api';
 import 'wle-pp/add_type_extensions_to_typescript.js';
 
 /* wle:auto-constants:start */
+const Constants = {
+    ProjectName: 'wle-ppefault',
+    RuntimeBaseName: 'WonderlandRuntime',
+    WebXRRequiredFeatures: ['local',],
+    WebXROptionalFeatures: ['local','hand-tracking','hit-test',],
+};
+const RuntimeOptions = {
+    physx: true,
+    loader: false,
+    xrFramebufferScaleFactor: 1,
+    xrOfferSession: {
+        mode: 'auto',
+        features: Constants.WebXRRequiredFeatures,
+        optionalFeatures: Constants.WebXROptionalFeatures,
+    },
+    canvas: 'canvas',
+};
 /* wle:auto-constants:end */
 
 const disableEngineLogs = false;
@@ -61,6 +89,17 @@ if (document.readyState === 'loading') {
 }
 
 /* wle:auto-register:start */
+engine.registerComponent(ConsoleVRToolComponent);
+engine.registerComponent(EasyTuneToolComponent);
+engine.registerComponent(GamepadMeshAnimatorComponent);
+engine.registerComponent(PPGatewayComponent);
+engine.registerComponent(ResetLocalTransformComponent);
+engine.registerComponent(SetHandLocalTransformComponent);
+engine.registerComponent(SetHeadLocalTransformComponent);
+engine.registerComponent(SpatialAudioListenerComponent);
+engine.registerComponent(SwitchHandObjectComponent);
+engine.registerComponent(ToolCursorComponent);
+engine.registerComponent(TrackedHandDrawAllJointsComponent);
 /* wle:auto-register:end */
 
 const sceneLoadDelaySeconds = 0;
