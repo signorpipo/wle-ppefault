@@ -975,6 +975,18 @@
                 "name": "lib\\Uniforms.glsl",
                 "file": "default"
             }
+        },
+        "e5cdba7b-bc78-480c-85b6-490fdb16c8d9": {
+            "link": {
+                "name": "lib\\MorphTargets.glsl",
+                "file": "default"
+            }
+        },
+        "d9393f1f-5e4f-4115-b0bc-42ac139bf2b1": {
+            "link": {
+                "name": "lib\\PhysicalBSDF.glsl",
+                "file": "default"
+            }
         }
     },
     "settings": {
@@ -982,8 +994,8 @@
             "name": "wle-ppefault-pipo",
             "version": [
                 1,
-                1,
-                6
+                2,
+                3
             ],
             "customIndexHtml": true
         },
@@ -993,7 +1005,10 @@
                 0.9411764,
                 0.9411764,
                 1.0
-            ]
+            ],
+            "hdr": {
+                "exposure": 1.5
+            }
         },
         "runtime": {
             "xrButtonColor": "black",
@@ -1206,5 +1221,6 @@
             }
         }
     },
-    "languages": {}
+    "languages": {},
+    "morphTargets": {}
 }
