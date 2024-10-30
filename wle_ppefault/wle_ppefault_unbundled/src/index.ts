@@ -11,40 +11,22 @@
  *     - `wle:auto-benchmark:start` and `wle:auto-benchmark:end`: Append the benchmarking code
  */
 
+const waitWindowLoad: Promise<void> = new Promise((resolve: () => void) => {
+    if (document.readyState == "complete") {
+        resolve();
+    } else {
+        window.addEventListener("load", resolve, { once: true });
+    }
+});
+
+await waitWindowLoad;
+
 /* wle:auto-imports:start */
-import {ConsoleVRToolComponent} from './pp/index.js';
-import {EasyTuneToolComponent} from './pp/index.js';
-import {GamepadMeshAnimatorComponent} from './pp/index.js';
-import {PPGatewayComponent} from './pp/index.js';
-import {ResetLocalTransformComponent} from './pp/index.js';
-import {SetHandLocalTransformComponent} from './pp/index.js';
-import {SetHeadLocalTransformComponent} from './pp/index.js';
-import {SpatialAudioListenerComponent} from './pp/index.js';
-import {SwitchHandObjectComponent} from './pp/index.js';
-import {ToolCursorComponent} from './pp/index.js';
-import {TrackedHandDrawAllJointsComponent} from './pp/index.js';
 /* wle:auto-imports:end */
 
 import { loadRuntime, LoadRuntimeOptions, LogLevel } from '@wonderlandengine/api';
 
 /* wle:auto-constants:start */
-const Constants = {
-    ProjectName: 'wle-ppefault-unbundled',
-    RuntimeBaseName: 'WonderlandRuntime',
-    WebXRRequiredFeatures: ['local',],
-    WebXROptionalFeatures: ['local','hand-tracking','hit-test',],
-};
-const RuntimeOptions = {
-    physx: true,
-    loader: false,
-    xrFramebufferScaleFactor: 1,
-    xrOfferSession: {
-        mode: 'auto',
-        features: Constants.WebXRRequiredFeatures,
-        optionalFeatures: Constants.WebXROptionalFeatures,
-    },
-    canvas: 'canvas',
-};
 /* wle:auto-constants:end */
 
 const disableEngineLogs = false;
@@ -87,17 +69,6 @@ if (document.readyState === 'loading') {
 }
 
 /* wle:auto-register:start */
-engine.registerComponent(ConsoleVRToolComponent);
-engine.registerComponent(EasyTuneToolComponent);
-engine.registerComponent(GamepadMeshAnimatorComponent);
-engine.registerComponent(PPGatewayComponent);
-engine.registerComponent(ResetLocalTransformComponent);
-engine.registerComponent(SetHandLocalTransformComponent);
-engine.registerComponent(SetHeadLocalTransformComponent);
-engine.registerComponent(SpatialAudioListenerComponent);
-engine.registerComponent(SwitchHandObjectComponent);
-engine.registerComponent(ToolCursorComponent);
-engine.registerComponent(TrackedHandDrawAllJointsComponent);
 /* wle:auto-register:end */
 
 const sceneLoadDelaySeconds = 0;
