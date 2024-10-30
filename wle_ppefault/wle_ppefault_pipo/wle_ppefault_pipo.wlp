@@ -995,9 +995,10 @@
             "version": [
                 1,
                 2,
-                3
+                4
             ],
-            "customIndexHtml": true
+            "customIndexHtml": true,
+            "type": "game"
         },
         "rendering": {
             "clearColor": [
