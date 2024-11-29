@@ -1,6 +1,6 @@
 {
     "name": "wle-ppefault",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine",
     "homepage": "https://github.com/signorpipo/wle-ppefault",
@@ -15,7 +15,7 @@
         "@wonderlandengine/components": "~1.1.5",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.4",
-        "wle-pp": "0.7.4"
+        "wle-pp": "0.7.6"
     },
     "devDependencies": {
         "eslint": "^9.15.0",
