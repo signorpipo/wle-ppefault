@@ -23,13 +23,13 @@ await waitWindowLoad;
 
 /* wle:auto-constants:start */
 const Constants = {
-    ProjectName: 'wle-pp-dev-pplayground',
+    ProjectName: 'wle-ppefault-pipo',
     RuntimeBaseName: 'WonderlandRuntime',
     WebXRRequiredFeatures: ['local',],
-    WebXROptionalFeatures: ['local','local-floor','hand-tracking','hit-test',],
+    WebXROptionalFeatures: ['local','hand-tracking','hit-test',],
 };
 const RuntimeOptions = {
-    physx: true,
+    physx: false,
     loader: false,
     xrFramebufferScaleFactor: 1,
     canvas: 'canvas',
