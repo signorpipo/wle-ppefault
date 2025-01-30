@@ -61,10 +61,9 @@ The `Player` object includes:
 
 When using this template, there are certain things to take into consideration:
   - if u change the structure of the `Player` object, some features might not work properly anymore
-  - inside the `index.js` file of the `wle-ppefault` template, the following line is added to make type extensions available to typescript
+  - inside the `app.ts` file of the `wle-ppefault` template, the following line is added to make type extensions available to typescript
     - `import "wle-pp/add_type_extensions_to_typescript.js";`
-    - if u delete the `index.js` file and auto generate it again, type extensions might cause type errors until you add this line back manually
-
+    - if u delete the `src.ts` file and auto generate it again, type extensions might cause type errors until you add this line back manually
 
 # License
 
