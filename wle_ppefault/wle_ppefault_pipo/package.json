@@ -1,6 +1,6 @@
 {
     "name": "wle-ppefault-pipo",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine - Pipo Version",
     "homepage": "https://github.com/signorpipo/wle-ppefault",
@@ -11,8 +11,8 @@
     "license": "ISC",
     "type": "module",
     "dependencies": {
-        "@wonderlandengine/api": "~1.3.0",
-        "@wonderlandengine/components": "~1.2.0",
+        "@wonderlandengine/api": "~1.3.1",
+        "@wonderlandengine/components": "~1.2.1",
         "gl-matrix": "^3.4.3",
         "howler": "^2.2.4"
     },
@@ -20,7 +20,7 @@
         "eslint": "^9.19.0",
         "globals": "^15.14.0",
         "typescript": "^5.7.3",
-        "typescript-eslint": "^8.22.0"
+        "typescript-eslint": "^8.23.0"
     },
     "optionalDependencies": {
         "@playkostudios/wle-cleaner": "^0.8.1"
