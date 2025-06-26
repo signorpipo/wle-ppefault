@@ -1,7 +1,7 @@
 {
     "name": "wle-ppefault",
     "short_name": "wle-ppefault",
-    "version": "0.8.4",
+    "version": "0.8.5",
     "author": "Pipo",
     "description": "Default template project for the Wonderland Engine",
     "homepage_url": "https://github.com/signorpipo/wle-ppefault",
