@@ -206,17 +206,6 @@
             "components": [
                 {
                     "type": "pp-set-hand-local-transform"
-                },
-                {
-                    "type": "pp-gamepad-mesh-animator",
-                    "pp-gamepad-mesh-animator": {
-                        "_mySelect": "7fc51146-3466-473e-b902-b24e76db5d74",
-                        "_mySqueeze": "eee4fde8-c0f1-4509-9421-d53f28b8cd62",
-                        "_myThumbstick": "8984159e-e77c-4868-80da-0e1ba158b6f2",
-                        "_myTopButton": "2c631628-a33e-44fc-ad0b-cfee9a9024e1",
-                        "_myBottomButton": "5258a1cb-41fb-4c28-b468-ef03f5319216",
-                        "_myUsePressForSqueeze": true
-                    }
                 }
             ],
             "translation": [
@@ -297,18 +286,6 @@
                 {
                     "type": "pp-set-hand-local-transform",
                     "pp-set-hand-local-transform": {
-                        "_myHandedness": "Right"
-                    }
-                },
-                {
-                    "type": "pp-gamepad-mesh-animator",
-                    "pp-gamepad-mesh-animator": {
-                        "_mySelect": "8642fcf2-a358-4c33-9778-be39d581c0c1",
-                        "_mySqueeze": "dddb489f-647f-4f64-9da4-f1476d782764",
-                        "_myThumbstick": "03073d0b-7ab4-4473-8cd9-2fd726e946d7",
-                        "_myTopButton": "ba9789dc-704f-48e4-aeaf-05879fb8db53",
-                        "_myBottomButton": "24aab85e-ecd1-43af-9770-3a98bc6725b9",
-                        "_myUsePressForSqueeze": true,
                         "_myHandedness": "Right"
                     }
                 }
@@ -427,6 +404,19 @@
                 1.0,
                 1.0,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "pp-gamepad-mesh-animator",
+                    "pp-gamepad-mesh-animator": {
+                        "_mySelect": "7fc51146-3466-473e-b902-b24e76db5d74",
+                        "_mySqueeze": "eee4fde8-c0f1-4509-9421-d53f28b8cd62",
+                        "_myThumbstick": "8984159e-e77c-4868-80da-0e1ba158b6f2",
+                        "_myTopButton": "2c631628-a33e-44fc-ad0b-cfee9a9024e1",
+                        "_myBottomButton": "5258a1cb-41fb-4c28-b468-ef03f5319216",
+                        "_myUsePressForSqueeze": true
+                    }
+                }
             ]
         },
         "97340755-3bb1-4d78-91d1-128772f0ea64": {
@@ -500,6 +490,20 @@
                 1.0,
                 1.0,
                 1.0
+            ],
+            "components": [
+                {
+                    "type": "pp-gamepad-mesh-animator",
+                    "pp-gamepad-mesh-animator": {
+                        "_mySelect": "8642fcf2-a358-4c33-9778-be39d581c0c1",
+                        "_mySqueeze": "dddb489f-647f-4f64-9da4-f1476d782764",
+                        "_myThumbstick": "03073d0b-7ab4-4473-8cd9-2fd726e946d7",
+                        "_myTopButton": "ba9789dc-704f-48e4-aeaf-05879fb8db53",
+                        "_myBottomButton": "24aab85e-ecd1-43af-9770-3a98bc6725b9",
+                        "_myUsePressForSqueeze": true,
+                        "_myHandedness": "Right"
+                    }
+                }
             ]
         },
         "c2dc2ede-1d99-4a4a-899b-685f926bd473": {
@@ -1187,7 +1191,7 @@
             "version": [
                 1,
                 4,
-                2
+                5
             ],
             "description": "Default template project for the Wonderland Engine",
             "type": "game",
